@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/05/11 14:39:28 by qrosa            ###   ########.fr        #
+#    Updated: 2017/05/11 14:55:18 by qrosa            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -40,7 +40,7 @@ LFT			=	-L ./libft/ -lft
 CFLAGS		=	-Wall -Wextra -Werror
 CFLAGS_OBJ	=	-Wall -Wextra -Werror
 CC			=	gcc
-NAME		=	lem_in
+NAME		=	lem-in
 
 # Sweet colors just for swag :)
 RED			=	\033[0;31m
