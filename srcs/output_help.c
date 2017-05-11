@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem_in.h                                           :+:      :+:    :+:   */
+/*   output_help.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/11 15:49:29 by qrosa            ###   ########.fr       */
+/*   Created: 2017/05/11 15:39:55 by qrosa             #+#    #+#             */
+/*   Updated: 2017/05/11 16:31:53 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEM_IN
-# define LEM_IN
+#include "lem_in.h"
 
-# include "libft.h"
-
-int		main(int argc, char **argv);
-
-bool	output_help(bool return_value);
-
-#endif
+bool	output_help(bool return_value)
+{
+	ft_putendl("lem_in -- anthill manager.\n./lem_in < [FILE]");
+	return (return_value);
+}

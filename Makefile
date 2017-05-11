@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/05/11 14:55:18 by qrosa            ###   ########.fr        #
+#    Updated: 2017/05/11 15:49:50 by qrosa            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -24,7 +24,8 @@ PATH_SOURCES	=		./srcs/
 ################################################################################
 
 #	FILES DECLARATIONS
-SRCS			=	$(PATH_SOURCES)main.c\
+SRCS			=	$(PATH_SOURCES)main.c \
+					$(PATH_SOURCES)output_help.c
 
 ################################################################################
 
@@ -39,6 +40,7 @@ LFT			=	-L ./libft/ -lft
 # Options can be changed
 CFLAGS		=	-Wall -Wextra -Werror
 CFLAGS_OBJ	=	-Wall -Wextra -Werror
+DEBUG_F		=	-g
 CC			=	gcc
 NAME		=	lem-in
 
@@ -69,7 +71,7 @@ $(NAME): 		$(OBJ) libft/ Makefile
 
 %.o: %.c
 				@echo "${CYAN}Compiling $^ into $@ ${NC}";
-				@$(CC) -g -c $^ -o $@ $(CFLAGS_OBJ) $(INC)
+				@$(CC) $(DEBUG_F) -c $^ -o $@ $(CFLAGS_OBJ) $(INC)
 
 clean:
 				@make clean -C libft
