@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 13:38:35 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/11 14:26:12 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/11 14:37:36 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
+# include <stdio.h>
 # include <sys/stat.h>
 
-# define BUFF_SIZE	1024
+# define BUFF_SIZE	1
 
 # define ERROR 	1
 # define SUCCESS 0
@@ -87,8 +88,8 @@ char				*ft_strdup(const char *s);
 char				*ft_strndup(char const *str, size_t pos, size_t len_words);
 char				*ft_strdup_endchar(char *str, char symbol);
 char				*ft_str_trimndup(const char *str, size_t start, size_t len);
-char				*ft_str_trimndup_echap(const char *str, size_t start, size_t
-																		len);
+char				*ft_str_trimndup_echap(const char *str, size_t start,
+																	size_t len);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strtrim(char const *s);
 
@@ -181,6 +182,9 @@ int					get_next_line(int const fd, char **line);
 ** Then, you have to call the fonction "opt_parse_arguments".
 ** See the Documentation for more details.
 ** *
+** Comment #define GET_ARG_OPT !! // ne marche pas .. -(
+*/
+/*
 ** # define GET_ARG_OPT
 */
 # ifndef GET_ARG_OPT

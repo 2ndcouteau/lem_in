@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/05/11 14:27:54 by qrosa            ###   ########.fr        #
+#    Updated: 2017/05/11 14:39:28 by qrosa            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -39,7 +39,6 @@ LFT			=	-L ./libft/ -lft
 # Options can be changed
 CFLAGS		=	-Wall -Wextra -Werror
 CFLAGS_OBJ	=	-Wall -Wextra -Werror
-TERMCAPS	=	-lncurses
 CC			=	gcc
 NAME		=	lem_in
 
@@ -66,7 +65,7 @@ $(LIBFT):
 
 $(NAME): 		$(OBJ) libft/ Makefile
 				@echo "${BLUE}-- Linking $(NAME)${NC}"
-				@$(CC) $(OBJ) $(CFALGS) -o $(NAME) $(INC) $(LFT) $(TERMCAPS)
+				@$(CC) $(OBJ) $(CFALGS) -o $(NAME) $(INC) $(LFT)
 
 %.o: %.c
 				@echo "${CYAN}Compiling $^ into $@ ${NC}";
@@ -74,11 +73,11 @@ $(NAME): 		$(OBJ) libft/ Makefile
 
 clean:
 				@make clean -C libft
-				@echo "${YELLOW}-- Delete lem_in/libft	Objects OK ${NC}";
+				@echo "${YELLOW}-- Delete lem_in/libft		Objects OK ${NC}";
 				@rm -f $(OBJ)
 
 fclean: 		clean
-				@echo "${RED}-- Remove $(LIBFT)		OK${NC}"
+				@echo "${RED}-- Remove $(LIBFT)			OK${NC}"
 				@rm -f $(LIBFT)
 				@echo "${RED}-- Remove $(NAME)			OK${NC}"
 				@rm -f $(NAME)
