@@ -6,11 +6,33 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:29:08 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/11 17:51:24 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/15 16:40:20 by cristal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+int		exit_error(char *current_line)
+{
+	ft_putstr("ERROR: \" ");
+	ft_putstr(current_line);
+	ft_putendl(" \" is not a valid room.");
+	current_line = ft_free_line(&current_line);
+	exit(EXIT_FAILURE);
+}
+
+bool	check_name_room(char *current_line)
+{
+	int i;
+
+	i = 0;
+	while (current_line[i] != '\0')
+	{
+		if (current_line[i] )
+		++i;
+	}
+	return (SUCCESS);
+}
 
 bool	start_lem_in(void)
 {
@@ -18,6 +40,8 @@ bool	start_lem_in(void)
 
 	while (get_next_line(0, &current_line))  // EXIT GNL if (bad_line or EOF or empty_line)
 	{
+		if (check_name_room(current_line))
+			return (exit_error(current_line));
 		ft_putendl(current_line); // DEBUG
 	}
 
