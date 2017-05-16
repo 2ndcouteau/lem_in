@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:29:08 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/16 02:33:03 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/16 15:44:30 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	read_file(t_env **env)
 	state = STATE_CHECK_ANT;
 	while ((state >= 0) && get_next_line(0, &current_line))  // EXIT GNL if (bad_line or EOF or empty_line)
 		state = check_line(state, current_line, env);
-	if (state < 0)
+	if (state < STATE_CHECK_END)
 		return (exit_error(state, current_line, env));
 	ft_putendl("\nEND_CHECK_MORAY");		// DEBUG
 	return (SUCCESS);
@@ -36,6 +36,8 @@ bool	start_lem_in(void)
 
 	env = init_struct();
 	read_file(&env);
+//	printf("NB_ANT == %d\n", env->nb_ant);
+	ft_putnendl(env->save_map, env->pos_map);
 	debug_struct(env);		//DEBUG
 	free_struct(&env);
 	return (SUCCESS);

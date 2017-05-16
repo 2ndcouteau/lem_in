@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/16 03:33:15 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/16 15:09:45 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft.h"
 
 # define HASH_TAB_SIZE			2048
+# define LEN_SAVE_MAP_INIT		2048
 
 # define STATE_CHECK_ANT		0
 # define STATE_CHECK_ROOM		1
@@ -28,12 +29,17 @@
 # define ERR_EMPTY_ROOM			-4
 # define ERR_ANT_OVERFLOW		-5
 # define ERR_NO_ANT				-6
+# define ERR_MAP_SCALE			-7
+# define ERR_NAME_ROOM_L		-8
 
 /*
 ** Main struct for project
 */
 typedef struct			s_env
 {
+	char			*save_map;
+	unsigned int	len_map;
+	unsigned int	pos_map;
 	unsigned int	nb_ant;
 	char			state_room;
 	char			*start_room;
@@ -50,6 +56,8 @@ unsigned long	hash_djb2(unsigned char *str);
 void			free_struct(t_env **env);
 int				exit_error(char status, char *current_line, t_env **e);
 bool			output_help(bool return_value);
+
+bool			buff_add_str(t_env **env, char *current_line);
 
 /*
 **	Check line functions

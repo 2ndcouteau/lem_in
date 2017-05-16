@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:53:00 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/16 01:49:06 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/16 14:12:25 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ t_env *init_struct(void)
 
 	if (!(env = (t_env*)malloc(sizeof(t_env))))
 		return (NULL);
+	env->len_map = LEN_SAVE_MAP_INIT;
+	env->save_map = ft_memalloc(LEN_SAVE_MAP_INIT);
+	env->pos_map = 0;
 	env->nb_ant = 0;
 	env->start_room = NULL;
 	env->end_room = NULL;

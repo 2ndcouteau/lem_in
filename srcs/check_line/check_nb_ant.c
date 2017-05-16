@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 02:53:26 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/16 03:33:00 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/16 15:32:27 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ char		check_nb_ant(char *current_line, t_env **env)
 	(*env)->nb_ant = ft_atoi(current_line);
 	if ((*env)->nb_ant == 0)
 		return (ERR_NO_ANT);
+	if (buff_add_str(env, current_line))
+		return (ERR_MAP_SCALE);
 	return (STATE_CHECK_ROOM);
 }

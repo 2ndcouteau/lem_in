@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/05/16 02:55:30 by yoko             ###   ########.fr        #
+#    Updated: 2017/05/16 15:00:14 by yoko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -28,6 +28,7 @@ PATH_CHECK_LINE =		$(PATH_SOURCES)check_line/
 SRCS			=	$(PATH_SOURCES)main.c \
 					$(PATH_SOURCES)init_struct.c \
 					$(PATH_SOURCES)hash_function_djb2.c \
+					$(PATH_SOURCES)buff_add_str.c \
 					$(PATH_SOURCES)free_struct.c\
 					$(PATH_SOURCES)exit_error.c \
 					$(PATH_SOURCES)output_help.c \

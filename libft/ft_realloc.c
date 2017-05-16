@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 17:40:37 by qrosa             #+#    #+#             */
-/*   Updated: 2017/02/10 15:48:01 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/16 14:44:02 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,15 @@ static void	*ft_memcpyy(void *dest, const void *src, size_t n)
 	i = 0;
 	if ((dest == 0) || (src == 0) || (n == 0))
 		return (0);
-	while (i < n)
+	while (i < n && ((unsigned char*)src)[i] != '\0')
 	{
 		((unsigned char*)dest)[i] = ((unsigned char*)src)[i];
 		i++;
+	}
+	if (i < n)
+	{
+		while (i < n)
+			((unsigned char*)dest)[i++] = 0;
 	}
 	return (dest);
 }
