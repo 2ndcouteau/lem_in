@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/05/16 01:34:22 by yoko             ###   ########.fr        #
+#    Updated: 2017/05/16 02:55:30 by yoko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -17,6 +17,7 @@
 #	ROOT_PATH && DIRECTORIES
 PATH_SOURCES	=		./srcs/
 
+PATH_CHECK_LINE =		$(PATH_SOURCES)check_line/
 # PATH_LEXPAR			=	$(PATH_SOURCES)lexer_parser/
 # PATH_FREE				=	$(PATH_SOURCES)free/
 
@@ -26,17 +27,22 @@ PATH_SOURCES	=		./srcs/
 #	FILES DECLARATIONS
 SRCS			=	$(PATH_SOURCES)main.c \
 					$(PATH_SOURCES)init_struct.c \
-					$(PATH_SOURCES)check_line.c \
+					$(PATH_SOURCES)hash_function_djb2.c \
 					$(PATH_SOURCES)free_struct.c\
 					$(PATH_SOURCES)exit_error.c \
 					$(PATH_SOURCES)output_help.c \
 					\
 					$(PATH_SOURCES)debug_struct.c
 
+SRCS_CHECK_LINE =	$(PATH_CHECK_LINE)check_line.c \
+					$(PATH_CHECK_LINE)check_nb_ant.c \
+					$(PATH_CHECK_LINE)check_status_empty_line.c \
+
 ################################################################################
 
 #	Object Rules Declarations
-OBJ			=	$(SRCS:.c=.o)\
+OBJ			=	$(SRCS:.c=.o) \
+				$(SRCS_CHECK_LINE:.c=.o) \
 
 # Lib includes
 INC			=	-I ./includes/

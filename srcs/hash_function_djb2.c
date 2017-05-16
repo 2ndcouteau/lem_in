@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_struct.c                                      :+:      :+:    :+:   */
+/*   hash_function_djb2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/15 23:53:00 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/16 01:49:06 by yoko             ###   ########.fr       */
+/*   Created: 2017/05/16 01:51:18 by yoko              #+#    #+#             */
+/*   Updated: 2017/05/16 02:54:46 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-char	**init_hash_table(void)
-{
-	char	**tab;
-	int		i;
 
-	i = 0;
-	if (!(tab = (char**)malloc(sizeof(char*) * HASH_TAB_SIZE)))
-		return (NULL);
-	while (i < HASH_TAB_SIZE)
+ /*
+ **	Hash method from http://www.cse.yorku.ca/~oz/hash.html
+ **	hash = ((hash << 5) + hash) + c; is the same as ==> hash = hash * 33 + c
+ */
+
+unsigned long hash_djb2(unsigned char *str)
+{
+	unsigned long	hash;
+	int 			c;
+
+	hash = 5381;
+	c = *str;
+	while (c != '\0')
 	{
-		tab[i] = NULL;
-		++i;
+		hash = ((hash << 5) + hash) + c;
+		c = *str++;
 	}
-	return (tab);
+	return (hash);
 }
 
-t_env *init_struct(void)
-{
-	t_env	*env;
-
-	if (!(env = (t_env*)malloc(sizeof(t_env))))
-		return (NULL);
-	env->nb_ant = 0;
-	env->start_room = NULL;
-	env->end_room = NULL;
-	env->tab_rooms = init_hash_table();
-	return (env);
-}
+// Why do we use 'c' variable instead of only "str" ?
