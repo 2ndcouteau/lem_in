@@ -6,13 +6,13 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:53:00 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/16 14:12:25 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/16 15:57:55 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-char	**init_hash_table(void)
+static char	**init_hash_table(void)
 {
 	char	**tab;
 	int		i;
