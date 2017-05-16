@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/05/11 15:49:50 by qrosa            ###   ########.fr        #
+#    Updated: 2017/05/16 01:34:22 by yoko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -25,7 +25,13 @@ PATH_SOURCES	=		./srcs/
 
 #	FILES DECLARATIONS
 SRCS			=	$(PATH_SOURCES)main.c \
-					$(PATH_SOURCES)output_help.c
+					$(PATH_SOURCES)init_struct.c \
+					$(PATH_SOURCES)check_line.c \
+					$(PATH_SOURCES)free_struct.c\
+					$(PATH_SOURCES)exit_error.c \
+					$(PATH_SOURCES)output_help.c \
+					\
+					$(PATH_SOURCES)debug_struct.c
 
 ################################################################################
 

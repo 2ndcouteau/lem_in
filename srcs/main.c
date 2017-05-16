@@ -6,49 +6,38 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:29:08 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/15 16:40:20 by cristal          ###   ########.fr       */
+/*   Updated: 2017/05/16 01:34:02 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int		exit_error(char *current_line)
+bool	read_file(t_env **env)
 {
-	ft_putstr("ERROR: \" ");
-	ft_putstr(current_line);
-	ft_putendl(" \" is not a valid room.");
-	current_line = ft_free_line(&current_line);
-	exit(EXIT_FAILURE);
-}
+	char	*current_line;
+	char	state;
 
-bool	check_name_room(char *current_line)
-{
-	int i;
-
-	i = 0;
-	while (current_line[i] != '\0')
-	{
-		if (current_line[i] )
-		++i;
-	}
+	state = STATE_INIT;
+	while (get_next_line(0, &current_line) && (state >= 0))  // EXIT GNL if (bad_line or EOF or empty_line)
+		state = check_line(state, current_line, env);
+	if (state < 0)
+		return (exit_error(state, current_line, env));
+	ft_putendl("\nEND_CHECK_MORAY");		// DEBUG
 	return (SUCCESS);
 }
-
-bool	start_lem_in(void)
-{
-	char *current_line;
-
-	while (get_next_line(0, &current_line))  // EXIT GNL if (bad_line or EOF or empty_line)
-	{
-		if (check_name_room(current_line))
-			return (exit_error(current_line));
-		ft_putendl(current_line); // DEBUG
-	}
-
 	// Prepare:
 	// 1) Array with all rooms (index+name)   cf: HASH table --> {Name + index(matrix line)}
 	// 2) Matricial array with char[N_rooms] // A voir --> Ou mettre ?= (poid du noeud())
-	ft_putendl("current_line");
+
+
+bool	start_lem_in(void)
+{
+	t_env	*env;
+
+	env = init_struct();
+	read_file(&env);
+	debug_struct(env);		//DEBUG
+	free_struct(&env);
 	return (SUCCESS);
 }
 
@@ -56,7 +45,6 @@ int		main(int argc, char **argv)
 {
 	if (argc == 1 && argv)
 		return (start_lem_in());
-		// call program
 	else
 		return (output_help(ERROR));
 }
