@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/16 15:09:45 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/17 18:01:59 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@
 # define ERR_NO_ANT				-6
 # define ERR_MAP_SCALE			-7
 # define ERR_NAME_ROOM_L		-8
+# define ERR_FIRST_LINE_EMPTY	-9
+
+/*
+** Hash_tab struct
+*/
+typedef struct			s_hash
+{
+	char				*room_name;
+	struct s_hash		*next;
+}						t_hash;
 
 /*
 ** Main struct for project
@@ -41,13 +51,14 @@ typedef struct			s_env
 	unsigned int	len_map;
 	unsigned int	pos_map;
 	unsigned int	nb_ant;
+	unsigned int	nb_room;
+	unsigned int	nb_link;
 	char			state_room;
 	char			*start_room;
 	char			*end_room;
-	char			**tab_rooms;
+	t_hash			**tab_rooms;
 
 }						t_env;
-
 
 int				main(int argc, char **argv);
 

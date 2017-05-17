@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:55:55 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/16 14:10:08 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/17 18:12:14 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	free_struct(t_env **env)
 				(*env)->start_room = ft_free_line(&((*env)->start_room));
 			if ((*env)->end_room != NULL)
 				(*env)->end_room = ft_free_line(&((*env)->end_room));
-			if ((*env)->tab_rooms != NULL)
-				(*env)->tab_rooms = ft_free_tab((*env)->tab_rooms);
+			// if ((*env)->tab_rooms != NULL)						NEED to free hash tab;
+			// 	(*env)->tab_rooms = free_hash_tab()
 			free(*env);
 			*env = NULL;
 		}

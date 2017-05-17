@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:54:06 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/16 15:47:37 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/17 18:01:31 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,21 @@
 // Make a array plz !!!
 int		exit_error(char status, char *current_line, t_env **env)
 {
-	free_struct(env);
 	if (status >= 0)
-		ft_putendl("ERROR : The map is empty.");
+	{
+		if (status == STATE_CHECK_ANT)
+			ft_putendl("ERROR : The map is empty.");
+		else if ((*env)->nb_room == 0)
+			ft_putendl("ERROR : There is no room.");
+		else if ((*env)->start_room == NULL)
+			ft_putendl("ERROR : There is no start room.");
+		else if ((*env)->end_room == NULL)
+			ft_putendl("ERROR : There is no end room.");
+		else if (status == STATE_CHECK_ROOM)
+		{
+			ft_putendl("ERROR : The map is empty.");
+		}
+	}
 	else
 	{
 		ft_putstr("ERROR : \"");
@@ -36,12 +48,15 @@ int		exit_error(char status, char *current_line, t_env **env)
 			ft_putendl("\" there is no ant. :(");
 		else if (status == ERR_MAP_SCALE)
 			ft_putendl("\" failed to increase map save buffer !");
-		else if (status == ERR_MAP_SCALE)
+		else if (status == ERR_NAME_ROOM_L)
 			ft_putendl("\" room name can not start by \'L\'");
+		else if (status == ERR_FIRST_LINE_EMPTY)
+			ft_putendl("\" first line is empty.");
 		else
 			ft_putendl("\" invalid line");
 		current_line = ft_free_line(&current_line);
 	}
+	free_struct(env);
 //	exit(status);
 	exit(EXIT_FAILURE);
 }

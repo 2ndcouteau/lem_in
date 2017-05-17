@@ -1,0 +1,28 @@
+################################################################################
+#																			   #
+#							 To Do List Lem_in								   #
+#																			   #
+################################################################################
+
+#########################
+#		IN PROGRESS		#
+#########################
+
+-- Free hash_table
+-- Check errors room '-' and comments
+
+#########################
+#			TODO		#
+#########################
+
+-- Add room name in hashtable
+-- Manage start and end room
+-- Check link lines
+
+#########################
+#			DONE		#
+#########################
+
+-- Save map
+-- Check some errors for room name
+-- Fix Type hashtab
