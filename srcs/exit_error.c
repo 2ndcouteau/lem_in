@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:54:06 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/17 18:01:31 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/17 19:58:15 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,13 @@ int		exit_error(char status, char *current_line, t_env **env)
 			ft_putendl("ERROR : There is no end room.");
 		else if (status == STATE_CHECK_ROOM)
 		{
-			ft_putendl("ERROR : The map is empty.");
+			if ((*env)->nb_room == 0)
+				ft_putendl("ERROR : There is no room.");
+		}
+		else if (status == STATE_CHECK_LINK)
+		{
+			if ((*env)->nb_link == 0)
+				ft_putendl("ERROR : There is no link.");
 		}
 	}
 	else
