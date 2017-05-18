@@ -8,8 +8,9 @@
 #		IN PROGRESS		#
 #########################
 
--- Free hash_table
--- Check errors room '-' and comments
+-- Check NAME room
+-- Check coordinates
+-- Save !! coordinates
 
 #########################
 #			TODO		#
@@ -26,3 +27,5 @@
 -- Save map
 -- Check some errors for room name
 -- Fix Type hashtab
+-- Free hash_table
+-- Check errors room '-' and comments

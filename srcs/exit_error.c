@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:54:06 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/17 19:58:15 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/18 01:32:23 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,14 @@ int		exit_error(char status, char *current_line, t_env **env)
 			ft_putendl("\" room name can not start by \'L\'");
 		else if (status == ERR_FIRST_LINE_EMPTY)
 			ft_putendl("\" first line is empty.");
+		else if (status == ERR_ADD_HASH)
+			ft_putendl("\" failed to add the line to the hastab.");
+		else if (status == ERR_ANT_START)
+			ft_putendl("\" ants need to be set before ##start_room.");
+		else if (status == ERR_ANT_END)
+			ft_putendl("\" ants need to be set before ##end_room.");
+		else if (status == ERR_NO_COOR)
+			ft_putendl("\" the coordinates are missing.");
 		else
 			ft_putendl("\" invalid line");
 		current_line = ft_free_line(&current_line);

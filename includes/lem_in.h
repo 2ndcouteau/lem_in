@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/17 18:01:59 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/18 01:37:42 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,32 @@
 # define ERR_MAP_SCALE			-7
 # define ERR_NAME_ROOM_L		-8
 # define ERR_FIRST_LINE_EMPTY	-9
+# define ERR_ADD_HASH			-10
+# define ERR_ANT_START			-11
+# define ERR_ANT_END			-12
+# define ERR_NO_COOR			-13
+
+/*
+** check_valid_room_name()
+*/
+# define NAME_ROOM				0
+# define COOR_X					1
+# define COOR_Y					2
+# define SPACE_CHARS_1			3
+# define SPACE_CHARS_2			4
+# define SPACE_CHARS_END		5
+
+/*
+** check_room_name()
+*/
+# define LINK_LINE				-1
+
+/*
+** Define special room
+*/
+# define SPE_BASIC_ROOM			0
+# define SPE_START_ROOM			1
+# define SPE_END_ROOM			2
 
 /*
 ** Hash_tab struct
@@ -53,11 +79,10 @@ typedef struct			s_env
 	unsigned int	nb_ant;
 	unsigned int	nb_room;
 	unsigned int	nb_link;
-	char			state_room;
+	char			special_room;
 	char			*start_room;
 	char			*end_room;
 	t_hash			**tab_rooms;
-
 }						t_env;
 
 int				main(int argc, char **argv);

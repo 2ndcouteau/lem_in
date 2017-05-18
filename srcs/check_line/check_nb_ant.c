@@ -6,11 +6,23 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 02:53:26 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/16 15:32:27 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/18 01:48:44 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+static char	check_special_ant_line(char *current_line)
+{
+	if (current_line[1] == '#')
+	{
+		if (!ft_strncmp((current_line + 2), "start", 6))
+			return (ERR_ANT_START);
+		else if (!ft_strncmp((current_line + 2), "end", 4))
+			return (ERR_ANT_END);
+	}
+	return (STATE_CHECK_ANT);
+}
 
 static bool	check_ascii_range(char *str, char *model)
 {
@@ -44,6 +56,8 @@ static char	check_max_int(char *current_line)
 
 char		check_nb_ant(char *current_line, t_env **env)
 {
+	if (current_line[0] == '#')
+		return (check_special_ant_line(current_line));
 	if (ft_isnumber(current_line))
 		return (ERR_NB_ANT);
 	if (check_max_int(current_line))
