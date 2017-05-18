@@ -15,6 +15,7 @@
 #          TODO        #
 ########################
 
+-- !! CLEAN CODE !! --> check_line.c
 -- return ERR if space at begin line
 -- return ERR if first/second rooms have '-'
 		first: There is no rooms
