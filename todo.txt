@@ -8,7 +8,6 @@
 #      IN PROGRESS     #
 ########################
 
--- Check NAME room
 -- Check coordinates
 -- Save !! coordinates
 
@@ -16,8 +15,11 @@
 #          TODO        #
 ########################
 
--- Add room name in hashtable
--- Manage start and end room
+-- return ERR if space at begin line
+-- return ERR if first/second rooms have '-'
+		first: There is no rooms
+		second: Not enough room
+		more: check START!=NULL and END!=NULL
 -- Check link lines
 
 ########################
@@ -29,3 +31,7 @@
 -- Fix Type hashtab
 -- Free hash_table
 -- Check errors room '-' and comments
+-- Fix debug output
+-- Add room name in hashtable
+-- Manage start and end room
+-- Check NAME room

@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 01:33:49 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/18 10:54:09 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/18 13:35:19 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,30 +48,66 @@ char	check_special_line(char *current_line, t_env **env)
 // 		return (COOR_Y);
 // }
 
+bool	set_special_room(char *name_room, t_env **env)
+{
+	if ((*env)->special_room == SPE_BASIC_ROOM)
+		return (SUCCESS);
+	else if ((*env)->special_room == SPE_START_ROOM)
+	{
+		(*env)->special_room = SPE_BASIC_ROOM;
+		if (!((*env)->start_room = ft_strdup(name_room)))
+			return (ERROR);
+	}
+	else
+	{
+		(*env)->special_room = SPE_BASIC_ROOM;
+		if (!((*env)->end_room = ft_strdup(name_room)))
+			return (ERROR);
+	}
+	return (SUCCESS);
+}
+
+bool	insert_in_hashtab(t_hash *node, t_env **env, unsigned long hash_value)
+{
+	t_hash			*list;
+
+	if ((*env)->tab_rooms[hash_value % HASH_TAB_SIZE] == NULL)
+		(*env)->tab_rooms[hash_value % HASH_TAB_SIZE] = node;
+	else
+	{
+		list = (*env)->tab_rooms[hash_value % HASH_TAB_SIZE];
+		while (list->next != NULL)
+		{
+			if (!ft_strcmp(list->room_name, node->room_name))
+				return (ERROR);
+			list = list->next;
+		}
+		if (!ft_strcmp(list->room_name, node->room_name))
+			return (ERROR);
+		list->next = node;
+	}
+	return (SUCCESS);
+}
+
 char	add_to_hashtab(char *current_line, t_env **env, int len_name)
 {
 	unsigned long	hash_value;
 	char			*name_room;
 	t_hash			*new_node;
-	t_hash			*list;
 
-	ft_putendl("---- hash_tab_fct ----");
-	name_room = ft_strndup(current_line, 0, len_name);
+//	ft_putendl("---- hash_tab_fct ----");  // DEBUG
+	name_room = ft_strndup(current_line, 0, (len_name - 1));
 	hash_value = hash_djb2((unsigned char *)name_room);
 	if (!(new_node = (t_hash*)malloc(sizeof(t_hash))))
 		return (ERR_CREATE_NODE);
 	new_node->room_name = name_room;
 	new_node->next = NULL;
+	if (set_special_room(name_room, env))
+		return (ERR_SPE_ROOM);
+	if (insert_in_hashtab(new_node, env, hash_value))
+		return (ERR_ROOM_EXIST);
 	name_room = NULL;
-	if ((*env)->tab_rooms[hash_value % HASH_TAB_SIZE] == NULL)
-		(*env)->tab_rooms[hash_value % HASH_TAB_SIZE] = new_node;
-	else
-	{
-		list = (*env)->tab_rooms[hash_value % HASH_TAB_SIZE];
-		while (list->next != NULL)
-			list = list->next;
-		list->next = new_node;
-	}
+	new_node = NULL;
 	return (SUCCESS);
 }
 
@@ -92,7 +128,7 @@ int		browse_space(char *current_line, char *word, int i)
 	return (i);
 }
 
-char	check_valid_room_name(char *current_line, t_env **env)
+char	valid_and_set_room(char *current_line, t_env **env)
 {
 	int 	i;
 	char	word;
@@ -101,7 +137,7 @@ char	check_valid_room_name(char *current_line, t_env **env)
 	i = 0;
 	word = NAME_ROOM;
 // START Valid name
-	while (current_line[i] != '\0' && (word == NAME_ROOM) && env) // "env" Compilation condition
+	while (current_line[i] != '\0' && (word == NAME_ROOM))
 	{
 //		word = space_define(word);
 		if (current_line[i] == '\t' || current_line[i] == ' ')
@@ -116,6 +152,7 @@ char	check_valid_room_name(char *current_line, t_env **env)
 	if ((ret = add_to_hashtab(current_line, env, i)) != SUCCESS)
 		return (ret);
 // END valid name
+
 	i = browse_space(current_line, &word, i);
 	if (current_line[i] == '\0')
 		return (ERR_NO_COOR);
@@ -130,11 +167,9 @@ char	check_name_room(char *current_line, t_env **env)
 		return (ERR_NAME_ROOM_L);
 	if (current_line[0] == '#')
 		return (check_special_line(current_line, env));
-// Maybe you can add the name_room and coordinates directly in check_valid_room_name()
-// if necessary, rename the functions to valid_set_room()
-	if ((ret = check_valid_room_name(current_line, env)) != SUCCESS)
+	if ((ret = valid_and_set_room(current_line, env)) != SUCCESS)
 		return (ret);
-
+	(*env)->nb_room++;
 	if (buff_add_str(env, current_line))
 		return (ERR_MAP_SCALE);
 	return (STATE_CHECK_ROOM);
@@ -160,6 +195,14 @@ char	check_line(char state, char *current_line, t_env **env)
 	}
 	if (state == STATE_CHECK_LINK)
 	{
+		if ((*env)->nb_room == 0)
+			return (ERR_NO_ROOM);
+		else if ((*env)->nb_room == 1)
+			return (ERR_MORE_ROOM);
+		else if ((*env)->start_room == NULL)
+			return (ERR_SET_START);
+		else if ((*env)->end_room == NULL)
+			return (ERR_SET_END);
 		if (buff_add_str(env, current_line))
 			return (ERR_MAP_SCALE);
 //		ft_putendl("check_links");

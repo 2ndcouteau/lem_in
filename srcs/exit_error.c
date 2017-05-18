@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:54:06 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/18 10:36:23 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/18 13:14:27 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,18 @@ int		exit_error(char status, char *current_line, t_env **env)
 			ft_putendl("\" the coordinates are missing.");
 		else if (status == ERR_CREATE_NODE)
 			ft_putendl("\" failed to create a new node in room hashtable.");
+		else if (status == ERR_SPE_ROOM)
+			ft_putendl("\" failed to set special room. {start, end}");
+		else if (status == ERR_ROOM_EXIST)
+			ft_putendl("\" The room already exists.");
+		else if (status == ERR_NO_ROOM)
+			ft_putendl("\" There is no room before links.");
+		else if (status == ERR_MORE_ROOM)
+			ft_putendl("\" need at least, one more room.");
+		else if (status == ERR_SET_START)
+			ft_putendl("\" ##start room is not set.");
+		else if (status == ERR_SET_END)
+			ft_putendl("\" ##end room is not set.");
 		else
 			ft_putendl("\" invalid line");
 		current_line = ft_free_line(&current_line);

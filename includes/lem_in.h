@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/18 11:09:04 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/18 13:08:46 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@
 # define ERR_ANT_END			-12
 # define ERR_NO_COOR			-13
 # define ERR_CREATE_NODE		-14
+# define ERR_SPE_ROOM			-15
+# define ERR_ROOM_EXIST			-16
+# define ERR_NO_ROOM			-17
+# define ERR_MORE_ROOM			-18
+# define ERR_SET_START			-19
+# define ERR_SET_END			-20
 
 /*
 ** check_valid_room_name()

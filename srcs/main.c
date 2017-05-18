@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:29:08 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/17 16:12:52 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/18 13:26:59 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,8 @@ bool	start_lem_in(void)
 
 	env = init_struct();
 	read_file(&env);
-//	printf("NB_ANT == %d\n", env->nb_ant);
 	ft_putnendl(env->save_map, env->pos_map);
-	debug_struct(env);		//DEBUG
+	debug_struct(env);		//DEBUG // maybe implement option for one bonus.
 	free_struct(&env);
 	return (SUCCESS);
 }
