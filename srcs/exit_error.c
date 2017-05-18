@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:54:06 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/18 01:32:23 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/18 10:36:23 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int		exit_error(char status, char *current_line, t_env **env)
 			ft_putendl("\" ants need to be set before ##end_room.");
 		else if (status == ERR_NO_COOR)
 			ft_putendl("\" the coordinates are missing.");
+		else if (status == ERR_CREATE_NODE)
+			ft_putendl("\" failed to create a new node in room hashtable.");
 		else
 			ft_putendl("\" invalid line");
 		current_line = ft_free_line(&current_line);

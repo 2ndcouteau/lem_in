@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/18 01:37:42 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/18 11:09:04 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "libft.h"
 
-# define HASH_TAB_SIZE			2048
+# define HASH_TAB_SIZE			64
 # define LEN_SAVE_MAP_INIT		2048
 
 # define STATE_CHECK_ANT		0
@@ -36,6 +36,7 @@
 # define ERR_ANT_START			-11
 # define ERR_ANT_END			-12
 # define ERR_NO_COOR			-13
+# define ERR_CREATE_NODE		-14
 
 /*
 ** check_valid_room_name()
@@ -46,11 +47,6 @@
 # define SPACE_CHARS_1			3
 # define SPACE_CHARS_2			4
 # define SPACE_CHARS_END		5
-
-/*
-** check_room_name()
-*/
-# define LINK_LINE				-1
 
 /*
 ** Define special room

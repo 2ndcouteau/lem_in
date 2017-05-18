@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 01:33:49 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/18 01:51:41 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/18 10:54:09 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,60 @@ char	check_special_line(char *current_line, t_env **env)
 // 		return (COOR_Y);
 // }
 
-char	check_valid_room_name(char *current_line, t_env **env, int *len_dup)
+char	add_to_hashtab(char *current_line, t_env **env, int len_name)
+{
+	unsigned long	hash_value;
+	char			*name_room;
+	t_hash			*new_node;
+	t_hash			*list;
+
+	ft_putendl("---- hash_tab_fct ----");
+	name_room = ft_strndup(current_line, 0, len_name);
+	hash_value = hash_djb2((unsigned char *)name_room);
+	if (!(new_node = (t_hash*)malloc(sizeof(t_hash))))
+		return (ERR_CREATE_NODE);
+	new_node->room_name = name_room;
+	new_node->next = NULL;
+	name_room = NULL;
+	if ((*env)->tab_rooms[hash_value % HASH_TAB_SIZE] == NULL)
+		(*env)->tab_rooms[hash_value % HASH_TAB_SIZE] = new_node;
+	else
+	{
+		list = (*env)->tab_rooms[hash_value % HASH_TAB_SIZE];
+		while (list->next != NULL)
+			list = list->next;
+		list->next = new_node;
+	}
+	return (SUCCESS);
+}
+
+int		browse_space(char *current_line, char *word, int i)
+{
+	while (current_line[i] != '\0' && (*word >= SPACE_CHARS_1))
+	{
+		if (current_line[i] != '\t' || current_line[i] != ' ')
+		{
+			if (*word == SPACE_CHARS_1)
+				*word = COOR_X;
+			else if (*word == SPACE_CHARS_2)
+				*word = COOR_Y;
+			return (i);
+		}
+		i++;
+	}
+	return (i);
+}
+
+char	check_valid_room_name(char *current_line, t_env **env)
 {
 	int 	i;
 	char	word;
+	char	ret;
 
 	i = 0;
 	word = NAME_ROOM;
-	env = env; // Compilation condition
 // START Valid name
-	while (current_line[i] != '\0' && (word < COOR_X))
+	while (current_line[i] != '\0' && (word == NAME_ROOM) && env) // "env" Compilation condition
 	{
 //		word = space_define(word);
 		if (current_line[i] == '\t' || current_line[i] == ' ')
@@ -65,20 +109,14 @@ char	check_valid_room_name(char *current_line, t_env **env, int *len_dup)
 		if (word == NAME_ROOM)
 		{
 			if (current_line[i] == '-')
-			{
-				*len_dup = LINK_LINE;
-				return (SUCCESS);
-			}
-			*len_dup += 1;
-		}
-		else if (word == SPACE_CHARS_1)
-		{
-			if (current_line[i] != '\t' || current_line[i] != ' ')
-				word = COOR_X;
+				return (STATE_CHECK_LINK);
 		}
 		i++;
 	}
+	if ((ret = add_to_hashtab(current_line, env, i)) != SUCCESS)
+		return (ret);
 // END valid name
+	i = browse_space(current_line, &word, i);
 	if (current_line[i] == '\0')
 		return (ERR_NO_COOR);
 	return (SUCCESS);
@@ -86,22 +124,17 @@ char	check_valid_room_name(char *current_line, t_env **env, int *len_dup)
 
 char	check_name_room(char *current_line, t_env **env)
 {
-	int		len_dup;
 	char	ret;
 
-	len_dup = 0;
 	if (current_line[0] == 'L')
 		return (ERR_NAME_ROOM_L);
 	if (current_line[0] == '#')
 		return (check_special_line(current_line, env));
 // Maybe you can add the name_room and coordinates directly in check_valid_room_name()
 // if necessary, rename the functions to valid_set_room()
-	if ((ret = check_valid_room_name(current_line, env, &len_dup)) != SUCCESS)
+	if ((ret = check_valid_room_name(current_line, env)) != SUCCESS)
 		return (ret);
-	if (len_dup == LINK_LINE)
-		return (STATE_CHECK_LINK);
-	// if (add_to_hashtab(current_line, env, len_dup))
-	// 	return (ERR_ADD_HASH);
+
 	if (buff_add_str(env, current_line))
 		return (ERR_MAP_SCALE);
 	return (STATE_CHECK_ROOM);

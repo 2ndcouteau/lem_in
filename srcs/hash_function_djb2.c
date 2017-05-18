@@ -6,12 +6,11 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 01:51:18 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/16 02:54:46 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/18 10:48:56 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-
 
  /*
  **	Hash method from http://www.cse.yorku.ca/~oz/hash.html
