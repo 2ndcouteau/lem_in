@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 22:49:26 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/19 23:55:08 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/19 23:49:38 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ char		check_coor_room(char *current_line, t_env **env, int *i)
 	if ((ret = check_coor_y(current_line, i, &coor_y)) != SUCCESS)
 		return (ret);
 	*i = browse_space(current_line, *i);
-	if (current_line[*i] != '\0') // env Compilation condition tmp
+	if (current_line[*i] != '\0')
 		return (ERR_NAME_ROOM);
 	if ((ret = add_to_hashtab_coor(env, coor_x, coor_y)) != SUCCESS)
 		return (ret);
