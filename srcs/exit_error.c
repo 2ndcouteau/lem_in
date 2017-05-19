@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:54:06 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/18 13:14:27 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/19 17:35:56 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ int		exit_error(char status, char *current_line, t_env **env)
 			ft_putendl("\" ##start room is not set.");
 		else if (status == ERR_SET_END)
 			ft_putendl("\" ##end room is not set.");
+		else if (status == ERR_NOTHING)
+			ft_putendl("\" There is nothing to read.");
 		else
 			ft_putendl("\" invalid line");
 		current_line = ft_free_line(&current_line);

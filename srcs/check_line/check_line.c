@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 01:33:49 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/19 16:19:29 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/19 17:34:41 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 
 char	check_line(char state, char *current_line, t_env **env)
 {
+	if (current_line == NULL)
+		return (ERR_NOTHING);
 	ft_putendl(current_line); // DEBUG
 	if (ft_is_empty_line(current_line))
 		return (check_status_empty_line(state));

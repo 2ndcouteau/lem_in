@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/19 16:49:52 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/19 17:34:56 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@
 # define ERR_MORE_ROOM			-18
 # define ERR_SET_START			-19
 # define ERR_SET_END			-20
+# define ERR_NOTHING			-21
 
 /*
 ** check_valid_room_name()

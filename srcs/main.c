@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:29:08 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/19 17:15:11 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/19 17:33:33 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ bool	read_file(t_env **env)
 	char	state;
 
 	state = STATE_CHECK_ANT;
+	current_line = NULL;
 	while ((state >= 0) && get_next_line(0, &current_line))  // EXIT GNL if (bad_line or EOF or empty_line)
 		state = check_line(state, current_line, env);
 	if (state < STATE_CHECK_LINK)		 // Need to change it to STATE_CHECK_END after implementation of CHECK_LINKS
