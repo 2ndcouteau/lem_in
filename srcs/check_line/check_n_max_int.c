@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid_and_set_room.c                               :+:      :+:    :+:   */
+/*   check_n_max_int.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/19 16:15:27 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/19 22:49:33 by qrosa            ###   ########.fr       */
+/*   Created: 2017/05/19 22:47:13 by qrosa             #+#    #+#             */
+/*   Updated: 2017/05/19 22:47:28 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-char		valid_and_set_room(char *current_line, t_env **env)
+static bool	check_n_ascii_range(char *str, char *model, int start, int len)
 {
-	int 	i;
-	char	ret;
+	int pos;
 
-	i = 0;
-	if ((ret = check_name_room(current_line, env, &i)) != SUCCESS)
-		return (ret);
-	if (current_line[i] == '\0')
-		return (ERR_NO_COOR);
-	if ((ret = check_coor_room(current_line, env, &i)) != SUCCESS)
-		return (ret);
+	pos = 0;
+	while (pos < len)
+	{
+		if (str[start + pos] > model[pos])
+			return (ERROR);
+		++pos;
+	}
+	return (SUCCESS);
+}
+
+char	check_n_max_int(char *current_line, int start, int len)
+{
+	if (len > 9)
+	{
+		if (len == 10)
+		{
+			if (!check_n_ascii_range(current_line, "2147483647", start, len))
+				return (SUCCESS);
+		}
+		return (ERROR);
+	}
 	return (SUCCESS);
 }

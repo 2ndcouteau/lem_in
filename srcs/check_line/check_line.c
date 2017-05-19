@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 01:33:49 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/19 17:34:41 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/19 18:57:56 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	check_line(char state, char *current_line, t_env **env)
 		return (check_nb_ant(current_line, env));
 	else if (state == STATE_CHECK_ROOM)
 	{
-		if ((state = check_room_name(current_line, env)) <= STATE_CHECK_ROOM)
+		if ((state = check_room(current_line, env)) <= STATE_CHECK_ROOM)
 			return (state);
 	}
 	if (state == STATE_CHECK_LINK)

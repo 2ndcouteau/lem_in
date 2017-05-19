@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   browse_space.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/08 16:19:32 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/19 21:08:22 by qrosa            ###   ########.fr       */
+/*   Created: 2017/05/19 22:42:49 by qrosa             #+#    #+#             */
+/*   Updated: 2017/05/19 22:43:17 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "lem_in.h"
 
-int	ft_isdigit(int c)
+int	browse_space(char *current_line, int i)
 {
-	if (c >= '0' && c <= '9')
-		return (0);
-	return (1);
+	while ((current_line[i] == '\t' || current_line[i] == ' ') &&\
+	current_line[i] != '\0')
+		i++;
+	return (i);
 }

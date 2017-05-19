@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_to_hashtab_name.c                              :+:      :+:    :+:   */
+/*   check_name_room.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 16:19:14 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/19 17:19:17 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/19 22:51:03 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,15 @@ static bool	set_special_room(char *name_room, t_env **env)
 		return (SUCCESS);
 	else if ((*env)->special_room == SPE_START_ROOM)
 	{
-		(*env)->special_room = SPE_BASIC_ROOM;
 		if (!((*env)->start_room = ft_strdup(name_room)))
 			return (ERROR);
 	}
 	else
 	{
-		(*env)->special_room = SPE_BASIC_ROOM;
 		if (!((*env)->end_room = ft_strdup(name_room)))
 			return (ERROR);
 	}
+	(*env)->special_room = SPE_BASIC_ROOM;
 	return (SUCCESS);
 }
 
@@ -53,14 +52,14 @@ static bool	insert_in_hashtab(t_hash *node, t_env **env, u_long hash_value)
 	return (SUCCESS);
 }
 
-char		add_to_hashtab_name(char *current_line, t_env **env, int len_name)
+static char	add_to_hashtab_name(char *current_line, t_env **env, int len_name)
 {
 	unsigned long	hash_value;
 	char			*name_room;
 	t_hash			*new_node;
 
 //	ft_putendl("---- hash_tab_fct ----");  // DEBUG
-	name_room = ft_strndup(current_line, 0, (len_name - 1));
+	name_room = ft_strndup(current_line, 0, (len_name));
 	hash_value = hash_djb2((unsigned char *)name_room);
 	if (!(new_node = (t_hash*)malloc(sizeof(t_hash))))
 		return (ERR_CREATE_NODE);
@@ -72,5 +71,28 @@ char		add_to_hashtab_name(char *current_line, t_env **env, int len_name)
 		return (ERR_ROOM_EXIST);
 	name_room = NULL;
 	new_node = NULL;
+	return (SUCCESS);
+}
+
+char		check_name_room(char *current_line, t_env **env, int *i)
+{
+	char	mark;
+	char	ret;
+
+	mark = 0;
+	while (current_line[*i] != '\0' && mark == 0)
+	{
+		if (current_line[*i] == '\t' || current_line[*i] == ' ')
+			mark = 1;
+		else
+		{
+			if (current_line[*i] == '-')
+				return (STATE_CHECK_LINK);
+			*i += 1;
+		}
+	}
+	if ((ret = add_to_hashtab_name(current_line, env, *i)) != SUCCESS)
+		return (ret);
+	*i = browse_space(current_line, *i);
 	return (SUCCESS);
 }

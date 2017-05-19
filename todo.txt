@@ -8,7 +8,7 @@
 #      IN PROGRESS     #
 ########################
 
--- Check coordinates
+-- Check double insertion coordinates
 -- Save !! coordinates
 
 ########################
@@ -38,3 +38,4 @@
 		first: There is no rooms
 		second: Not enough room
 		more: check START!= NULL and END!= NULL
+-- Check coordinates

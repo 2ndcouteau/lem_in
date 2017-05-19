@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 02:53:26 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/18 01:48:44 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/19 21:27:27 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char	check_special_ant_line(char *current_line)
 	return (STATE_CHECK_ANT);
 }
 
-static bool	check_ascii_range(char *str, char *model)
+bool	check_ascii_range(char *str, char *model)
 {
 	int	i;
 

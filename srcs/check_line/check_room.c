@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_room_name.c                                  :+:      :+:    :+:   */
+/*   check_rooms.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 16:11:04 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/19 17:25:51 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/19 18:58:02 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static char	check_special_line(char *current_line, t_env **env)
 	return (STATE_CHECK_ROOM);
 }
 
-char		check_room_name(char *current_line, t_env **env)
+char		check_room(char *current_line, t_env **env)
 {
 	char	ret;
 

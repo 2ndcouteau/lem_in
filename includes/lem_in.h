@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/19 17:34:56 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/19 22:52:37 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@
 # define ERR_SET_START			-19
 # define ERR_SET_END			-20
 # define ERR_NOTHING			-21
+# define ERR_BAD_X_COOR			-22
+# define ERR_COOR_X_OVERFLOW	-23
+# define ERR_NO_Y_COOR			-24
+# define ERR_BAD_Y_COOR			-25
+# define ERR_COOR_Y_OVERFLOW	-26
 
 /*
 ** check_valid_room_name()
@@ -53,8 +58,8 @@
 # define COOR_X					1
 # define COOR_Y					2
 # define SPACE_CHARS_1			3
-# define SPACE_CHARS_2			4
-# define SPACE_CHARS_END		5
+// # define SPACE_CHARS_2			4
+// # define SPACE_CHARS_END		5
 
 /*
 ** Define special room
@@ -114,6 +119,8 @@ int				exit_error(char status, char *current_line, t_env **e);
 bool			output_help(bool return_value);
 
 bool			buff_add_str(t_env **env, char *current_line);
+bool			check_ascii_range(char *str, char *model);
+int				browse_space(char *current_line, int i);
 
 /*
 **	Check line functions
@@ -122,8 +129,10 @@ char			check_line(char state, char *current_line, t_env **env);
 char			check_status_empty_line(char status);
 char			check_nb_ant(char *current_line, t_env **env);
 char			valid_and_set_room(char *current_line, t_env **env);
-char			check_room_name(char *current_line, t_env **env);
-char			add_to_hashtab_name(char *current_line, t_env **env, int len_name);
+char			check_room(char *current_line, t_env **env);
+char			check_name_room(char *current_line, t_env **env, int *i);
+char			check_coor_room(char *current_line, t_env **env, int *i);
+char			check_n_max_int(char *current_line, int start, int len);
 
 /*
 **	TMP Declarations

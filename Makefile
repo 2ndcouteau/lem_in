@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/05/19 16:29:14 by qrosa            ###   ########.fr        #
+#    Updated: 2017/05/19 22:53:10 by qrosa            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -29,6 +29,7 @@ SRCS			=	$(PATH_SOURCES)main.c \
 					$(PATH_SOURCES)init_struct.c \
 					$(PATH_SOURCES)hash_function_djb2.c \
 					$(PATH_SOURCES)buff_add_str.c \
+					$(PATH_SOURCES)browse_space.c \
 					$(PATH_SOURCES)free_struct.c\
 					$(PATH_SOURCES)exit_error.c \
 					$(PATH_SOURCES)output_help.c \
@@ -38,9 +39,11 @@ SRCS			=	$(PATH_SOURCES)main.c \
 SRCS_CHECK_LINE =	$(PATH_CHECK_LINE)check_line.c \
 					$(PATH_CHECK_LINE)check_nb_ant.c \
 					$(PATH_CHECK_LINE)check_status_empty_line.c \
-					$(PATH_CHECK_LINE)check_room_name.c \
+					$(PATH_CHECK_LINE)check_room.c \
 					$(PATH_CHECK_LINE)valid_and_set_room.c \
-					$(PATH_CHECK_LINE)add_to_hashtab_name.c \
+					$(PATH_CHECK_LINE)check_name_room.c \
+					$(PATH_CHECK_LINE)check_coor_room.c \
+					$(PATH_CHECK_LINE)check_n_max_int.c \
 
 ################################################################################
 

@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:54:06 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/19 17:35:56 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/19 21:42:22 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,16 @@ int		exit_error(char status, char *current_line, t_env **env)
 			ft_putendl("\" ##end room is not set.");
 		else if (status == ERR_NOTHING)
 			ft_putendl("\" There is nothing to read.");
+		else if (status == ERR_BAD_X_COOR)
+			ft_putendl("\" X coordinate is not compliant.");
+		else if (status == ERR_COOR_X_OVERFLOW)
+			ft_putendl("\" X coordinate overflow.");
+		else if (status == ERR_NO_Y_COOR)
+			ft_putendl("\" There is no Y coordinate.");
+		else if (status == ERR_BAD_Y_COOR)
+			ft_putendl("\" Y coordinate si not compliant.");
+		else if (status == ERR_COOR_Y_OVERFLOW)
+			ft_putendl("\" Y coordinate is not compliant.");
 		else
 			ft_putendl("\" invalid line");
 		current_line = ft_free_line(&current_line);
