@@ -15,12 +15,8 @@
 #          TODO        #
 ########################
 
--- !! CLEAN CODE !! --> check_line.c
+-- LEAK with get_next_line
 -- return ERR if space at begin line
--- return ERR if first/second rooms have '-'
-		first: There is no rooms
-		second: Not enough room
-		more: check START!=NULL and END!=NULL
 -- Check link lines
 
 ########################
@@ -36,3 +32,9 @@
 -- Add room name in hashtable
 -- Manage start and end room
 -- Check NAME room
+-- !! CLEAN CODE !! --> check_line.c
+-- Create_hashtab_for_coordinates
+-- Return ERR if first/second rooms have '-'
+		first: There is no rooms
+		second: Not enough room
+		more: check START!= NULL and END!= NULL

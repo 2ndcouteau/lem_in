@@ -6,21 +6,37 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:53:00 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/17 23:34:20 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/19 16:50:55 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static t_hash	**init_hash_table(void)
+static t_hash	**init_hashtable_name(void)
 {
-	t_hash	**tab;
-	int		i;
+	t_hash		**tab;
+	int			i;
 
 	i = 0;
-	if (!(tab = (t_hash**)malloc(sizeof(t_hash*) * HASH_TAB_SIZE)))
+	if (!(tab = (t_hash**)malloc(sizeof(t_hash*) * HASHTAB_SIZE_NAME)))
 		return (NULL);
-	while (i < HASH_TAB_SIZE)
+	while (i < HASHTAB_SIZE_NAME)
+	{
+		tab[i] = NULL;
+		++i;
+	}
+	return (tab);
+}
+
+static t_hash_coor	**init_hashtable_coor(void)
+{
+	t_hash_coor	**tab;
+	int			i;
+
+	i = 0;
+	if (!(tab = (t_hash_coor**)malloc(sizeof(t_hash_coor*) * HASHTAB_SIZE_COOR)))
+		return (NULL);
+	while (i < HASHTAB_SIZE_COOR)
 	{
 		tab[i] = NULL;
 		++i;
@@ -30,7 +46,7 @@ static t_hash	**init_hash_table(void)
 
 t_env 			*init_struct(void)
 {
-	t_env	*env;
+	t_env		*env;
 
 	if (!(env = (t_env*)malloc(sizeof(t_env))))
 		return (NULL);
@@ -43,6 +59,7 @@ t_env 			*init_struct(void)
 	env->special_room = SPE_BASIC_ROOM;
 	env->start_room = NULL;
 	env->end_room = NULL;
-	env->tab_rooms = init_hash_table();
+	env->tab_rooms = init_hashtable_name();
+	env->tab_coor = init_hashtable_coor();
 	return (env);
 }

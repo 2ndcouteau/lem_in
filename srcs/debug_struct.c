@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 01:29:13 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/18 12:18:33 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/19 17:20:37 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,15 @@ static void	print_list(t_hash *list)
 static void	print_hashtable(t_hash **hashtab)
 {
 	int		len;
+	char	*tmp;
 
 	len = 0;
-	while (len < HASH_TAB_SIZE)
+	while (len < HASHTAB_SIZE_NAME)
 	{
-		ft_putstr(ft_itoa(len));
+		tmp = ft_itoa(len);
+		ft_putstr(tmp);
+		free(tmp);
+		tmp = NULL;
 		ft_putstr(": ");
 		if (hashtab[len] != NULL)
 			print_list(hashtab[len]);
@@ -57,11 +61,16 @@ void		print_elem(char *begin, char *elem)
 
 void		debug_struct(t_env *env)
 {
+	char *tmp;
 	ft_putendl("\n################\n- DEBUG OUTPUT -\n################\n");
 	if (env != NULL)
 	{
-		print_elem("Nb_ant == ", ft_itoa(env->nb_ant));
-		print_elem("Nb_room == ", ft_itoa(env->nb_room));
+		tmp = ft_itoa(env->nb_ant);
+		print_elem("Nb_ant == ", tmp);
+		free(tmp);
+		tmp = ft_itoa(env->nb_room);
+		print_elem("Nb_room == ", tmp);
+		free(tmp);
 		print_elem("Start room == ", env->start_room);
 		print_elem("End room == ", env->end_room);
 		ft_putendl("\n- Hashtable -\n");
@@ -69,5 +78,6 @@ void		debug_struct(t_env *env)
 			print_hashtable(env->tab_rooms);
 		else
 			ft_putendl("tab_rooms = (null)");
+		tmp = NULL;
 	}
 }

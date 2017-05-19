@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/18 13:08:46 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/19 16:49:52 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 # include "libft.h"
 
-# define HASH_TAB_SIZE			64
-# define LEN_SAVE_MAP_INIT		2048
+# define HASHTAB_SIZE_NAME		64
+# define HASHTAB_SIZE_COOR		64
+# define LEN_SAVE_MAP_INIT		32
 
 # define STATE_CHECK_ANT		0
 # define STATE_CHECK_ROOM		1
@@ -62,13 +63,28 @@
 # define SPE_END_ROOM			2
 
 /*
-** Hash_tab struct
+**	Norme compliant
+*/
+typedef unsigned long u_long;
+
+/*
+** Hashtab name struct
 */
 typedef struct			s_hash
 {
 	char				*room_name;
 	struct s_hash		*next;
 }						t_hash;
+
+/*
+** Hashtab coordinates struct
+*/
+typedef struct			s_hash_coor
+{
+	int					x_coor;
+	int					y_coor;
+	struct s_hash_coor	*next;
+}						t_hash_coor;
 
 /*
 ** Main struct for project
@@ -85,6 +101,7 @@ typedef struct			s_env
 	char			*start_room;
 	char			*end_room;
 	t_hash			**tab_rooms;
+	t_hash_coor		**tab_coor;
 }						t_env;
 
 int				main(int argc, char **argv);
@@ -103,6 +120,9 @@ bool			buff_add_str(t_env **env, char *current_line);
 char			check_line(char state, char *current_line, t_env **env);
 char			check_status_empty_line(char status);
 char			check_nb_ant(char *current_line, t_env **env);
+char			valid_and_set_room(char *current_line, t_env **env);
+char			check_room_name(char *current_line, t_env **env);
+char			add_to_hashtab_name(char *current_line, t_env **env, int len_name);
 
 /*
 **	TMP Declarations

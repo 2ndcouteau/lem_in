@@ -6,15 +6,15 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:55:55 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/17 22:21:41 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/19 17:09:09 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static void	*free_list(t_hash *node)
+static void	*free_list_name(t_hash *node)
 {
-	t_hash	*tmp;
+	t_hash		*tmp;
 
 	while (node != NULL)
 	{
@@ -28,19 +28,66 @@ static void	*free_list(t_hash *node)
 	return (NULL);
 }
 
-static void	*free_hash_tab(t_env **env)
+static void	*free_list_coor(t_hash_coor *node)
 {
-	int i;
+	t_hash_coor	*tmp;
 
-	i = 0;
-	while (i < HASH_TAB_SIZE)
+	while (node != NULL)
 	{
-		if ((*env)->tab_rooms[i] != NULL)
-			(*env)->tab_rooms[i] = free_list((*env)->tab_rooms[i]);
-		++i;
+		tmp = node;
+		node = node->next;
+		tmp->next = NULL;
+		free(tmp);
 	}
+	tmp = NULL;
 	return (NULL);
 }
+
+static void	*free_hashtab(t_env **env, bool type)
+{
+	int 		i;
+
+	i = 0;
+	if (type == 0)
+	{
+		while (i < HASHTAB_SIZE_NAME)
+		{
+			if ((*env)->tab_rooms[i] != NULL)
+				(*env)->tab_rooms[i] = free_list_name((*env)->tab_rooms[i]);
+			++i;
+		}
+		free((*env)->tab_rooms);
+		return (NULL);
+	}
+	while (i < HASHTAB_SIZE_COOR)
+	{
+		if ((*env)->tab_coor[i] != NULL)
+			(*env)->tab_coor[i] = free_list_coor((*env)->tab_coor[i]);
+		++i;
+	}
+	free((*env)->tab_coor);
+	return (NULL);
+}
+
+// static void	**free_hashtab_clean(void **hashtab, u_long size, bool type)
+// {
+// 	int 		i;
+//
+// 	i = 0;
+// 	while (i < size)
+// 	{
+// 		if (hashtab[i] != NULL)
+// 		{
+// 			if (type == 0)
+// 				hashtab[i] = free_list_name(hashtab[i]);
+// 			else
+// 				hashtab[i] = free_list_coor(hashtab[i]);
+// 		}
+// 		++i;
+// 	}
+// 	free(hashtab);
+// 	return (NULL);
+// }
 
 void		free_struct(t_env **env)
 {
@@ -55,7 +102,9 @@ void		free_struct(t_env **env)
 			if ((*env)->end_room != NULL)
 				(*env)->end_room = ft_free_line(&((*env)->end_room));
 			if ((*env)->tab_rooms != NULL)
-			 	(*env)->tab_rooms = free_hash_tab(env);
+			 	(*env)->tab_rooms = free_hashtab(env, 0);
+			if ((*env)->tab_coor != NULL)
+			 	(*env)->tab_coor = free_hashtab(env, 1);
 			free(*env);
 			*env = NULL;
 		}
