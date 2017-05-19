@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/19 22:52:37 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/20 00:38:49 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "libft.h"
 
-# define HASHTAB_SIZE_NAME		64
+# define HASHTAB_SIZE_NAME		128
 # define HASHTAB_SIZE_COOR		64
 # define LEN_SAVE_MAP_INIT		32
 
@@ -24,6 +24,9 @@
 # define STATE_CHECK_LINK		2
 # define STATE_CHECK_END		3
 
+/*
+** Error values
+*/
 # define ERR_NB_ANT				-1
 # define ERR_NAME_ROOM			-2
 # define ERR_NAME_LINK			-3
@@ -50,16 +53,8 @@
 # define ERR_NO_Y_COOR			-24
 # define ERR_BAD_Y_COOR			-25
 # define ERR_COOR_Y_OVERFLOW	-26
-
-/*
-** check_valid_room_name()
-*/
-# define NAME_ROOM				0
-# define COOR_X					1
-# define COOR_Y					2
-# define SPACE_CHARS_1			3
-// # define SPACE_CHARS_2			4
-// # define SPACE_CHARS_END		5
+# define ERR_CREATE_NODE_COOR	-27
+# define ERR_COOR_EXIST			-28
 
 /*
 ** Define special room

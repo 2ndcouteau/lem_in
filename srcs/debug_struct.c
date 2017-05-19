@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 01:29:13 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/19 17:20:37 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/20 00:06:48 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	print_list(t_hash *list)
 		ft_putendl("-null-");
 }
 
-static void	print_hashtable(t_hash **hashtab)
+void	print_hashtable(t_hash **hashtab)
 {
 	int		len;
 	char	*tmp;
@@ -50,13 +50,47 @@ static void	print_hashtable(t_hash **hashtab)
 	}
 }
 
-void		print_elem(char *begin, char *elem)
+static void		print_elem(char *begin, char *elem)
 {
 	ft_putstr(begin);
 	if (elem == NULL)
 		ft_putendl("(null)");
 	else
 		ft_putendl(elem);
+}
+
+static void	print_list_coor(t_hash_coor *list)
+{
+	while (list != NULL)
+	{
+		ft_putnbr(list->x_coor);
+		ft_putchar(':');
+		ft_putnbr(list->y_coor);
+		ft_putstr(" - ");
+		list = list->next;
+	}
+	ft_putchar('\n');
+}
+
+void		print_hashtable_coor(t_hash_coor **hashtab)
+{
+	int		len;
+	char	*tmp;
+
+	len = 0;
+	while (len < HASHTAB_SIZE_COOR)
+	{
+		tmp = ft_itoa(len);
+		ft_putstr(tmp);
+		free(tmp);
+		tmp = NULL;
+		ft_putstr(": ");
+		if (hashtab[len] != NULL)
+			print_list_coor(hashtab[len]);
+		else
+			ft_putendl("(null)");
+		len++;
+	}
 }
 
 void		debug_struct(t_env *env)
@@ -73,11 +107,16 @@ void		debug_struct(t_env *env)
 		free(tmp);
 		print_elem("Start room == ", env->start_room);
 		print_elem("End room == ", env->end_room);
-		ft_putendl("\n- Hashtable -\n");
+		ft_putendl("\n- Hashtable Name Room -\n");
 		if (env->tab_rooms != NULL)
 			print_hashtable(env->tab_rooms);
 		else
 			ft_putendl("tab_rooms = (null)");
+		ft_putendl("\n\n- Hashtable Coor Room -\n");
+		if (env->tab_coor != NULL)
+			print_hashtable_coor(env->tab_coor);
+		else
+			ft_putendl("tab_coor = (null)");
 		tmp = NULL;
 	}
 }

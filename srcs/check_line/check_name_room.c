@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 16:19:14 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/19 22:51:03 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/19 23:33:16 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static char	add_to_hashtab_name(char *current_line, t_env **env, int len_name)
 	char			*name_room;
 	t_hash			*new_node;
 
-//	ft_putendl("---- hash_tab_fct ----");  // DEBUG
 	name_room = ft_strndup(current_line, 0, (len_name));
 	hash_value = hash_djb2((unsigned char *)name_room);
 	if (!(new_node = (t_hash*)malloc(sizeof(t_hash))))

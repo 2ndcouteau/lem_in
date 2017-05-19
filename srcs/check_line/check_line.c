@@ -6,23 +6,17 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 01:33:49 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/19 18:57:56 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/20 00:27:09 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-// 2 cases:
-// -- 1) The current line is a room
-//							valid or not valid
-// -- 2) The current line is a link
-//							so state need to change
-
 char	check_line(char state, char *current_line, t_env **env)
 {
 	if (current_line == NULL)
 		return (ERR_NOTHING);
-	ft_putendl(current_line); // DEBUG
+//	ft_putendl(current_line); // DEBUG
 	if (ft_is_empty_line(current_line))
 		return (check_status_empty_line(state));
 	if (state == STATE_CHECK_ANT)

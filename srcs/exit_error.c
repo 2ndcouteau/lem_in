@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:54:06 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/19 22:57:48 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/19 23:40:27 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int		exit_error(char status, char *current_line, t_env **env)
 		else if (status == ERR_NO_COOR)
 			ft_putendl("\" the coordinates are missing.");
 		else if (status == ERR_CREATE_NODE)
-			ft_putendl("\" failed to create a new node in room hashtable.");
+			ft_putendl("\" failed to create a new node in name_room hashtable.");
 		else if (status == ERR_SPE_ROOM)
 			ft_putendl("\" failed to set special room. {start, end}");
 		else if (status == ERR_ROOM_EXIST)
@@ -92,6 +92,10 @@ int		exit_error(char status, char *current_line, t_env **env)
 			ft_putendl("\" Y coordinate is not compliant.");
 		else if (status == ERR_COOR_Y_OVERFLOW)
 			ft_putendl("\" Y coordinate overflow.");
+		else if (status == ERR_CREATE_NODE_COOR)
+			ft_putendl("\" Failed to create a new node in coor_room hastable.");
+		else if (status == ERR_COOR_EXIST)
+			ft_putendl("\" The coordinates already used.");
 		else
 			ft_putendl("\" invalid line");
 		current_line = ft_free_line(&current_line);

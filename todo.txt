@@ -8,15 +8,14 @@
 #      IN PROGRESS     #
 ########################
 
--- Check double insertion coordinates
--- Save !! coordinates
+-- Make array for exit_error
 
 ########################
 #          TODO        #
 ########################
 
 -- LEAK with get_next_line
--- return ERR if space at begin line
+-- Manage space at begin line
 -- Check link lines
 
 ########################
@@ -39,3 +38,5 @@
 		second: Not enough room
 		more: check START!= NULL and END!= NULL
 -- Check coordinates
+-- Check double insertion coordinates
+-- Save !! coordinates
