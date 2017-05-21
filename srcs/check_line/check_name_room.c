@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 16:19:14 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/19 23:33:16 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/21 08:12:59 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,24 @@ static bool	insert_in_hashtab(t_hash *node, t_env **env, u_long hash_value)
 {
 	t_hash			*list;
 
-	if ((*env)->tab_rooms[hash_value % HASHTAB_SIZE_NAME] == NULL)
-		(*env)->tab_rooms[hash_value % HASHTAB_SIZE_NAME] = node;
+	int		tmp  = hash_value % HASHTAB_SIZE_NAME;
+	printf("hash_value = %d\n", tmp);
+	if (tmp < 0)
+		tmp = -tmp;
+	if ((*env)->tab_rooms == NULL)
+		ft_putendl("TAB NULL T DANS LA MERDE");
+	if ((*env)->tab_rooms[tmp] == NULL)
+		(*env)->tab_rooms[tmp] = node;
 	else
 	{
-		list = (*env)->tab_rooms[hash_value % HASHTAB_SIZE_NAME];
+		list = (*env)->tab_rooms[tmp];
 		while (list->next != NULL)
 		{
 			if (!ft_strcmp(list->room_name, node->room_name))
 				return (ERROR);
 			list = list->next;
 		}
+		printf("list_name = %lu, && node_name = %lu\n", hash_value, ft_strlen(node->room_name));
 		if (!ft_strcmp(list->room_name, node->room_name))
 			return (ERROR);
 		list->next = node;
@@ -58,10 +65,17 @@ static char	add_to_hashtab_name(char *current_line, t_env **env, int len_name)
 	char			*name_room;
 	t_hash			*new_node;
 
-	name_room = ft_strndup(current_line, 0, (len_name));
+	if (!(name_room = ft_strndup(current_line, 0, len_name)))
+		return (ERR_CREATE_NODE);
 	hash_value = hash_djb2((unsigned char *)name_room);
 	if (!(new_node = (t_hash*)malloc(sizeof(t_hash))))
 		return (ERR_CREATE_NODE);
+
+	ft_putstr("Name room = ");
+	ft_putendl(name_room);
+	ft_putstr("hash room int = ");
+	ft_putnbr(hash_value);
+	ft_putchar('\n');
 	new_node->room_name = name_room;
 	new_node->next = NULL;
 	if (set_special_room(name_room, env))

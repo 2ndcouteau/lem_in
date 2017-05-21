@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/20 00:38:49 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/21 06:55:13 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft.h"
 
 # define HASHTAB_SIZE_NAME		128
-# define HASHTAB_SIZE_COOR		64
+# define HASHTAB_SIZE_COOR		128
 # define LEN_SAVE_MAP_INIT		32
 
 # define STATE_CHECK_ANT		0

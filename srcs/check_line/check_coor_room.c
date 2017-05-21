@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 22:49:26 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/19 23:49:38 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/20 04:28:30 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ static char		check_coor_x(char *current_line, int *i, int *coor_x)
 	int 		cpt;
 
 	cpt = 0;
+	if (current_line[*i] == '-')
+	{
+		cpt++;
+		*i += 1;
+	}
 	while (!ft_isdigit(current_line[*i]))
 	{
 		*i += 1;
@@ -37,6 +42,11 @@ static char		check_coor_y(char *current_line, int *i, int *coor_y)
 	int 		cpt;
 
 	cpt = 0;
+	if (current_line[*i] == '-')
+	{
+		cpt++;
+		*i += 1;
+	}
 	while (!ft_isdigit(current_line[*i]))
 	{
 		*i += 1;
@@ -99,6 +109,8 @@ char		check_coor_room(char *current_line, t_env **env, int *i)
 	int			coor_y;
 	char		ret;
 
+//	ft_putendl(current_line);
+//	debug_struct(*env);
 	if ((ret = check_coor_x(current_line, i, &coor_x)) != SUCCESS)
 		return (ret);
 	*i = browse_space(current_line, *i);
