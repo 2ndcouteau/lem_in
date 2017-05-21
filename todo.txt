@@ -8,14 +8,13 @@
 #      IN PROGRESS     #
 ########################
 
--- Make array for exit_error
+-- SEGV with script_map/map*k.map
 
 ########################
 #          TODO        #
 ########################
 
 -- LEAK with get_next_line
--- Manage space at begin line
 -- Check link lines
 
 ########################
@@ -40,3 +39,5 @@
 -- Check coordinates
 -- Check double insertion coordinates
 -- Save !! coordinates
+-- Make array for exit_error
+-- Manage space at begin line

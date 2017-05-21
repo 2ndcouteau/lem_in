@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/21 14:10:29 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/21 16:30:04 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@
 # define ERR_COOR_EXIST			-28
 # define ERR_START_LINK			-29
 # define ERR_END_LINK			-30
+
+# define LAST_ERROR				31
 
 /*
 ** Define special room

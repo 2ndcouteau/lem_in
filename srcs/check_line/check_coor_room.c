@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 22:49:26 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/20 04:28:30 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/21 16:38:12 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,8 @@ char		check_coor_room(char *current_line, t_env **env, int *i)
 	int			coor_y;
 	char		ret;
 
-//	ft_putendl(current_line);
-//	debug_struct(*env);
+//	ft_putendl(current_line);		// DEBUG
+//	debug_struct(*env);				// DEBUG
 	if ((ret = check_coor_x(current_line, i, &coor_x)) != SUCCESS)
 		return (ret);
 	*i = browse_space(current_line, *i);
