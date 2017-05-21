@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 02:53:26 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/21 19:51:56 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/21 21:56:09 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char	check_max_int(char *current_line)
 	int len;
 
 	len = 0;
-	while (!ft_isthischar(" \t\0", current_line[len]))
+	while ((ft_isthischar(" \t", current_line[len]) == 0) && current_line != '\0')
 		len++;
 	if (len > 9)
 	{
@@ -62,7 +62,7 @@ static bool	ft_isnumber_spe(char *str)
 	int i;
 
 	i = 0;
-	while (!ft_isnthischar(" \t\0", str[i]))
+	while ((ft_isnthischar(" \t", str[i]) == 0) && str[i] != '\0')
 	{
 		if (str[i] >= '0' && str[i] <= '9')
 			i++;
@@ -79,7 +79,7 @@ char		check_nb_ant(char *current_line, t_env **env)
 	i = 0;
 	if (current_line[0] == '#')
 		return (check_special_ant_line(current_line));
-	while (ft_isthischar(" \t", current_line[i]))
+	while (ft_isthischar(" \t", current_line[i]) == 0)
 		i++;
 	if (ft_isnumber_spe(current_line + i))
 		return (ERR_NB_ANT);

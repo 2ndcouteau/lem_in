@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/07 15:52:35 by qrosa             #+#    #+#             */
-/*   Updated: 2016/10/07 15:54:20 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/21 20:53:30 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ bool	ft_isnthischar(char *check_symbol, char symbol)
 	while (check_symbol[i] != '\0')
 	{
 		if (check_symbol[i] == symbol)
-			return (1);
+			return (ERROR);
 		i++;
 	}
-	return (0);
+	return (SUCCESS);
 }
