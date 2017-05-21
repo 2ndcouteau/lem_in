@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:54:06 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/21 14:10:01 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/21 14:21:33 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,9 @@ int		exit_error(char status, char *current_line, t_env **env)
 			ft_putendl_fd("\" Failed to create a new node in coor_room hastable.", 2);
 		else if (status == ERR_COOR_EXIST)
 			ft_putendl_fd("\" The coordinates are already used.", 2);
-		else if (status == ERR_START_LINK);
+		else if (status == ERR_START_LINK)
 			ft_putendl_fd("\" Start room can not be set with a link.", 2);
-		else if (status == ERR_END_LINK);
+		else if (status == ERR_END_LINK)
 			ft_putendl_fd("\" End room can not be set with a link.", 2);
 		else
 			ft_putendl_fd("\" invalid line", 2);
