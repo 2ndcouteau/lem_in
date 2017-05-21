@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 02:53:26 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/21 16:53:14 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/21 19:51:56 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char		check_nb_ant(char *current_line, t_env **env)
 	i = 0;
 	if (current_line[0] == '#')
 		return (check_special_ant_line(current_line));
-	while (!ft_isthischar(" \t", current_line[i]))
+	while (ft_isthischar(" \t", current_line[i]))
 		i++;
 	if (ft_isnumber_spe(current_line + i))
 		return (ERR_NB_ANT);
