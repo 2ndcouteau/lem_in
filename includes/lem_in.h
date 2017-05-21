@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/21 06:55:13 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/21 14:10:29 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@
 # define ERR_COOR_Y_OVERFLOW	-26
 # define ERR_CREATE_NODE_COOR	-27
 # define ERR_COOR_EXIST			-28
+# define ERR_START_LINK			-29
+# define ERR_END_LINK			-30
 
 /*
 ** Define special room
@@ -98,6 +100,7 @@ typedef struct			s_env
 	unsigned int	nb_ant;
 	unsigned int	nb_room;
 	unsigned int	nb_link;
+	unsigned int	nb_line;
 	char			special_room;
 	char			*start_room;
 	char			*end_room;

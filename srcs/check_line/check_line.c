@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 01:33:49 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/20 00:27:09 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/21 14:09:08 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 char	check_line(char state, char *current_line, t_env **env)
 {
+	(*env)->nb_line++;
 	if (current_line == NULL)
 		return (ERR_NOTHING);
 //	ft_putendl(current_line); // DEBUG
@@ -32,6 +33,10 @@ char	check_line(char state, char *current_line, t_env **env)
 			return (ERR_NO_ROOM);
 		else if ((*env)->nb_room == 1)
 			return (ERR_MORE_ROOM);
+		else if ((*env)->special_room == SPE_START_ROOM)
+			return (ERR_START_LINK);
+		else if ((*env)->special_room == SPE_END_ROOM)
+			return (ERR_END_LINK);
 		else if ((*env)->start_room == NULL)
 			return (ERR_SET_START);
 		else if ((*env)->end_room == NULL)

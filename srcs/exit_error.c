@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:54:06 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/19 23:40:27 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/21 14:10:01 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,86 +18,92 @@ int		exit_error(char status, char *current_line, t_env **env)
 	if (status >= 0)
 	{
 		if (status == STATE_CHECK_ANT)
-			ft_putendl("ERROR : The map is empty.");
+			ft_putendl_fd("ERROR : The map is empty.", 2);
 		else if ((*env)->nb_room == 0)
-			ft_putendl("ERROR : There is no room.");
+			ft_putendl_fd("ERROR : There is no room.", 2);
 		else if ((*env)->start_room == NULL)
-			ft_putendl("ERROR : There is no start room.");
+			ft_putendl_fd("ERROR : There is no start room.", 2);
 		else if ((*env)->end_room == NULL)
-			ft_putendl("ERROR : There is no end room.");
+			ft_putendl_fd("ERROR : There is no end room.", 2);
 		else if (status == STATE_CHECK_ROOM)
 		{
 			if ((*env)->nb_room == 0)
-				ft_putendl("ERROR : There is no room.");
+				ft_putendl_fd("ERROR : There is no room.", 2);
 		}
 		else if (status == STATE_CHECK_LINK)
 		{
 			if ((*env)->nb_link == 0)
-				ft_putendl("ERROR : There is no link.");
+				ft_putendl_fd("ERROR : There is no link.", 2);
 		}
 	}
 	else
 	{
-		ft_putstr("ERROR : \"");
-		ft_putstr(current_line);
+		ft_putstr_fd("ERROR -- line:", 2);
+		ft_putnbr_fd((*env)->nb_line, 2);
+		ft_putstr_fd(" \"", 2);
+		ft_putstr_fd(current_line, 2);
 		if (status == ERR_NB_ANT)
-			ft_putendl("\" bad ant number.");
+			ft_putendl_fd("\" bad ant number.", 2);
 		else if (status == ERR_NAME_ROOM)
-			ft_putendl("\" is not a valid room.");
+			ft_putendl_fd("\" is not a valid room.", 2);
 		else if (status == ERR_NAME_LINK)
-			ft_putendl("\" is not a valid link.");
+			ft_putendl_fd("\" is not a valid link.", 2);
 		else if (status == ERR_EMPTY_ROOM)
-			ft_putendl("\" is an empty room name.");
+			ft_putendl_fd("\" is an empty room name.", 2);
 		else if (status == ERR_ANT_OVERFLOW)
-			ft_putendl("\" ant number is too large.");
+			ft_putendl_fd("\" ant number is too large.", 2);
 		else if (status == ERR_NO_ANT)
-			ft_putendl("\" there is no ant. :(");
+			ft_putendl_fd("\" there is no ant. :(", 2);
 		else if (status == ERR_MAP_SCALE)
-			ft_putendl("\" failed to increase map save buffer !");
+			ft_putendl_fd("\" failed to increase map save buffer !", 2);
 		else if (status == ERR_NAME_ROOM_L)
-			ft_putendl("\" room name can not start by \'L\'");
+			ft_putendl_fd("\" room name can not start by \'L\'", 2);
 		else if (status == ERR_FIRST_LINE_EMPTY)
-			ft_putendl("\" first line is empty.");
+			ft_putendl_fd("\" first line is empty.", 2);
 		else if (status == ERR_ADD_HASH)
-			ft_putendl("\" failed to add the line to the hastab.");
+			ft_putendl_fd("\" failed to add the line to the hastab.", 2);
 		else if (status == ERR_ANT_START)
-			ft_putendl("\" ants need to be set before ##start_room.");
+			ft_putendl_fd("\" ants need to be set before ##start_room.", 2);
 		else if (status == ERR_ANT_END)
-			ft_putendl("\" ants need to be set before ##end_room.");
+			ft_putendl_fd("\" ants need to be set before ##end_room.", 2);
 		else if (status == ERR_NO_COOR)
-			ft_putendl("\" the coordinates are missing.");
+			ft_putendl_fd("\" the coordinates are missing.", 2);
 		else if (status == ERR_CREATE_NODE)
-			ft_putendl("\" failed to create a new node in name_room hashtable.");
+			ft_putendl_fd("\" failed to create a new node in name_room hashtable.", 2);
 		else if (status == ERR_SPE_ROOM)
-			ft_putendl("\" failed to set special room. {start, end}");
+			ft_putendl_fd("\" failed to set special room. {start, end}", 2);
 		else if (status == ERR_ROOM_EXIST)
-			ft_putendl("\" The room already exists.");
+			ft_putendl_fd("\" The room already exists.", 2);
 		else if (status == ERR_NO_ROOM)
-			ft_putendl("\" There is no room before links.");
+			ft_putendl_fd("\" There is no room before links.", 2);
 		else if (status == ERR_MORE_ROOM)
-			ft_putendl("\" need at least, one more room.");
+			ft_putendl_fd("\" need at least, one more room.", 2);
 		else if (status == ERR_SET_START)
-			ft_putendl("\" ##start room is not set.");
+			ft_putendl_fd("\" ##start room is not set.", 2);
 		else if (status == ERR_SET_END)
-			ft_putendl("\" ##end room is not set.");
+			ft_putendl_fd("\" ##end room is not set.", 2);
 		else if (status == ERR_NOTHING)
-			ft_putendl("\" There is nothing to read.");
+			ft_putendl_fd("\" There is nothing to read.", 2);
 		else if (status == ERR_BAD_X_COOR)
-			ft_putendl("\" X coordinate is not compliant.");
+			ft_putendl_fd("\" X coordinate is not compliant.", 2);
 		else if (status == ERR_COOR_X_OVERFLOW)
-			ft_putendl("\" X coordinate overflow.");
+			ft_putendl_fd("\" X coordinate overflow.", 2);
 		else if (status == ERR_NO_Y_COOR)
-			ft_putendl("\" There is no Y coordinate.");
+			ft_putendl_fd("\" There is no Y coordinate.", 2);
 		else if (status == ERR_BAD_Y_COOR)
-			ft_putendl("\" Y coordinate is not compliant.");
+			ft_putendl_fd("\" Y coordinate is not compliant.", 2);
 		else if (status == ERR_COOR_Y_OVERFLOW)
-			ft_putendl("\" Y coordinate overflow.");
+			ft_putendl_fd("\" Y coordinate overflow.", 2);
 		else if (status == ERR_CREATE_NODE_COOR)
-			ft_putendl("\" Failed to create a new node in coor_room hastable.");
+			ft_putendl_fd("\" Failed to create a new node in coor_room hastable.", 2);
 		else if (status == ERR_COOR_EXIST)
-			ft_putendl("\" The coordinates already used.");
+			ft_putendl_fd("\" The coordinates are already used.", 2);
+		else if (status == ERR_START_LINK);
+			ft_putendl_fd("\" Start room can not be set with a link.", 2);
+		else if (status == ERR_END_LINK);
+			ft_putendl_fd("\" End room can not be set with a link.", 2);
 		else
-			ft_putendl("\" invalid line");
+			ft_putendl_fd("\" invalid line", 2);
 		current_line = ft_free_line(&current_line);
 	}
 	free_struct(env);

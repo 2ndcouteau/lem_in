@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:53:00 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/21 06:52:46 by yoko             ###   ########.fr       */
+/*   Updated: 2017/05/21 13:39:04 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ t_env 			*init_struct(void)
 	env->nb_ant = 0;
 	env->nb_room = 0;
 	env->nb_link = 0;
+	env->nb_line = 0;
 	env->special_room = SPE_BASIC_ROOM;
 	env->start_room = NULL;
 	env->end_room = NULL;
