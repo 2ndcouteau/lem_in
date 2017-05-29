@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 16:19:14 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/21 16:39:26 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/05/23 13:01:06 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static bool	insert_in_hashtab(t_hash *node, t_env **env, u_long hash_value)
 	if (tmp < 0)
 		tmp = -tmp;
 	if ((*env)->tab_rooms == NULL)
-		ft_putendl("TAB NULL T DANS LA MERDE");		// DEBUG
+		ft_putendl("TAB NULL");		// DEBUG
 	if ((*env)->tab_rooms[tmp] == NULL)
 		(*env)->tab_rooms[tmp] = node;
 	else
