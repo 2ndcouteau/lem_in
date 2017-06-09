@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 16:19:14 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/23 13:01:06 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/09 05:07:50 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ static bool	insert_in_hashtab(t_hash *node, t_env **env, u_long hash_value)
 	t_hash			*list;
 
 	int		tmp  = hash_value % HASHTAB_SIZE_NAME;		// can replace tmp by calcul in []
-	printf("hash_value = %d\n", tmp);		// DEBUG
+//	printf("hash_value = %d\n", tmp);		// DEBUG
 	if (tmp < 0)
 		tmp = -tmp;
-	if ((*env)->tab_rooms == NULL)
+	if ((*env)->tab_rooms == NULL)	//  ??
 		ft_putendl("TAB NULL");		// DEBUG
 	if ((*env)->tab_rooms[tmp] == NULL)
 		(*env)->tab_rooms[tmp] = node;
@@ -51,7 +51,7 @@ static bool	insert_in_hashtab(t_hash *node, t_env **env, u_long hash_value)
 				return (ERROR);
 			list = list->next;
 		}
-		printf("list_name = %lu, && node_name = %lu\n", hash_value, ft_strlen(node->room_name));		// DEBUG
+//		printf("list_name = %lu, && node_name = %lu\n", hash_value, ft_strlen(node->room_name));		// DEBUG
 		if (!ft_strcmp(list->room_name, node->room_name))
 			return (ERROR);
 		list->next = node;
@@ -102,7 +102,7 @@ char		check_name_room(char *current_line, t_env **env, int *i)
 		else
 		{
 			if (current_line[*i] == '-')
-				return (STATE_CHECK_LINK);
+				return (STATE_CHECK_FIRST_LINK);
 			*i += 1;
 		}
 	}

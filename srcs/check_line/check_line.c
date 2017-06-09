@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 01:33:49 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/21 14:09:08 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/09 01:23:31 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,17 @@ char	check_line(char state, char *current_line, t_env **env)
 		return (check_nb_ant(current_line, env));
 	else if (state == STATE_CHECK_ROOM)
 	{
+		// In this function add the creation of tab of name, in order they are listed
+		// The index will be use for the resoltion libgraph
 		if ((state = check_room(current_line, env)) <= STATE_CHECK_ROOM)
 			return (state);
 	}
-	if (state == STATE_CHECK_LINK)
+	if (state == STATE_CHECK_FIRST_LINK)
 	{
-		if ((*env)->nb_room == 0)
-			return (ERR_NO_ROOM);
-		else if ((*env)->nb_room == 1)
-			return (ERR_MORE_ROOM);
-		else if ((*env)->special_room == SPE_START_ROOM)
-			return (ERR_START_LINK);
-		else if ((*env)->special_room == SPE_END_ROOM)
-			return (ERR_END_LINK);
-		else if ((*env)->start_room == NULL)
-			return (ERR_SET_START);
-		else if ((*env)->end_room == NULL)
-			return (ERR_SET_END);
-		if (buff_add_str(env, current_line))
-			return (ERR_MAP_SCALE);
-//		ft_putendl("check_links");
+		if ((state = check_room_step_valid(env)) != STATE_CHECK_LINK)
+			return (state);
 	}
+	if (state == STATE_CHECK_LINK)
+		state = check_links(current_line, env);
 	return (state);
 }

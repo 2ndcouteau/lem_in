@@ -6,13 +6,13 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:54:06 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/21 16:35:53 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/09 05:12:51 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static const char *g_tab_error_2[] =
+const char *g_tab_error_toto[] =
 {
 	"\" Y coordinate is not compliant.",
 	"\" Y coordinate overflow.",
@@ -20,9 +20,16 @@ static const char *g_tab_error_2[] =
 	"\" The coordinates are already used.",
 	"\" Start room can not be set with a link.",
 	"\" End room can not be set with a link."
+	"\" Link line must start by a room name."
+	"\" Link room name can not start by 'L'."
+	"\"	In link line, rooms must be separate by a dash: ROOM1-ROOM2"
+	"\" First room name of the link is unknown."
+	"\" Link line must have only one dash: ROOM1-ROOM2."
+	"\" Second room name of the link is unknown."
 };
+//12
 
-static const char *g_tab_error_1[] =
+const char *g_tab_error_1[] =
 {
 	"\" bad ant number.",
 	"\" is not a valid room.",
@@ -49,6 +56,7 @@ static const char *g_tab_error_1[] =
 	"\" X coordinate overflow.",
 	"\" There is no Y coordinate."
 };
+//24
 
 static void	end_file_errors(char status, t_env **env)
 {
@@ -64,6 +72,8 @@ static void	end_file_errors(char status, t_env **env)
 	{
 		if ((*env)->nb_room == 0)
 			ft_putendl_fd("ERROR : There is no room.", 2);
+		else if ((*env)->nb_link == 0)
+			ft_putendl_fd("ERROR : There is no link.", 2);
 	}
 	else if (status == STATE_CHECK_LINK)
 	{
@@ -79,16 +89,25 @@ int			exit_error(char status, char *current_line, t_env **env)
 	else
 	{
 		status = -status;
+
 		ft_putstr_fd("ERROR -- line:", 2);
 		ft_putnbr_fd((*env)->nb_line, 2);
 		ft_putstr_fd(" \"", 2);
 		ft_putstr_fd(current_line, 2);
-		if (status < 25)
+		dprintf(2, "\nSTATUS == %d -- Status - 1 = %d  ---  Status - 25 == %d\n",status, status -1, status -25); // DEBUG
+		if (status <= 24)
+		{
+			ft_putendl_fd("STATUS <= 24", 2); // DEBUG
 			ft_putendl_fd(g_tab_error_1[status - 1], 2);
+		}
 		else if (status < LAST_ERROR)
-			ft_putendl_fd(g_tab_error_2[status - 26], 2);
+		{
+			ft_putendl_fd("STATUS >= 25", 2); // DEBUG
+			ft_putendl_fd(g_tab_error_toto[(status - 25)], 2);
+		}
 		else
 			ft_putendl_fd("\" invalid line", 2);
+
 		current_line = ft_free_line(&current_line);
 	}
 	free_struct(env);

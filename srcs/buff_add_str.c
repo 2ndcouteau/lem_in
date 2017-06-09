@@ -6,14 +6,14 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 14:58:27 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/16 15:14:21 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/09 01:01:40 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-
 /*
+**	Add the current line to the save map for the final print map.
 **	+1 is for count '\n' for each new_line.
 */
 bool	buff_add_str(t_env **env, char *current_line)

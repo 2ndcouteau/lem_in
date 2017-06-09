@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/21 16:30:04 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/09 05:03:46 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@
 
 # define STATE_CHECK_ANT		0
 # define STATE_CHECK_ROOM		1
-# define STATE_CHECK_LINK		2
-# define STATE_CHECK_END		3
+# define STATE_CHECK_FIRST_LINK	2
+# define STATE_CHECK_LINK		3
+# define STATE_CHECK_END		4
 
 /*
 ** Error values
@@ -57,8 +58,14 @@
 # define ERR_COOR_EXIST			-28
 # define ERR_START_LINK			-29
 # define ERR_END_LINK			-30
+# define ERR_NO_BEGIN_NAME		-31
+# define ERR_NAME_LINK_L		-32
+# define ERR_FORMAT_LINK		-33
+# define ERR_NAME_LINK1_NOMATCH -34
+# define ERR_DOUBLE_DASH		-35
+# define ERR_NAME_LINK2_NOMATCH -36
 
-# define LAST_ERROR				31
+# define LAST_ERROR				37
 
 /*
 ** Define special room
@@ -130,9 +137,13 @@ char			check_status_empty_line(char status);
 char			check_nb_ant(char *current_line, t_env **env);
 char			valid_and_set_room(char *current_line, t_env **env);
 char			check_room(char *current_line, t_env **env);
+char			check_special_line(char *current_line, t_env **env);
 char			check_name_room(char *current_line, t_env **env, int *i);
 char			check_coor_room(char *current_line, t_env **env, int *i);
 char			check_n_max_int(char *current_line, int start, int len);
+char			check_room_step_valid(t_env **env);
+char			check_links(char *current_line, t_env **env);
+char			valid_and_set_links(char *current_line, t_env **env);
 
 /*
 **	TMP Declarations
