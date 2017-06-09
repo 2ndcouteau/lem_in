@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 16:19:14 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/09 05:07:50 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/09 18:16:46 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ static bool	set_special_room(char *name_room, t_env **env)
 static bool	insert_in_hashtab(t_hash *node, t_env **env, u_long hash_value)
 {
 	t_hash			*list;
+	int				tmp;
 
-	int		tmp  = hash_value % HASHTAB_SIZE_NAME;		// can replace tmp by calcul in []
+	tmp = hash_value % HASHTAB_SIZE_NAME;		// can replace tmp by calcul in []
 //	printf("hash_value = %d\n", tmp);		// DEBUG
 	if (tmp < 0)
 		tmp = -tmp;
@@ -64,22 +65,18 @@ static char	add_to_hashtab_name(char *current_line, t_env **env, int len_name)
 	unsigned long	hash_value;
 	char			*name_room;
 	t_hash			*new_node;
+	char			ret;
 
 	if (!(name_room = ft_strndup(current_line, 0, len_name)))
 		return (ERR_CREATE_NODE);
 	hash_value = hash_djb2((unsigned char *)name_room);
 	if (!(new_node = (t_hash*)malloc(sizeof(t_hash))))
 		return (ERR_CREATE_NODE);
-
-	// DEBUG
-	ft_putstr("Name room = ");
-	ft_putendl(name_room);
-	ft_putstr("hash room int = ");
-	ft_putnbr(hash_value);
-	ft_putchar('\n');
-	// DEBUG
 	new_node->room_name = name_room;
+	new_node->index_room = (*env)->nb_room;
 	new_node->next = NULL;
+	if ((ret = add_name_ptr_index(env, name_room)) != SUCCESS)
+		return (ret);
 	if (set_special_room(name_room, env))
 		return (ERR_SPE_ROOM);
 	if (insert_in_hashtab(new_node, env, hash_value))

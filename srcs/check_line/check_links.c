@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 00:58:53 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/09 04:43:58 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/09 18:04:13 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,8 @@ char		check_links(char *current_line, t_env **env)
 	if ((ret = valid_and_set_links((current_line + i), env)) != SUCCESS)
 		return (ret);
 	(*env)->nb_link++;
+	// Call function set_link_graph();	// IMPLEMENT
 	if (buff_add_str(env, current_line))
 		return (ERR_MAP_SCALE);
 	return (STATE_CHECK_LINK);
 }
-
-	/* For links
-		You need to clean this part, and put all this error check in one function
-		Then, check all links
-			check name links
-				if name is not compliante return error
-					OK) L start
-					OK) Dash start
-					OK) multiple Dash ERROR
-					OK) space or tabulation separator ERROR
-				if name does not exist return error
-					OK) check in hashtab
-	*/

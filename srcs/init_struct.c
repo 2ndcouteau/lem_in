@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:53:00 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/21 22:43:40 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/09 17:31:06 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,22 @@ static t_hash_coor	**init_hashtable_coor(void)
 	return (tab);
 }
 
+char	**init_index_room(void)
+{
+	char	**index_room;
+	int		i;
+
+	i = 0;
+	if (!((index_room = (char **)malloc(sizeof(char *) * LEN_INDEX_ROOM))))
+		return (NULL);
+	while (i < LEN_INDEX_ROOM)
+	{
+		index_room[i] = NULL;
+		i++;
+	}
+	return (index_room);
+}
+
 t_env 			*init_struct(void)
 {
 	t_env		*env;
@@ -52,6 +68,9 @@ t_env 			*init_struct(void)
 		return (NULL);
 	env->len_map = LEN_SAVE_MAP_INIT;
 	env->save_map = ft_memalloc(LEN_SAVE_MAP_INIT);
+	env->index_room = init_index_room();
+	env->index_room1 = 0;
+	env->index_room2 = 0;
 	env->pos_map = 0;
 	env->nb_ant = 0;
 	env->nb_room = 0;

@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:54:06 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/09 05:26:02 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/09 17:55:19 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ const char *g_tab_error_toto[] =
 	"\"	In link line, rooms must be separate by a dash: ROOM1-ROOM2",
 	"\" First room name of the link is unknown.",
 	"\" Link line must have only one dash: ROOM1-ROOM2.",
-	"\" Second room name of the link is unknown."
+	"\" Second room name of the link is unknown.",
+	"\" Fail to add room name in index table.",
+	"\" Fail to realloc index room."
 };
-//12
 
 const char *g_tab_error_1[] =
 {
@@ -56,7 +57,6 @@ const char *g_tab_error_1[] =
 	"\" X coordinate overflow.",
 	"\" There is no Y coordinate."
 };
-//24
 
 static void	end_file_errors(char status, t_env **env)
 {
@@ -89,28 +89,21 @@ int			exit_error(char status, char *current_line, t_env **env)
 	else
 	{
 		status = -status;
-
 		ft_putstr_fd("ERROR -- line:", 2);
 		ft_putnbr_fd((*env)->nb_line, 2);
 		ft_putstr_fd(" \"", 2);
 		ft_putstr_fd(current_line, 2);
-//		dprintf(2, "\nSTATUS == %d -- Status - 1 = %d  ---  Status - 25 == %d\n",status, status -1, status -25); // DEBUG
-		if (status <= 24)
-		{
-//			ft_putendl_fd("STATUS <= 24", 2); // DEBUG
+		if (status < 25)
 			ft_putendl_fd(g_tab_error_1[status - 1], 2);
-		}
 		else if (status < LAST_ERROR)
-		{
-//			ft_putendl_fd("STATUS >= 25", 2); // DEBUG
 			ft_putendl_fd(g_tab_error_toto[(status - 25)], 2);
-		}
 		else
 			ft_putendl_fd("\" invalid line", 2);
 
 		current_line = ft_free_line(&current_line);
 	}
 	free_struct(env);
-//	exit(status);
-	exit(EXIT_FAILURE);
+	if (status == 0)
+		status += 1;
+	exit(status);
 }

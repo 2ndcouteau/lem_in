@@ -14,8 +14,10 @@
 #          TODO        #
 ########################
 
+!!-- Maybe change djistra hash method by another one
+-- Free hashtab_coor in valid_and_set_room();
+-- Manage empty space at the end of special line
 -- LEAK with get_next_line
--- Check link lines
 
 ########################
 #          DONE        #
@@ -41,3 +43,13 @@
 -- Save !! coordinates
 -- Make array for exit_error
 -- Manage space at begin line
+-- Links:
+	check name links
+	if name is not compliante return error
+		OK) L start
+		OK) Dash start
+		OK) multiple Dash ERROR
+		OK) space or tabulation separator ERROR
+	if name does not exist return error
+		OK) check in hashtab
+-- Create Index_tab for link room names and index matrice

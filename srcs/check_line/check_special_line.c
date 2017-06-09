@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 01:24:55 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/09 01:25:29 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/09 18:01:43 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 **	"start" and "end" can not have white space after them in the line;
 */
-		// SO MAYBE YOU CAN FIX THAT PLZ
+		// SO MAYBE YOU CAN FIX THAT PLZ -- Not very importante
 char	check_special_line(char *current_line, t_env **env)
 {
 	if (current_line[1] == '#')

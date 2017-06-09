@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/09 05:03:46 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/09 18:16:42 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 # define HASHTAB_SIZE_NAME		128
 # define HASHTAB_SIZE_COOR		128
-# define LEN_SAVE_MAP_INIT		32
+# define LEN_SAVE_MAP_INIT		128
+# define LEN_INDEX_ROOM			128
 
 # define STATE_CHECK_ANT		0
 # define STATE_CHECK_ROOM		1
@@ -64,8 +65,10 @@
 # define ERR_NAME_LINK1_NOMATCH -34
 # define ERR_DOUBLE_DASH		-35
 # define ERR_NAME_LINK2_NOMATCH -36
+# define ERR_ADD_NAME_INDEX		-37
+# define ERR_REALLOC_INDEX_ROOM -38
 
-# define LAST_ERROR				37
+# define LAST_ERROR				39
 
 /*
 ** Define special room
@@ -85,6 +88,7 @@ typedef unsigned long u_long;
 typedef struct			s_hash
 {
 	char				*room_name;
+	unsigned int		index_room;
 	struct s_hash		*next;
 }						t_hash;
 
@@ -104,6 +108,9 @@ typedef struct			s_hash_coor
 typedef struct			s_env
 {
 	char			*save_map;
+	char			**index_room;
+	unsigned int	index_room1;
+	unsigned int	index_room2;
 	unsigned int	len_map;
 	unsigned int	pos_map;
 	unsigned int	nb_ant;
@@ -122,6 +129,7 @@ int				main(int argc, char **argv);
 t_env			*init_struct(void);
 unsigned long	hash_djb2(unsigned char *str);
 void			free_struct(t_env **env);
+void			*free_hashtab(t_env **env, bool type);
 int				exit_error(char status, char *current_line, t_env **e);
 bool			output_help(bool return_value);
 
@@ -139,6 +147,7 @@ char			valid_and_set_room(char *current_line, t_env **env);
 char			check_room(char *current_line, t_env **env);
 char			check_special_line(char *current_line, t_env **env);
 char			check_name_room(char *current_line, t_env **env, int *i);
+char			add_name_ptr_index(t_env **env, char *room_name);
 char			check_coor_room(char *current_line, t_env **env, int *i);
 char			check_n_max_int(char *current_line, int start, int len);
 char			check_room_step_valid(t_env **env);

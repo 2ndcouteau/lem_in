@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/06/09 03:28:32 by yoko             ###   ########.fr        #
+#    Updated: 2017/06/09 18:09:48 by yoko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -43,6 +43,7 @@ SRCS_CHECK_LINE =	$(PATH_CHECK_LINE)check_line.c \
 					$(PATH_CHECK_LINE)valid_and_set_room.c \
 					$(PATH_CHECK_LINE)check_special_line.c \
 					$(PATH_CHECK_LINE)check_name_room.c \
+					$(PATH_CHECK_LINE)add_name_ptr_index.c \
 					$(PATH_CHECK_LINE)check_coor_room.c \
 					$(PATH_CHECK_LINE)check_n_max_int.c \
 					$(PATH_CHECK_LINE)check_room_step_valid.c \

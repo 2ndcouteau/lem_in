@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 01:29:13 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/20 00:06:48 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/09 16:49:58 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,21 @@ void		print_hashtable_coor(t_hash_coor **hashtab)
 	}
 }
 
+void		print_tab(char **index_room)
+{
+	int		i;
+
+	i = 0;
+	while (index_room[i] != NULL)
+	{
+		ft_putendl(index_room[i]);
+		i++;
+	}
+}
+
 void		debug_struct(t_env *env)
 {
-	char *tmp;
+	char	*tmp;
 	ft_putendl("\n################\n- DEBUG OUTPUT -\n################\n");
 	if (env != NULL)
 	{
@@ -117,6 +129,8 @@ void		debug_struct(t_env *env)
 			print_hashtable_coor(env->tab_coor);
 		else
 			ft_putendl("tab_coor = (null)");
+		if (env->index_room != NULL)
+			print_tab(env->index_room);
 		tmp = NULL;
 	}
 }

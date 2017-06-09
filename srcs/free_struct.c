@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:55:55 by yoko              #+#    #+#             */
-/*   Updated: 2017/05/19 17:09:09 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/09 18:07:47 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	*free_list_coor(t_hash_coor *node)
 	return (NULL);
 }
 
-static void	*free_hashtab(t_env **env, bool type)
+void		*free_hashtab(t_env **env, bool type)
 {
 	int 		i;
 
@@ -69,25 +69,19 @@ static void	*free_hashtab(t_env **env, bool type)
 	return (NULL);
 }
 
-// static void	**free_hashtab_clean(void **hashtab, u_long size, bool type)
-// {
-// 	int 		i;
-//
-// 	i = 0;
-// 	while (i < size)
-// 	{
-// 		if (hashtab[i] != NULL)
-// 		{
-// 			if (type == 0)
-// 				hashtab[i] = free_list_name(hashtab[i]);
-// 			else
-// 				hashtab[i] = free_list_coor(hashtab[i]);
-// 		}
-// 		++i;
-// 	}
-// 	free(hashtab);
-// 	return (NULL);
-// }
+static void	*free_index_room(char **index_room)
+{
+	int			i;
+
+	i = 0;
+	while (index_room[i] != NULL)
+	{
+		index_room[i] = NULL;
+		i++;
+	}
+	free(index_room);
+	return (NULL);
+}
 
 void		free_struct(t_env **env)
 {
@@ -97,6 +91,8 @@ void		free_struct(t_env **env)
 		{
 			if ((*env)->save_map != NULL)
 				(*env)->save_map = ft_free_line(&((*env)->save_map));
+			if ((*env)->index_room != NULL)
+				(*env)->index_room = free_index_room((*env)->index_room);
 			if ((*env)->start_room != NULL)
 				(*env)->start_room = ft_free_line(&((*env)->start_room));
 			if ((*env)->end_room != NULL)

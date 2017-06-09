@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 03:26:43 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/09 04:53:43 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/09 17:29:37 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char	valid_first_room(char *current_line, t_env **env, int *i)
 		{
 			if (!ft_strcmp(list->room_name, room_name))
 			{
-				// recup index name in env->room1_index
+				(*env)->index_room1 = list->index_room;
 				room_name = ft_free_line(&room_name);
 				return (SUCCESS);
 			}
@@ -64,7 +64,7 @@ static char browse_list_name(unsigned long hash_value, char *room_name, t_env **
 		{
 			if (!ft_strcmp(list->room_name, room_name))
 			{
-				// recup index name in env->room2_index
+				(*env)->index_room1 = list->index_room;
 				return (SUCCESS);
 			}
 			list = list->next;
@@ -78,6 +78,7 @@ static char	valid_second_room(char *current_line, t_env **env, int *i)
 	unsigned long	hash_value;
 	char			*room_name;
 	int				pos;
+	char			ret;
 
 	pos = *i;
 	if (current_line[*i] == 'L')
@@ -86,11 +87,11 @@ static char	valid_second_room(char *current_line, t_env **env, int *i)
 		*i += 1;
 	if (current_line[*i] == '-')
 		return (ERR_DOUBLE_DASH);
-	ft_putendl("COUCOU YOLOLOLO");
 	room_name = ft_strndup(current_line, pos, *i);
 	hash_value = hash_djb2((unsigned char *)room_name);
-	return (browse_list_name(hash_value, room_name, env));
-	// NEED TO FREE room_name
+	ret = browse_list_name(hash_value, room_name, env);
+	room_name = ft_free_line(&room_name);
+	return (ret);
 }
 
 char		valid_and_set_links(char *current_line, t_env **env)
