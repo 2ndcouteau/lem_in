@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:54:06 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/09 05:12:51 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/09 05:26:02 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ const char *g_tab_error_toto[] =
 	"\" Failed to create a new node in coor_room hastable.",
 	"\" The coordinates are already used.",
 	"\" Start room can not be set with a link.",
-	"\" End room can not be set with a link."
-	"\" Link line must start by a room name."
-	"\" Link room name can not start by 'L'."
-	"\"	In link line, rooms must be separate by a dash: ROOM1-ROOM2"
-	"\" First room name of the link is unknown."
-	"\" Link line must have only one dash: ROOM1-ROOM2."
+	"\" End room can not be set with a link.",
+	"\" Link line must start by a room name.",
+	"\" Link room name can not start by 'L'.",
+	"\"	In link line, rooms must be separate by a dash: ROOM1-ROOM2",
+	"\" First room name of the link is unknown.",
+	"\" Link line must have only one dash: ROOM1-ROOM2.",
 	"\" Second room name of the link is unknown."
 };
 //12
@@ -94,15 +94,15 @@ int			exit_error(char status, char *current_line, t_env **env)
 		ft_putnbr_fd((*env)->nb_line, 2);
 		ft_putstr_fd(" \"", 2);
 		ft_putstr_fd(current_line, 2);
-		dprintf(2, "\nSTATUS == %d -- Status - 1 = %d  ---  Status - 25 == %d\n",status, status -1, status -25); // DEBUG
+//		dprintf(2, "\nSTATUS == %d -- Status - 1 = %d  ---  Status - 25 == %d\n",status, status -1, status -25); // DEBUG
 		if (status <= 24)
 		{
-			ft_putendl_fd("STATUS <= 24", 2); // DEBUG
+//			ft_putendl_fd("STATUS <= 24", 2); // DEBUG
 			ft_putendl_fd(g_tab_error_1[status - 1], 2);
 		}
 		else if (status < LAST_ERROR)
 		{
-			ft_putendl_fd("STATUS >= 25", 2); // DEBUG
+//			ft_putendl_fd("STATUS >= 25", 2); // DEBUG
 			ft_putendl_fd(g_tab_error_toto[(status - 25)], 2);
 		}
 		else
