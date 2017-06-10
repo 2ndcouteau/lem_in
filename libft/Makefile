@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/11 17:26:56 by qrosa             #+#    #+#              #
-#    Updated: 2017/01/23 22:44:32 by yoko             ###   ########.fr        #
+#    Updated: 2017/06/10 04:23:06 by yoko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -139,7 +139,7 @@ INCL		=	includes
 
 # Option - Compilation
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror -g
+CFLAGS		=	-Wall -Wextra -Werror -g3 -O0
 NAME		=	libft.a
 
 # Color of Skills

@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 03:26:43 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/09 17:29:37 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/10 02:45:55 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,8 @@ static char	valid_second_room(char *current_line, t_env **env, int *i)
 		*i += 1;
 	if (current_line[*i] == '-')
 		return (ERR_DOUBLE_DASH);
-	room_name = ft_strndup(current_line, pos, *i);
+	room_name = ft_strndup(current_line, pos, (*i - pos));
+//	ft_putendl_fd(room_name, 2);	// DEBUG
 	hash_value = hash_djb2((unsigned char *)room_name);
 	ret = browse_list_name(hash_value, room_name, env);
 	room_name = ft_free_line(&room_name);

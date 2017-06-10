@@ -9,6 +9,7 @@
 ########################
 
 -- SEGV with script_map/map*k.map
+	Need to change check -- Replace "\n\0 " by "ft_isprint()"
 
 ########################
 #          TODO        #

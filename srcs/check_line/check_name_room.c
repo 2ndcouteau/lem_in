@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 16:19:14 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/09 18:16:46 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/10 04:35:33 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static bool	insert_in_hashtab(t_hash *node, t_env **env, u_long hash_value)
 	int				tmp;
 
 	tmp = hash_value % HASHTAB_SIZE_NAME;		// can replace tmp by calcul in []
-//	printf("hash_value = %d\n", tmp);		// DEBUG
+	printf("hash_value = %d\n", tmp);		// DEBUG
 	if (tmp < 0)
 		tmp = -tmp;
 	if ((*env)->tab_rooms == NULL)	//  ??
@@ -52,7 +52,7 @@ static bool	insert_in_hashtab(t_hash *node, t_env **env, u_long hash_value)
 				return (ERROR);
 			list = list->next;
 		}
-//		printf("list_name = %lu, && node_name = %lu\n", hash_value, ft_strlen(node->room_name));		// DEBUG
+		printf("list_name = %lu, && node_name = %lu\n", hash_value, ft_strlen(node->room_name));		// DEBUG
 		if (!ft_strcmp(list->room_name, node->room_name))
 			return (ERROR);
 		list->next = node;

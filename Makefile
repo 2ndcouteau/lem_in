@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/06/09 18:09:48 by yoko             ###   ########.fr        #
+#    Updated: 2017/06/09 22:49:32 by yoko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -64,7 +64,7 @@ LFT			=	-L ./libft/ -lft
 # Options can be changed
 CFLAGS		=	-Wall -Wextra -Werror
 CFLAGS_OBJ	=	-Wall -Wextra -Werror
-DEBUG_F		=	-g
+DEBUG_F		=	-O0 -g3
 CC			=	gcc
 NAME		=	lem-in
 

@@ -6,12 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 16:15:27 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/09 18:03:43 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/09 22:54:27 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-
 
 char		valid_and_set_room(char *current_line, t_env **env)
 {
