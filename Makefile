@@ -59,7 +59,9 @@ OBJ			=	$(SRCS:.c=.o) \
 # Lib includes
 INC			=	-I ./includes/
 LIBFT		=	libft/libft.a
+LIBGRAPH	=	libgraph/libgraph.a
 LFT			=	-L ./libft/ -lft
+LGF			=	-L ./libgraph/ -lgraph
 
 # Options can be changed
 CFLAGS		=	-Wall -Wextra -Werror
@@ -86,12 +88,15 @@ debug:
 
 db: 			debug all
 
+$(LIBGRAPH):
+				@make -C libgraph
+
 $(LIBFT):
 				@make -C libft
 
-$(NAME): 		$(OBJ) libft/ Makefile
+$(NAME): 		$(OBJ) libft/ libgraph/ Makefile
 				@echo "${BLUE}-- Linking $(NAME)${NC}"
-				@$(CC) $(OBJ) $(CFALGS) -o $(NAME) $(INC) $(LFT)
+				@$(CC) $(OBJ) $(CFALGS) -o $(NAME) $(INC) $(LFT) $(LGF)
 
 %.o: %.c
 				@echo "${CYAN}Compiling $^ into $@ ${NC}";
@@ -99,12 +104,14 @@ $(NAME): 		$(OBJ) libft/ Makefile
 
 clean:
 				@make clean -C libft
+				@make clean -C libgraph
 				@echo "${YELLOW}-- Delete lem_in/libft		Objects OK ${NC}";
 				@rm -f $(OBJ)
 
 fclean: 		clean
 				@echo "${RED}-- Remove $(LIBFT)			OK${NC}"
-				@rm -f $(LIBFT)
+				@make -C fclean libft
+				@make -C fclean libgraph
 				@echo "${RED}-- Remove $(NAME)			OK${NC}"
 				@rm -f $(NAME)
 
