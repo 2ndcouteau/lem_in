@@ -24,20 +24,6 @@ static char	check_special_ant_line(char *current_line)
 	return (STATE_CHECK_ANT);
 }
 
-static bool	check_ascii_n_range(char *str, char *model, int len)
-{
-	int	i;
-
-	i = 0;
-	while (i < len)
-	{
-		if (str[i] > model[i])
-			return (ERROR);
-		++i;
-	}
-	return (SUCCESS);
-}
-
 static char	check_max_int(char *current_line)
 {
 	int len;
@@ -49,7 +35,7 @@ static char	check_max_int(char *current_line)
 	{
 		if (len == 10)
 		{
-			if (!check_ascii_n_range(current_line, "2147483647", len))
+			if (!ft_strncmp(current_line, "2147483647", len))
 				return (SUCCESS);
 		}
 		return (ERROR);
