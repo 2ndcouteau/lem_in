@@ -13,6 +13,7 @@
 SRC			=	ft_atoi.c\
 				ft_itoa.c\
 				ft_bzero.c\
+				ft_abs.c\
 \
 				ft_isalnum.c\
 				ft_isalnum_var.c\
