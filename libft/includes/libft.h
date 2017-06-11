@@ -177,6 +177,8 @@ int					get_next_line(int const fd, char **line);
 
 void				ft_quicksort(void **array, int start, int end,\
 									int (*get)(void *x));
+int					ft_arraylen(void **array);
+
 
 /*
 *******************

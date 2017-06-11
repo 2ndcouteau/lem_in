@@ -118,6 +118,7 @@ SRC			=	ft_atoi.c\
 \
 				get_next_line.c\
 				ft_quicksort.c\
+				ft_arraylen.c\
 \
 				opt_check_options.c\
 				opt_exist_letter.c\
