@@ -117,6 +117,7 @@ SRC			=	ft_atoi.c\
 				ft_check_typefile.c\
 \
 				get_next_line.c\
+				ft_quicksort.c\
 \
 				opt_check_options.c\
 				opt_exist_letter.c\

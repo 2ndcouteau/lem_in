@@ -175,6 +175,9 @@ char				ft_check_typefile(mode_t mode);
 */
 int					get_next_line(int const fd, char **line);
 
+void				ft_quicksort(void **array, int start, int end,\
+									int (*get)(void *x));
+
 /*
 *******************
 **	Get_Arg_Opt  **
