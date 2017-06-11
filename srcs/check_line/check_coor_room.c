@@ -60,11 +60,6 @@ static char		check_coor_y(char *current_line, int *i, int *coor_y)
 	return (SUCCESS);
 }
 
-static int ft_abs(int x)
-{
-	return (x > 0 ? x : -x);
-}
-
 static bool	insert_in_hashtab(t_hash_coor *node, t_env **env, int coor_x)
 {
 	t_hash_coor	*list;
