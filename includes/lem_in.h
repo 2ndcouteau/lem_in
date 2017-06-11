@@ -14,6 +14,8 @@
 # define LEM_IN
 
 # include "libft.h"
+# include "libmatgraph.h"
+
 
 # define HASHTAB_SIZE_NAME		128
 # define HASHTAB_SIZE_COOR		128
@@ -76,6 +78,20 @@
 # define SPE_BASIC_ROOM			0
 # define SPE_START_ROOM			1
 # define SPE_END_ROOM			2
+
+typedef struct		s_ant
+{
+	t_path			*path;
+	unsigned long	path_position;
+}					t_ant;
+
+typedef struct		s_anthill
+{
+	t_ant			*ants;
+	unsigned long	waiting_ants;
+}					t_anthill;
+void				print_solution(t_path **paths, unsigned long lemins,
+								   unsigned long turns);
 
 /*
 **	Norme compliant
