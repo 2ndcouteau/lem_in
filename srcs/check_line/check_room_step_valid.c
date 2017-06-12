@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "lem_in.h"
+#include "../../includes/lem_in.h"
 
 char	check_room_step_valid(t_env **env)
 {
@@ -18,9 +19,10 @@ char	check_room_step_valid(t_env **env)
 		return (ERR_NO_ROOM);
 	else if ((*env)->nb_room == 1)
 		return (ERR_MORE_ROOM);
-	else if ((*env)->start_room == NULL)
+	else if ((*env)->start_room < 0)
 		return (ERR_SET_START);
-	else if ((*env)->end_room == NULL)
+	else if ((*env)->end_room < 0)
 		return (ERR_SET_END);
+	(*env)->graph = new_matrice_graph((*env)->nb_room);
 	return (STATE_CHECK_LINK);
 }

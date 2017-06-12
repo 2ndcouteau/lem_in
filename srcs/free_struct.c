@@ -93,10 +93,6 @@ void		free_struct(t_env **env)
 				(*env)->save_map = ft_free_line(&((*env)->save_map));
 			if ((*env)->index_room != NULL)
 				(*env)->index_room = free_index_room((*env)->index_room);
-			if ((*env)->start_room != NULL)
-				(*env)->start_room = ft_free_line(&((*env)->start_room));
-			if ((*env)->end_room != NULL)
-				(*env)->end_room = ft_free_line(&((*env)->end_room));
 			if ((*env)->tab_rooms != NULL)
 			 	(*env)->tab_rooms = free_hashtab(env, 0);
 			if ((*env)->tab_coor != NULL)

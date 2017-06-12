@@ -88,6 +88,8 @@ static t_path	*get_path_with_dfs(t_matrice_graph *graph, t_pathfind *pfind)
 	return (p);
 }
 
+#include <stdio.h>
+
 t_path					**graph_to_paths(t_matrice_graph *graph,
 										   t_pathfind *pfind)
 {
@@ -96,8 +98,9 @@ t_path					**graph_to_paths(t_matrice_graph *graph,
 	unsigned long	total;
 
 	i = 0;
+	paths = NULL;
 	total = nb_paths(graph, pfind);
-	if ((paths = (t_path**)malloc(sizeof(t_path*) * (total + 1))))
+	if (total > 0 && (paths = (t_path**)malloc(sizeof(t_path*) * (total + 1))))
 	{
 		while (i < total)
 		{

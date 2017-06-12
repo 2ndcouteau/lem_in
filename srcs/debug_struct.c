@@ -117,8 +117,8 @@ void		debug_struct(t_env *env)
 		tmp = ft_itoa(env->nb_room);
 		print_elem("Nb_room == ", tmp);
 		free(tmp);
-		print_elem("Start room == ", env->start_room);
-		print_elem("End room == ", env->end_room);
+//		print_elem("Start room == ", env->start_room);
+//		print_elem("End room == ", env->end_room);
 		ft_putendl("\n- Hashtable Name Room -\n");
 		if (env->tab_rooms != NULL)
 			print_hashtable(env->tab_rooms);

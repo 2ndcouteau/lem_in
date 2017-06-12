@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "lem_in.h"
+#include "../includes/lem_in.h"
 
 static t_hash	**init_hashtable_name(void)
 {
@@ -77,8 +78,9 @@ t_env 			*init_struct(void)
 	env->nb_link = 0;
 	env->nb_line = 0;
 	env->special_room = SPE_BASIC_ROOM;
-	env->start_room = NULL;
-	env->end_room = NULL;
+	env->start_room = -1;
+	env->end_room = -1;
+	env->graph = NULL;
 	env->tab_rooms = init_hashtable_name();
 	env->tab_coor = init_hashtable_coor();
 	return (env);

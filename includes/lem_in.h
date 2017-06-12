@@ -134,10 +134,11 @@ typedef struct			s_env
 	unsigned int	nb_link;
 	unsigned int	nb_line;
 	char			special_room;
-	char			*start_room;
-	char			*end_room;
+	int				start_room;
+	int				end_room;
 	t_hash			**tab_rooms;
 	t_hash_coor		**tab_coor;
+	t_matrice_graph	*graph;
 }						t_env;
 
 int				main(int argc, char **argv);
@@ -174,5 +175,9 @@ char			valid_and_set_links(char *current_line, t_env **env);
 **	TMP Declarations
 */
 void			debug_struct(t_env *env);
+
+t_path			**get_optimum_paths(t_matrice_graph *graph, unsigned long src,
+									  unsigned long dst, unsigned long lemins);
+int				resolve(t_env *env);
 
 #endif

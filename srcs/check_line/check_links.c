@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/lem_in.h"
 #include "lem_in.h"
 
 char	check_special_link_line(char *current_line, t_env **env)
@@ -41,6 +42,7 @@ char		check_links(char *current_line, t_env **env)
 	if ((ret = valid_and_set_links((current_line + i), env)) != SUCCESS)
 		return (ret);
 	(*env)->nb_link++;
+	set_link((*env)->graph, (*env)->index_room1, (*env)->index_room2, 0);
 	// Call function set_link_graph();	// IMPLEMENT
 	if (buff_add_str(env, current_line))
 		return (ERR_MAP_SCALE);

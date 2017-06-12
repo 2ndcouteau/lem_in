@@ -33,6 +33,7 @@ SRCS			=	$(PATH_SOURCES)main.c \
 					$(PATH_SOURCES)free_struct.c\
 					$(PATH_SOURCES)exit_error.c \
 					$(PATH_SOURCES)output_help.c \
+					$(PATH_SOURCES)get_optimum_paths.c \
 					$(PATH_SOURCES)resolve.c \
 					$(PATH_SOURCES)print_solution.c \
 					$(PATH_SOURCES)debug_struct.c

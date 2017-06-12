@@ -64,9 +64,9 @@ static void	end_file_errors(char status, t_env **env)
 		ft_putendl_fd("ERROR : The map is empty.", 2);
 	else if ((*env)->nb_room == 0)
 		ft_putendl_fd("ERROR : There is no room.", 2);
-	else if ((*env)->start_room == NULL)
+	else if ((*env)->start_room < 0)
 		ft_putendl_fd("ERROR : There is no start room.", 2);
-	else if ((*env)->end_room == NULL)
+	else if ((*env)->end_room < 0)
 		ft_putendl_fd("ERROR : There is no end room.", 2);
 	else if (status == STATE_CHECK_ROOM)
 	{

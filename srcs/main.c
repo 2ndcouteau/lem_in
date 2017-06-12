@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "lem_in.h"
+#include "../includes/lem_in.h"
 
 bool	read_file(t_env **env)
 {
@@ -33,9 +34,12 @@ bool	start_lem_in(void)
 	t_env	*env;
 
 	env = init_struct();
-	read_file(&env);
-	ft_putnendl(env->save_map, env->pos_map); // FIRST Output Part
-	debug_struct(env);		//DEBUG // maybe implement option for one bonus.
+	if (read_file(&env) == SUCCESS)
+	{
+		resolve(env);
+		delete_matrice_graph(&(env->graph));
+	}
+//	debug_struct(env);		//DEBUG // maybe implement option for one bonus.
 	free_struct(&env);
 	return (SUCCESS);
 }

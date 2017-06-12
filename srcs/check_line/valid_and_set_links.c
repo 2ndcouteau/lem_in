@@ -64,7 +64,7 @@ static char browse_list_name(unsigned long hash_value, char *room_name, t_env **
 		{
 			if (!ft_strcmp(list->room_name, room_name))
 			{
-				(*env)->index_room1 = list->index_room;
+				(*env)->index_room2 = list->index_room;
 				return (SUCCESS);
 			}
 			list = list->next;

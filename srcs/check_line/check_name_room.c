@@ -11,21 +11,16 @@
 /* ************************************************************************** */
 
 #include "lem_in.h"
+#include "../../includes/lem_in.h"
 
-static bool	set_special_room(char *name_room, t_env **env)
+static bool	set_special_room(t_env **env)
 {
 	if ((*env)->special_room == SPE_BASIC_ROOM)
 		return (SUCCESS);
 	else if ((*env)->special_room == SPE_START_ROOM)
-	{
-		if (!((*env)->start_room = ft_strdup(name_room)))
-			return (ERROR);
-	}
+		(*env)->start_room = (*env)->nb_room;
 	else
-	{
-		if (!((*env)->end_room = ft_strdup(name_room)))
-			return (ERROR);
-	}
+		(*env)->end_room = (*env)->nb_room;
 	(*env)->special_room = SPE_BASIC_ROOM;
 	return (SUCCESS);
 }
@@ -77,7 +72,7 @@ static char	add_to_hashtab_name(char *current_line, t_env **env, int len_name)
 	new_node->next = NULL;
 	if ((ret = add_name_ptr_index(env, name_room)) != SUCCESS)
 		return (ret);
-	if (set_special_room(name_room, env))
+	if (set_special_room(env))
 		return (ERR_SPE_ROOM);
 	if (insert_in_hashtab(new_node, env, hash_value))
 		return (ERR_ROOM_EXIST);
