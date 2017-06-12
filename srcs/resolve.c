@@ -57,10 +57,7 @@ int resolve(t_env *env) {
 		print_solution(paths, env->nb_ant, turns);
 	}
 	else
-	{
-		printf("ERROR\n");
 		return (ERROR);
-	}
 	delete_path_array(&paths);
 	return (SUCCESS);
 }
