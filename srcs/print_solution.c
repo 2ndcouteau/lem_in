@@ -92,6 +92,14 @@ static void	print_ants(t_ant *ants, unsigned long lemins, t_env *env)
 	ft_putchar('\n');
 }
 
+void		print_direct_way(t_path **paths, t_anthill *anthill,
+							 unsigned long lemins, t_env *env)
+{
+	while (anthill->waiting_ants)
+		push_to_paths(anthill, paths);
+	print_ants(anthill->ants, lemins, env);
+}
+
 void		print_solution(t_path **paths, t_env *env, unsigned long turns)
 {
 	t_anthill		anthill;
@@ -102,14 +110,19 @@ void		print_solution(t_path **paths, t_env *env, unsigned long turns)
 	if ((anthill.ants = (t_ant*)malloc(sizeof(t_ant) * (lemins + 1))))
 	{
 		init_ants(anthill.ants, lemins);
-		while (turns)
+		if (paths[0]->len > 1)
 		{
-			move_forward(anthill.ants, lemins);
-			eject_out_ants(anthill.ants, lemins);
-			push_to_paths(&anthill, paths);
-			print_ants(anthill.ants, lemins, env);
-			--turns;
+			while (turns)
+			{
+				move_forward(anthill.ants, lemins);
+				eject_out_ants(anthill.ants, lemins);
+				push_to_paths(&anthill, paths);
+				print_ants(anthill.ants, lemins, env);
+				--turns;
+			}
 		}
+		else
+			print_direct_way(paths, &anthill, lemins, env);
 		free(anthill.ants);
 	}
 	else

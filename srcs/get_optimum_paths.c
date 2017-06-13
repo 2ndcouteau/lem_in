@@ -14,7 +14,9 @@
 
 static int	max_path_len(unsigned long lemins, unsigned long shortest_len)
 {
-	return (ft_abs(((shortest_len - 1) - lemins)) + shortest_len);
+	if (shortest_len > 1)
+		return (ft_abs(((shortest_len - 1) - lemins)) + shortest_len);
+	return (1);
 }
 
 t_path		**get_optimum_paths(t_matrice_graph *graph, unsigned long src,
