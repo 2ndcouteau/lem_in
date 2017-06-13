@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/13 03:24:27 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/13 04:11:20 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "libft.h"
 # include "libmatgraph.h"
-
 
 # define HASHTAB_SIZE_NAME		128
 # define HASHTAB_SIZE_COOR		128

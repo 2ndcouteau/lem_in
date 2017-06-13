@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 16:15:27 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/09 22:54:27 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/13 04:02:59 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,5 @@ char		valid_and_set_room(char *current_line, t_env **env)
 		return (ERR_NO_COOR);
 	if ((ret = check_coor_room(current_line, env, &i)) != SUCCESS)
 		return (ret);
-	// Free coor hashtab  final version
-	// if ((*env)->tab_coor != NULL)
-	//  	(*env)->tab_coor = free_hashtab(env, 1);
 	return (SUCCESS);
 }

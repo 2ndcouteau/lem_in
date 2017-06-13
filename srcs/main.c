@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:29:08 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/13 03:15:49 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/13 04:03:48 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ bool	read_file(t_env **env)
 		ft_free_line(&current_line);
 	}
 //	printf("State == %d\n", state); // DEBUG
+	if ((*env)->tab_coor != NULL)
+	 	(*env)->tab_coor = free_hashtab(env, 1);
 	if (state < STATE_CHECK_LINK)
 		return (exit_error(state, current_line, env));
 	ft_free_line(&current_line);

@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 01:29:13 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/09 16:49:58 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/13 03:57:17 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,8 @@ void		debug_struct(t_env *env)
 		tmp = ft_itoa(env->nb_room);
 		print_elem("Nb_room == ", tmp);
 		free(tmp);
-//		print_elem("Start room == ", env->start_room);
-//		print_elem("End room == ", env->end_room);
+		// print_elem("Start room == ", env->start_room); // DEBUG
+		// print_elem("End room == ", env->end_room);	// DEBUG
 		ft_putendl("\n- Hashtable Name Room -\n");
 		if (env->tab_rooms != NULL)
 			print_hashtable(env->tab_rooms);
@@ -128,7 +128,7 @@ void		debug_struct(t_env *env)
 		if (env->tab_coor != NULL)
 			print_hashtable_coor(env->tab_coor);
 		else
-			ft_putendl("tab_coor = (null)");
+			ft_putendl("tab_coor = (null) -- free in valid_and_set_room");
 		if (env->index_room != NULL)
 			print_tab(env->index_room);
 		tmp = NULL;

@@ -8,17 +8,13 @@
 #      IN PROGRESS     #
 ########################
 
--- SEGV with script_map/map*k.map
-	Need to change check -- Replace "\n\0 " by "ft_isprint()"
 
 ########################
 #          TODO        #
 ########################
 
 !!-- Maybe change djistra hash method by another one
--- Free hashtab_coor in valid_and_set_room();
 -- Manage empty space at the end of special line
--- LEAK with get_next_line
 
 ########################
 #          DONE        #
@@ -54,3 +50,9 @@
 	if name does not exist return error
 		OK) check in hashtab
 -- Create Index_tab for link room names and index matrice
+-- SEGV with script_map/map*k.map
+	coor_x was use as index for coor_hastable, but was not check as an absolute value
+	so, the value could be negative and point to the previous hashtable,
+		room_hastable.
+-- Free hashtab_coor in valid_and_set_room();
+-- LEAK with get_next_line
