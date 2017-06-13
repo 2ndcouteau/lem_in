@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/09 18:16:42 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/13 02:17:52 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,13 +171,13 @@ char			check_room_step_valid(t_env **env);
 char			check_links(char *current_line, t_env **env);
 char			valid_and_set_links(char *current_line, t_env **env);
 
+t_path			**get_optimum_paths(t_matrice_graph *graph, unsigned long src,
+									  unsigned long dst, unsigned long lemins);
+int				resolve(t_env *env);
+
 /*
 **	TMP Declarations
 */
 void			debug_struct(t_env *env);
-
-t_path			**get_optimum_paths(t_matrice_graph *graph, unsigned long src,
-									  unsigned long dst, unsigned long lemins);
-int				resolve(t_env *env);
 
 #endif

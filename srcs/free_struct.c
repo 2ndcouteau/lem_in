@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:55:55 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/09 18:07:47 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/13 02:29:11 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	*free_list_name(t_hash *node)
 	{
 		tmp = node;
 		node = node->next;
-		tmp->room_name = ft_free_line(&(tmp->room_name));
+		ft_free_line(&(tmp->room_name));
 		tmp->next = NULL;
 		free(tmp);
 	}
@@ -90,7 +90,7 @@ void		free_struct(t_env **env)
 		if (*env != NULL)
 		{
 			if ((*env)->save_map != NULL)
-				(*env)->save_map = ft_free_line(&((*env)->save_map));
+				ft_free_line(&((*env)->save_map));
 			if ((*env)->index_room != NULL)
 				(*env)->index_room = free_index_room((*env)->index_room);
 			if ((*env)->tab_rooms != NULL)

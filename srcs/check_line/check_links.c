@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 00:58:53 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/09 18:04:13 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/13 02:21:10 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ char		check_links(char *current_line, t_env **env)
 		return (ret);
 	(*env)->nb_link++;
 	set_link((*env)->graph, (*env)->index_room1, (*env)->index_room2, 0);
-	// Call function set_link_graph();	// IMPLEMENT
 	if (buff_add_str(env, current_line))
 		return (ERR_MAP_SCALE);
 	return (STATE_CHECK_LINK);

@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:29:08 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/09 18:01:00 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/13 02:28:03 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	read_file(t_env **env)
 //	printf("State == %d\n", state); // DEBUG
 	if (state < STATE_CHECK_LINK)
 		return (exit_error(state, current_line, env));
-	current_line = ft_free_line(&current_line);
+	ft_free_line(&current_line);
 	return (SUCCESS);
 }
 

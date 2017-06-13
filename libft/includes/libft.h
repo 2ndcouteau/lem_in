@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 13:38:35 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/11 14:37:36 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/13 02:27:43 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ void				ft_memdel(void **ap);
 /*
 ** Free Functions
 */
-void				*ft_free_line(char **line);
+void				ft_free_line(char **line);
 char				**ft_free_tab(char **mytab);
 
 /*

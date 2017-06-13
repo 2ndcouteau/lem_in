@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/06/13 01:13:41 by yoko             ###   ########.fr        #
+#    Updated: 2017/06/13 02:31:14 by yoko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -96,7 +96,7 @@ $(LIBGRAPH):
 $(LIBFT):
 				@make -C libft
 
-$(NAME): 		$(OBJ) Makefile /libft /libgraph
+$(NAME): 		$(OBJ) Makefile libft/ libgraph/
 				@echo "${BLUE}-- Linking $(NAME)${NC}"
 				@$(CC) $(OBJ) $(CFALGS) -o $(NAME) $(INC) $(LFT) $(LGF)
 

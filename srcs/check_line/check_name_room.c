@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 16:19:14 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/10 04:35:33 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/13 02:23:05 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,7 @@ static bool	insert_in_hashtab(t_hash *node, t_env **env, u_long hash_value)
 	t_hash			*list;
 	int				tmp;
 
-	tmp = hash_value % HASHTAB_SIZE_NAME;		// can replace tmp by calcul in []
-	if (tmp < 0)
-		tmp = -tmp;
-	if ((*env)->tab_rooms == NULL)	//  ??
-		ft_putendl("TAB NULL");		// DEBUG
+	tmp = ft_abs(hash_value % HASHTAB_SIZE_NAME);
 	if ((*env)->tab_rooms[tmp] == NULL)
 		(*env)->tab_rooms[tmp] = node;
 	else
