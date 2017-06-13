@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/13 02:17:52 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/13 03:24:27 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,6 @@ typedef struct		s_anthill
 	t_ant			*ants;
 	unsigned long	waiting_ants;
 }					t_anthill;
-void				print_solution(t_path **paths, unsigned long lemins,
-								   unsigned long turns);
 
 /*
 **	Norme compliant
@@ -172,8 +170,10 @@ char			check_links(char *current_line, t_env **env);
 char			valid_and_set_links(char *current_line, t_env **env);
 
 t_path			**get_optimum_paths(t_matrice_graph *graph, unsigned long src,
-									  unsigned long dst, unsigned long lemins);
+								  unsigned long dst, unsigned long lemins);
 int				resolve(t_env *env);
+void			print_solution(t_path **paths, t_env *env,
+														unsigned long turns);
 
 /*
 **	TMP Declarations

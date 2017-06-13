@@ -6,7 +6,7 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 19:45:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/11 19:45:00 by avallete         ###   ########.fr       */
+/*   Updated: 2017/06/13 03:27:00 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,12 @@ static void	print_ants(t_ant *ants, unsigned long lemins)
 	ft_putchar('\n');
 }
 
-void	print_solution(t_path **paths, unsigned long lemins,
-					   unsigned long turns)
+void	print_solution(t_path **paths, t_env *env, unsigned long turns)
 {
-	t_anthill anthill;
+	t_anthill		anthill;
+	unsigned long	lemins;
 
+	lemins = env->nb_ant;
 	anthill.waiting_ants = lemins;
 	if ((anthill.ants = (t_ant*)malloc(sizeof(t_ant) * (lemins + 1))))
 	{
@@ -111,5 +112,5 @@ void	print_solution(t_path **paths, unsigned long lemins,
 		free(anthill.ants);
 	}
 	else
-		ft_putstr("ERROR\n");
+		ft_putendl("ERROR : Malloc answer structure failed");
 }

@@ -4,9 +4,9 @@
 #include "../includes/libft.h"
 #include "../includes/lem_in.h"
 
-static void	delete_path_array(t_path ***paths)
+static void				delete_path_array(t_path ***paths)
 {
-	unsigned long i;
+	unsigned long	i;
 
 	if (*paths)
 	{
@@ -33,15 +33,16 @@ static unsigned long	compute_turns(t_path **paths, unsigned long lemins)
 	return (turns);
 }
 
-static int		get_path_len(void *ref)
+static int				get_path_len(void *ref)
 {
-	t_path *path;
+	t_path 			*path;
 
 	path = (t_path*)ref;
 	return ((int)path->len);
 }
 
-int resolve(t_env *env) {
+int						resolve(t_env *env)
+{
 	t_path			**paths;
 	unsigned long	turns;
 	unsigned long	pathslen;
@@ -54,7 +55,7 @@ int resolve(t_env *env) {
 		ft_quicksort((void**)paths, 0, pathslen, get_path_len);
 		turns = compute_turns(paths, env->nb_ant);
 		ft_putnendl(env->save_map, env->pos_map);
-		print_solution(paths, env->nb_ant, turns);
+		print_solution(paths, env, turns);
 	}
 	else
 		return (ERROR);
