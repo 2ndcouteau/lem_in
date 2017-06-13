@@ -62,13 +62,10 @@ static void	push_to_paths(t_anthill *anthill, t_path **paths)
 	{
 		anthill->ants[anthill->waiting_ants].path = paths[0];
 		anthill->waiting_ants--;
-		while (paths[i])
+		while (paths[i] && anthill->waiting_ants)
 		{
-			if (anthill->waiting_ants >= (paths[i]->len - 1))
-			{
-				anthill->ants[anthill->waiting_ants].path = paths[i];
-				anthill->waiting_ants--;
-			}
+			anthill->ants[anthill->waiting_ants].path = paths[i];
+			anthill->waiting_ants--;
 			++i;
 		}
 	}
