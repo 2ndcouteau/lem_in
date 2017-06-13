@@ -6,7 +6,7 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 19:45:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/13 03:27:00 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/13 03:50:24 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static void	init_ants(t_ant *ants, unsigned long lemins)
 {
-	unsigned long i;
+	unsigned long	i;
 
 	i = 0;
 	while (i < (lemins + 1))
@@ -28,7 +28,7 @@ static void	init_ants(t_ant *ants, unsigned long lemins)
 
 static void	eject_out_ants(t_ant *ants, unsigned long lemins)
 {
-	unsigned long i;
+	unsigned long	i;
 
 	i = 0;
 	while (i < (lemins + 1))
@@ -41,7 +41,7 @@ static void	eject_out_ants(t_ant *ants, unsigned long lemins)
 
 static void	move_forward(t_ant *ants, unsigned long lemins)
 {
-	unsigned long i;
+	unsigned long	i;
 
 	i = 0;
 
@@ -55,7 +55,7 @@ static void	move_forward(t_ant *ants, unsigned long lemins)
 
 static void	push_to_paths(t_anthill *anthill, t_path **paths)
 {
-	unsigned long i;
+	unsigned long	i;
 
 	i = 1;
 	if (anthill->waiting_ants > 0)
@@ -71,9 +71,9 @@ static void	push_to_paths(t_anthill *anthill, t_path **paths)
 	}
 }
 
-static void	print_ants(t_ant *ants, unsigned long lemins)
+static void	print_ants(t_ant *ants, unsigned long lemins, t_env *env)
 {
-	unsigned long i;
+	unsigned long	i;
 
 	i = 0;
 	while (i < (lemins + 1))
@@ -83,7 +83,8 @@ static void	print_ants(t_ant *ants, unsigned long lemins)
 			ft_putchar('L');
 			ft_putnbr((int)i);
 			ft_putchar('-');
-			ft_putnbr((int)(int)ants[i].path->path[(int)ants[i].path_position]);
+			ft_putstr(env->index_room[(int)(int)ants[i].path->path[
+												(int)ants[i].path_position]]);
 			ft_putchar(' ');
 		}
 		++i;
@@ -91,7 +92,7 @@ static void	print_ants(t_ant *ants, unsigned long lemins)
 	ft_putchar('\n');
 }
 
-void	print_solution(t_path **paths, t_env *env, unsigned long turns)
+void		print_solution(t_path **paths, t_env *env, unsigned long turns)
 {
 	t_anthill		anthill;
 	unsigned long	lemins;
@@ -106,7 +107,7 @@ void	print_solution(t_path **paths, t_env *env, unsigned long turns)
 			move_forward(anthill.ants, lemins);
 			eject_out_ants(anthill.ants, lemins);
 			push_to_paths(&anthill, paths);
-			print_ants(anthill.ants, lemins);
+			print_ants(anthill.ants, lemins, env);
 			--turns;
 		}
 		free(anthill.ants);
