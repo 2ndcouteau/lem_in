@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/06/09 22:49:32 by yoko             ###   ########.fr        #
+#    Updated: 2017/06/13 01:13:41 by yoko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -83,7 +83,7 @@ NC			=	\033[0m
 ################################################################################
 
 #	Make Rules
-all: 			$(LIBFT) $(NAME)
+all: 			$(LIBFT) $(LIBGRAPH) $(NAME)
 
 debug:
 				$(eval CFLAGS_OBJ += -DDEBUG)
@@ -96,7 +96,7 @@ $(LIBGRAPH):
 $(LIBFT):
 				@make -C libft
 
-$(NAME): 		$(OBJ) libft/ libgraph/ Makefile
+$(NAME): 		$(OBJ) Makefile /libft /libgraph
 				@echo "${BLUE}-- Linking $(NAME)${NC}"
 				@$(CC) $(OBJ) $(CFALGS) -o $(NAME) $(INC) $(LFT) $(LGF)
 
@@ -105,16 +105,18 @@ $(NAME): 		$(OBJ) libft/ libgraph/ Makefile
 				@$(CC) $(DEBUG_F) -c $^ -o $@ $(CFLAGS_OBJ) $(INC)
 
 clean:
+				@echo "${YELLOW}-- Call clean libft Obj		OK ${NC}";
 				@make clean -C libft
+				@echo "${YELLOW}-- Call clean libgraph Obj	OK ${NC}";
 				@make clean -C libgraph
-				@echo "${YELLOW}-- Delete lem_in/libft		Objects OK ${NC}";
 				@rm -f $(OBJ)
 
 fclean: 		clean
-				@echo "${RED}-- Remove $(LIBFT)			OK${NC}"
-				@make -C fclean libft
-				@make -C fclean libgraph
-				@echo "${RED}-- Remove $(NAME)			OK${NC}"
+				@echo "${RED}-- Delete $LIBFT			OK${NC}";
+				@rm -f $(LIBFT)
+				@echo "${RED}-- Delete $LIBGRAPH		OK${NC}";
+				@rm -f $(LIBGRAPH)
+				@echo "${RED}-- Delete $(NAME)		OK ${NC}";
 				@rm -f $(NAME)
 
 re: 			fclean all
@@ -122,3 +124,6 @@ re: 			fclean all
 rdb: 			fclean db
 
 .PHONY: 		all clean fclean re db rdb
+
+
+				# @echo "${RED}-- Remove $(NAME)		OK${NC}"

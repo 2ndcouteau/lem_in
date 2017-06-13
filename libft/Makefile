@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/11 17:26:56 by qrosa             #+#    #+#              #
-#    Updated: 2017/06/10 04:23:06 by yoko             ###   ########.fr        #
+#    Updated: 2017/06/13 01:07:25 by yoko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -157,7 +157,7 @@ NC			=	\033[0m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "${CYAN}-- Compilation LIBFT-SRCS to OBJS = OK ${NC}"
+#	@echo "${CYAN}-- Compilation LIBFT-SRCS to OBJS = OK ${NC}"
 	@echo "${BLUE}-- Linking $(NAME)${NC}"
 	@echo "${BLUE}-- ar rc $(NAME)${NC}"
 	@ar rc $(NAME) $(OBJ)
@@ -168,7 +168,7 @@ $(NAME): $(OBJ)
 	@$(CC) -c $^ -o $@ $(CFLAGS) -I $(INCL)
 
 clean:
-	@echo "${YELLOW}-- Delete Libft		Objects OK${NC}";
+	@echo "${YELLOW}-- Delete Libft Objects		OK${NC}";
 	@rm -rf $(OBJ)
 
 fclean: clean

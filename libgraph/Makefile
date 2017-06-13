@@ -6,7 +6,7 @@
 #    By: avallete <avallete@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/18 13:18:20 by avallete          #+#    #+#              #
-#*   Updated: 2016/08/06 03:56:22 by avallete         ###   ########.fr       *#
+#    Updated: 2017/06/13 01:12:23 by yoko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ NAME=libgraph.a
 RED=\033[0;31m
 LBLUE=\033[34m
 GREEN=\033[32m
+YELLOW=\033[0;33m
 CYAN=\033[0;36m
 ORANGE=\033[0;33m
 NC=\033[0m
@@ -69,15 +70,15 @@ $(NAME):$(OBJ)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir -p $(OBJ_PATH)
-	@echo "${ORANGE}Create bynary $(NAME) : $@ with $<${NC}";
+	@echo "${CYAN}Create bynary $(NAME) : $@ with $<${NC}";
 	@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 clean:
-	@echo "${RED}Delete OBJ files${NC}"
+	@echo "${YELLOW}-- Delete Libft Objects		OK${NC}";
 	@rm -rf $(OBJ_PATH)
 
 fclean: clean
-	@echo "${RED}Delete $(NAME) file${NC}"
+	@echo "${RED}-- Delete $(NAME) file${NC}"
 	@rm -rf $(NAME)
 
 debug: CFLAGS=-g3 -O0
@@ -86,4 +87,3 @@ debug: all
 re: fclean all clean
 
 .PHONY: all clean fclean re
-
