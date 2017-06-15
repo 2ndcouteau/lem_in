@@ -58,7 +58,10 @@ int						resolve(t_env *env)
 		print_solution(paths, env, turns);
 	}
 	else
+	{
+		ft_putendl_fd("ERROR: No path from start to end.", 2);
 		return (ERROR);
+	}
 	delete_path_array(&paths);
 	return (SUCCESS);
 }
