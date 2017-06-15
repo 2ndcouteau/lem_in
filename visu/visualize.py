@@ -266,7 +266,7 @@ template = """
 """
 
 if __name__ == "__main__":
-    dataresult = sys.argv[1]
+    dataresult = sys.stdin.read()
     data = template % dataresult
     with open("vizualize.html", 'w') as fd:
         fd.write(data)
