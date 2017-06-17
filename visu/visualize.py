@@ -18,13 +18,14 @@ template = """
             padding: 0;
             width: 10%%;
             background-color: #f1f1f1;
-            height: 100%%; /* Full height */
+            height: 95%%; /* Full height */
             position: fixed; /* Make it stick, even on scroll */
             overflow: auto; /* Enable scrolling if the sidenav has too much content */
         }
         li {
             display: block;
             color: #000;
+            margin: 10px;
             padding: 8px 16px;
             text-decoration: none;
         }
@@ -75,15 +76,16 @@ template = """
         }
         if (special == "end")
             endid = room[0];
+
         s.graph.addNode({
             id: room[0],
             label: room[0],
-            x: room[1],
-            y: room[2],
-            basic_x: room[1],
-            basic_y: room[2],
-            grid_x: room[1] %% 50,
-            grid_y: Math.floor(room[2] / 50),
+            x: Math.abs(room[1]),
+            y: Math.abs(room[2]),
+            basic_x: Math.abs(room[1]),
+            basic_y: Math.abs(room[2]),
+            grid_x: s.graph.nodes().length %% 50,
+            grid_y: Math.floor(s.graph.nodes().length / 50),
             size: size,
             color: color
         });
@@ -91,12 +93,12 @@ template = """
             {
                 id: room[0],
                 label: room[0],
-                x: room[1],
-                y: room[2],
-                basic_x: room[1],
-                basic_y: room[2],
-                grid_x: room[1] %% 50,
-                grid_y: Math.floor(room[2] / 50),
+                x: Math.abs(room[1]),
+                y: Math.abs(room[2]),
+                basic_x: Math.abs(room[1]),
+                basic_y: Math.abs(room[2]),
+                grid_x: s.graph.nodes().length %% 50,
+                grid_y: Math.floor(s.graph.nodes().length / 50),
                 size: size,
                 color: color
             }
@@ -190,7 +192,8 @@ template = """
                 $('#turnsbuttonbar').append(
                     "<li class='turnsbutton' type='button' value='" +
                     turnsarray.length +
-                    "' onclick='showTurn(this)'>" + turnsarray.length + "</li>"
+                    "' onclick='showTurn(this)'>" + (turnsarray.length + 1) + 
+                    "</li>"
                 );
                 turnsarray.push(line);
             }
@@ -208,13 +211,8 @@ template = """
             else if (line[0] == '#') {
 
             }
-            else if (mode == 0 && line.indexOf("-") > -1)
-                mode = 1;
-            else if (mode == 0)
+            else if (mode == 0 && line.split(' ').length == 3)
                 parse_room_init(line, "none");
-            else if (mode == 1 && line.indexOf("-") > -1) {
-                //parse_link(line);
-            }
         });
 
         turnsarray.forEach(function(elem, index, array) {
@@ -270,3 +268,4 @@ if __name__ == "__main__":
     data = template % dataresult
     with open("vizualize.html", 'w') as fd:
         fd.write(data)
+
