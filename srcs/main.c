@@ -6,12 +6,13 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:29:08 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/13 04:03:48 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/20 13:35:21 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 #include "../includes/lem_in.h"
+#include "fcntl.h"
 
 bool	read_file(t_env **env)
 {
@@ -34,10 +35,20 @@ bool	read_file(t_env **env)
 	return (SUCCESS);
 }
 
+static void check_fd(void)
+{
+	if (fcntl(STDIN_FILENO, F_GETFD) == -1)
+	{
+		ft_putendl_fd("STDIN_FILENO is not available.", 2);
+		exit (ERROR);
+	}
+}
+
 bool	start_lem_in(void)
 {
 	t_env	*env;
 
+	check_fd();
 	env = init_struct();
 	if (read_file(&env) == SUCCESS)
 	{
