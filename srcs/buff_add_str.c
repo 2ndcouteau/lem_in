@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 14:58:27 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/09 17:37:17 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/21 11:39:17 by yoko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@
 */
 bool	buff_add_str(t_env **env, char *current_line)
 {
-	int	len;
-	int	pos;
+	unsigned int	len;
+	unsigned int	pos;
 
 	pos = 0;
 	len = ft_strlen(current_line);
 	if (((*env)->pos_map + len + 1) > (*env)->len_map)
 	{
-		(*env)->len_map *= 2;
+		while ((*env)->len_map < ((*env)->pos_map + len + 1))
+			(*env)->len_map *= 2;
 		if (!((*env)->save_map = ft_realloc((*env)->save_map, (*env)->len_map)))
 			return (ERROR);
 	}
