@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/13 04:11:20 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/26 17:25:04 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,8 @@ typedef struct		s_anthill
 /*
 **	Norme compliant
 */
-typedef unsigned long u_long;
+typedef unsigned long	u_long;
+typedef unsigned int	u_int;
 
 /*
 ** Hashtab name struct
