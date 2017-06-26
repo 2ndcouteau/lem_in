@@ -6,16 +6,12 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 01:24:55 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/26 17:46:01 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/26 17:49:22 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-/*
-**	"start" and "end" can not have white space after them in the line;
-*/
-		// SO MAYBE YOU CAN FIX THAT PLZ -- Not very importante
 char	check_special_line(char *current_line, t_env **env)
 {
 	int	pos;
