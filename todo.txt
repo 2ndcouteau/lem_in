@@ -14,7 +14,6 @@
 ########################
 
 !!-- Maybe change djistra hash method by another one
--- Manage empty space at the end of special line
 
 ########################
 #          DONE        #
@@ -56,3 +55,5 @@
 		room_hastable.
 -- Free hashtab_coor in valid_and_set_room();
 -- LEAK with get_next_line
+-- Trim print line answer
+-- Manage empty space at the end of special line
