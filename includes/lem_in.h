@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/27 10:45:51 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 16:01:20 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 # include "libft.h"
 # include "libmatgraph.h"
 
-# define HASHTAB_SIZE_NAME		128
-# define HASHTAB_SIZE_COOR		128
-# define LEN_SAVE_MAP_INIT		128
-# define LEN_INDEX_ROOM			128
+# define HASHTAB_SIZE_NAME		1024
+# define HASHTAB_SIZE_COOR		1024
+# define LEN_SAVE_MAP_INIT		1024
+# define LEN_INDEX_ROOM			1024
 
 # define STATE_CHECK_ANT		0
 # define STATE_CHECK_ROOM		1
@@ -180,6 +180,7 @@ void					print_direct_way(t_path **paths, t_anthill *anthill,
 											unsigned long lemins, t_env *env);
 void					print_ants(t_ant *ants, unsigned long lemins,
 																	t_env *env);
+void					push_to_paths(t_anthill *anthill, t_path **paths);
 
 /*
 **	TMP Declarations

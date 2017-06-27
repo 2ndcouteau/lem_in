@@ -6,13 +6,13 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:29:08 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/27 10:17:50 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 15:40:39 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-#include "../includes/lem_in.h"
-#include "fcntl.h"
+#include <fcntl.h>
+#include <unistd.h>
 
 bool		read_file(t_env **env)
 {

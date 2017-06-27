@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/06/27 10:25:36 by qrosa            ###   ########.fr        #
+#    Updated: 2017/06/27 15:48:22 by qrosa            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -35,6 +35,7 @@ SRCS			=	$(PATH_SOURCES)main.c \
 					$(PATH_SOURCES)print_solution.c \
 					$(PATH_SOURCES)print_ants.c \
 					$(PATH_SOURCES)print_direct_way.c \
+					$(PATH_SOURCES)push_to_paths.c \
 					$(PATH_SOURCES)debug_struct.c
 
 SRCS_CHECK_LINE =	$(PATH_CHECK_LINE)check_line.c \

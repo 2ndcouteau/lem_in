@@ -8,6 +8,8 @@
 #      IN PROGRESS     #
 ########################
 
+-- NORME -- DONE -->
+		Rest debug file -- Create an option or not ?
 
 ########################
 #          TODO        #

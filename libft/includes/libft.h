@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 13:38:35 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/27 13:41:55 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 15:30:13 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
-# define BUFF_SIZE	1
+# define BUFF_SIZE		1
 
-# define ERROR 	1
-# define SUCCESS 0
+# define ERROR			1
+# define SUCCESS		0
 
 /*
 **	Colors

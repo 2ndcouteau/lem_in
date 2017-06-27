@@ -6,7 +6,7 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 19:45:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/27 10:23:50 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 15:47:20 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,24 +49,6 @@ static void	move_forward(t_ant *ants, unsigned long lemins)
 		if (ants[i].path)
 			ants[i].path_position += 1;
 		++i;
-	}
-}
-
-static void	push_to_paths(t_anthill *anthill, t_path **paths)
-{
-	unsigned long	i;
-
-	i = 1;
-	if (anthill->waiting_ants > 0)
-	{
-		anthill->ants[anthill->waiting_ants].path = paths[0];
-		anthill->waiting_ants--;
-		while (paths[i] && anthill->waiting_ants)
-		{
-			anthill->ants[anthill->waiting_ants].path = paths[i];
-			anthill->waiting_ants--;
-			++i;
-		}
 	}
 }
 

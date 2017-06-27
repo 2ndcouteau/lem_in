@@ -6,7 +6,7 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 17:32:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/27 12:03:22 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 15:57:37 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,37 +53,43 @@ static unsigned long	get_path_len(t_matrice_graph *graph, t_pathfind *pfind)
 	return (i);
 }
 
-static t_path			*get_path_with_dfs(t_matrice_graph *graph,
+static void				save_path(t_path *p, t_matrice_graph *graph,
 															t_pathfind *pfind)
 {
-	t_path			*p;
 	unsigned long	i;
 	unsigned long	node;
 	unsigned long	e;
 
+	i = 0;
+	node = pfind->src;
+	while (node != pfind->dst)
+	{
+		p->path[i] = node;
+		e = 0;
+		while (e < graph->size)
+		{
+			if (graph->matrix[node][e] && unset_link(graph, node, e, 1))
+			{
+				node = e;
+				break ;
+			}
+			++e;
+		}
+		++i;
+	}
+	p->path[i] = node;
+}
+
+static t_path			*get_path_with_dfs(t_matrice_graph *graph,
+															t_pathfind *pfind)
+{
+	t_path			*p;
+
 	p = new_path(pfind->src, pfind->dst);
 	p->len = get_path_len(graph, pfind);
-	if ((p->path = (unsigned long*)malloc(sizeof(unsigned long) * p->len + 1)))
-	{
-		i = 0;
-		node = pfind->src;
-		while (node != pfind->dst)
-		{
-			p->path[i] = node;
-			e = 0;
-			while (e < graph->size)
-			{
-				if (graph->matrix[node][e] && unset_link(graph, node, e, 1))
-				{
-					node = e;
-					break ;
-				}
-				++e;
-			}
-			++i;
-		}
-		p->path[i] = node;
-	}
+	if ((p->path =
+				(unsigned long*)malloc(sizeof(unsigned long) * (p->len + 1))))
+		save_path(p, graph, pfind);
 	else
 		delete_path(&p);
 	return (p);
