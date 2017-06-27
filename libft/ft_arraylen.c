@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_arraylen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/12 01:09:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/12 01:09:00 by avallete         ###   ########.fr       */
+/*   Created: 2017/06/27 13:40:45 by qrosa             #+#    #+#             */
+/*   Updated: 2017/06/27 13:40:48 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_arraylen(void **array)
+int		ft_arraylen(void **array)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (array[i])

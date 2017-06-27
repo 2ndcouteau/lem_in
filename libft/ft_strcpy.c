@@ -6,11 +6,9 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 14:41:23 by qrosa             #+#    #+#             */
-/*   Updated: 2014/11/12 19:19:07 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 13:09:17 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strcpy(char *dst, const char *src)
 {

@@ -6,11 +6,12 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 18:05:57 by qrosa             #+#    #+#             */
-/*   Updated: 2016/02/03 17:47:32 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 13:27:52 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putendl_clair(char const *s)
 {

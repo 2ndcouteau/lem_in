@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 16:51:09 by qrosa             #+#    #+#             */
-/*   Updated: 2014/11/12 19:06:56 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 13:11:59 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strnew(size_t size)
 {

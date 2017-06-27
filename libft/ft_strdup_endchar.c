@@ -6,11 +6,11 @@
 /*   By: cristal <cristal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 00:40:56 by cristal           #+#    #+#             */
-/*   Updated: 2016/11/14 15:46:33 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 13:09:24 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strdup_endchar(char *str, char symbol)
 {

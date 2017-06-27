@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 19:48:00 by qrosa             #+#    #+#             */
-/*   Updated: 2014/11/11 18:55:38 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 12:52:52 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "unistd.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

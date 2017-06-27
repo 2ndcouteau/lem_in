@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 12:45:27 by qrosa             #+#    #+#             */
-/*   Updated: 2014/11/19 17:44:56 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 12:51:00 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 void	ft_memdel(void **ap)
 {

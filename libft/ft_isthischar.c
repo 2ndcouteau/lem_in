@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 17:03:34 by qrosa             #+#    #+#             */
-/*   Updated: 2016/10/04 17:05:48 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 12:43:23 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdbool.h>
 
 bool	ft_isthischar(char *check_symbol, char symbol)
 {

@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 21:54:59 by qrosa             #+#    #+#             */
-/*   Updated: 2016/02/23 21:57:01 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 12:42:58 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdbool.h>
 
 bool	ft_ispace_tab_line(char *str)
 {

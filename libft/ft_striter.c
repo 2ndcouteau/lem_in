@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 18:13:48 by qrosa             #+#    #+#             */
-/*   Updated: 2014/11/13 14:50:33 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 13:14:06 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 void	ft_striter(char *s, void (*f)(char *))
 {

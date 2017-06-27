@@ -6,11 +6,12 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 19:49:45 by qrosa             #+#    #+#             */
-/*   Updated: 2015/10/19 21:31:07 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 12:54:43 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putstr_fd(char const *s, int fd)
 {

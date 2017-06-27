@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/06 22:40:14 by qrosa             #+#    #+#             */
-/*   Updated: 2016/11/11 16:27:52 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 12:35:45 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 char	**ft_free_tab(char **mytab)
 {

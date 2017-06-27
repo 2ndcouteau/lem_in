@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:56:03 by qrosa             #+#    #+#             */
-/*   Updated: 2016/01/16 20:43:08 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 12:31:36 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
 void	ft_bzero(void *s, size_t n)
 {

@@ -6,11 +6,12 @@
 /*   By: kaosu <kaosu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 12:42:08 by kaosu             #+#    #+#             */
-/*   Updated: 2015/12/15 12:52:59 by kaosu            ###   ########.fr       */
+/*   Updated: 2017/06/27 13:27:35 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdbool.h>
+#include <stdio.h>
 
 bool	ft_file_exists(const char *filename)
 {

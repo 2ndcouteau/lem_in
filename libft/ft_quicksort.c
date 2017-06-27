@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_quicksort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/12 01:01:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/12 01:01:00 by avallete         ###   ########.fr       */
+/*   Created: 2017/06/27 13:41:03 by qrosa             #+#    #+#             */
+/*   Updated: 2017/06/27 13:41:06 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,4 @@ void		ft_quicksort(void **array, int start, int end, int (*get)(void *x))
 		ft_quicksort(array, start, k - 1, get);
 		ft_quicksort(array, k + 1, end, get);
 	}
-	else
-		return;
 }

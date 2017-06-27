@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/06 22:30:43 by qrosa             #+#    #+#             */
-/*   Updated: 2016/04/03 22:36:19 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 13:14:25 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 size_t				ft_tablen(char **mytab)
 {

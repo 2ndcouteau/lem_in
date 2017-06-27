@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 18:23:09 by qrosa             #+#    #+#             */
-/*   Updated: 2014/11/12 17:54:37 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 12:49:34 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

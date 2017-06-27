@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 15:07:14 by qrosa             #+#    #+#             */
-/*   Updated: 2014/11/12 19:53:11 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 13:12:15 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strrchr(const char *s, int c)
 {

@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/08 16:56:35 by qrosa             #+#    #+#             */
-/*   Updated: 2016/01/08 17:03:54 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 12:52:16 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 size_t		ft_nbrlen(int nbr)
 {

@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 18:30:06 by qrosa             #+#    #+#             */
-/*   Updated: 2016/02/19 18:41:07 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 13:16:24 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 int		opt_check_last_opt(char *opt_all, char opt0, char opt1)
 {

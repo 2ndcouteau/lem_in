@@ -6,17 +6,14 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 13:38:35 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/27 10:47:58 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 13:41:55 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
-# include <unistd.h>
 # include <stdbool.h>
-# include <stdio.h>
-# include <sys/stat.h>
 
 # define BUFF_SIZE	1
 

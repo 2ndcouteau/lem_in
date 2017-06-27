@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 16:38:46 by qrosa             #+#    #+#             */
-/*   Updated: 2017/02/09 18:01:15 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 12:33:02 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdbool.h>
 
 /*
 **	"len" argument is the max len of Buffer "str"

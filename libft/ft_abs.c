@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/12 00:53:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/12 00:53:00 by avallete         ###   ########.fr       */
+/*   Created: 2017/06/27 13:40:32 by qrosa             #+#    #+#             */
+/*   Updated: 2017/06/27 13:40:36 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int 	ft_abs(int x)
+int		ft_abs(int x)
 {
 	return (x < 0 ? (-x) : x);
 }

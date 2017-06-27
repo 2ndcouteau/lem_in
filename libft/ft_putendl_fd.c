@@ -6,11 +6,12 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 19:55:38 by qrosa             #+#    #+#             */
-/*   Updated: 2015/10/19 21:39:51 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 12:54:01 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putendl_fd(char const *s, int fd)
 {

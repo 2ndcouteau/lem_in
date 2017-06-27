@@ -6,11 +6,12 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/13 20:03:59 by qrosa             #+#    #+#             */
-/*   Updated: 2014/11/14 20:15:53 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 12:50:03 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static void	*memcpytse(void *block, void const *content, size_t content_size)
 {

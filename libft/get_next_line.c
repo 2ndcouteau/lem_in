@@ -6,11 +6,12 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 11:54:13 by qrosa             #+#    #+#             */
-/*   Updated: 2017/02/10 15:51:19 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 13:30:20 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 static int		check_buffer(char **buffer, char **line)
 {

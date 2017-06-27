@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 19:47:48 by qrosa             #+#    #+#             */
-/*   Updated: 2014/11/11 18:46:39 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 13:10:51 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 static char	*to_return(char *ret, char *src1, size_t e)
 {

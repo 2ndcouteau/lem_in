@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/19 20:55:19 by qrosa             #+#    #+#             */
-/*   Updated: 2016/03/02 18:39:56 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 13:38:36 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Add a new bool for each new option and init it to 0.
 */
 
-static void	ls_init_opt(t_opt **e)
+static void	init_opt(t_opt **e)
 {
 	(*e)->opt_b->a = 0;
 }
@@ -36,5 +36,5 @@ void		opt_init_env(t_opt **e, char **init)
 	(*e)->mark = 1;
 	if (!((*e)->opt_b = (t_bool*)malloc(sizeof(t_bool))))
 		(*e)->error = 1;
-	ls_init_opt(e);
+	init_opt(e);
 }

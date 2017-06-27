@@ -6,11 +6,11 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 15:58:27 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/21 07:32:21 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/27 13:09:01 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

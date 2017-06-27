@@ -6,13 +6,13 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 16:07:49 by qrosa             #+#    #+#             */
-/*   Updated: 2014/11/14 20:17:44 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 13:13:09 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-static	char	*ft_sttrcpy(char *dst, const char *src, size_t i, size_t n)
+static char		*ft_sttrcpy(char *dst, const char *src, size_t i, size_t n)
 {
 	unsigned int a;
 
