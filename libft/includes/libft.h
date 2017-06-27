@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 13:38:35 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/13 02:27:43 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/27 10:47:58 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
-int 				ft_abs(int x);
+int					ft_abs(int x);
 
 /*
 ** IS (bool) Functions
@@ -178,7 +178,6 @@ int					get_next_line(int const fd, char **line);
 void				ft_quicksort(void **array, int start, int end,\
 									int (*get)(void *x));
 int					ft_arraylen(void **array);
-
 
 /*
 *******************

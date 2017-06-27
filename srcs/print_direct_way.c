@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid_and_set_room.c                               :+:      :+:    :+:   */
+/*   print_direct_way.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/19 16:15:27 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/27 10:27:54 by qrosa            ###   ########.fr       */
+/*   Created: 2017/06/27 10:23:30 by qrosa             #+#    #+#             */
+/*   Updated: 2017/06/27 10:23:46 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "../includes/libft.h"
 
-char		valid_and_set_room(char *current_line, t_env **env)
+void	print_direct_way(t_path **paths, t_anthill *anthill,
+											unsigned long lemins, t_env *env)
 {
-	int		i;
-	char	ret;
-
-	i = 0;
-	if ((ret = check_name_room(current_line, env, &i)) != SUCCESS)
-		return (ret);
-	if (current_line[i] == '\0')
-		return (ERR_NO_COOR);
-	if ((ret = check_coor_room(current_line, env, &i)) != SUCCESS)
-		return (ret);
-	return (SUCCESS);
+	while (anthill->waiting_ants)
+		push_to_paths(anthill, paths);
+	print_ants(anthill->ants, lemins, env);
 }

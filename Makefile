@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/06/13 02:31:14 by yoko             ###   ########.fr        #
+#    Updated: 2017/06/27 10:25:36 by qrosa            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -18,9 +18,6 @@
 PATH_SOURCES	=		./srcs/
 
 PATH_CHECK_LINE =		$(PATH_SOURCES)check_line/
-# PATH_LEXPAR			=	$(PATH_SOURCES)lexer_parser/
-# PATH_FREE				=	$(PATH_SOURCES)free/
-
 
 ################################################################################
 
@@ -36,6 +33,8 @@ SRCS			=	$(PATH_SOURCES)main.c \
 					$(PATH_SOURCES)get_optimum_paths.c \
 					$(PATH_SOURCES)resolve.c \
 					$(PATH_SOURCES)print_solution.c \
+					$(PATH_SOURCES)print_ants.c \
+					$(PATH_SOURCES)print_direct_way.c \
 					$(PATH_SOURCES)debug_struct.c
 
 SRCS_CHECK_LINE =	$(PATH_CHECK_LINE)check_line.c \
@@ -124,6 +123,3 @@ re: 			fclean all
 rdb: 			fclean db
 
 .PHONY: 		all clean fclean re db rdb
-
-
-				# @echo "${RED}-- Remove $(NAME)		OK${NC}"

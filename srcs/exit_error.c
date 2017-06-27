@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:54:06 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/13 02:29:26 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/27 10:12:39 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ int			exit_error(char status, char *current_line, t_env **env)
 			ft_putendl_fd(g_tab_error_toto[(status - 25)], 2);
 		else
 			ft_putendl_fd("\" invalid line", 2);
-
 		ft_free_line(&current_line);
 	}
 	free_struct(env);

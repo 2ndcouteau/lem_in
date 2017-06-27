@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 14:58:27 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/26 17:25:58 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 10:46:16 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static bool	realloc_buff_str(t_env **env, char *current_line)
 }
 
 static void	copy_trim_str(t_env **env, char *current_line,
-													u_int r_pos, u_int w_pos)
+													t_uint r_pos, t_uint w_pos)
 {
 	while (current_line[r_pos] != '\0')
 	{

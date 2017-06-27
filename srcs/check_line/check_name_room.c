@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 16:19:14 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/13 02:23:05 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/27 10:45:43 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static bool	set_special_room(t_env **env)
 	return (SUCCESS);
 }
 
-static bool	insert_in_hashtab(t_hash *node, t_env **env, u_long hash_value)
+static bool	insert_in_hashtab(t_hash *node, t_env **env, t_ulong hash_value)
 {
 	t_hash			*list;
 	int				tmp;

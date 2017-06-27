@@ -6,7 +6,7 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/12 01:23:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/12 01:23:00 by avallete         ###   ########.fr       */
+/*   Updated: 2017/06/27 10:14:25 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	max_path_len(unsigned long lemins, unsigned long shortest_len)
 }
 
 t_path		**get_optimum_paths(t_matrice_graph *graph, unsigned long src,
-								  unsigned long dst, unsigned long lemins)
+										unsigned long dst, unsigned long lemins)
 {
 	t_path			**paths;
 	t_pathfind		*pfind;

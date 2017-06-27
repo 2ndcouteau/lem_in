@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 22:49:26 by qrosa             #+#    #+#             */
-/*   Updated: 2017/05/21 16:38:12 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 10:29:48 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char		check_coor_x(char *current_line, int *i, int *coor_x)
 {
-	int 		cpt;
+	int			cpt;
 
 	cpt = 0;
 	if (current_line[*i] == '-')
@@ -27,7 +27,8 @@ static char		check_coor_x(char *current_line, int *i, int *coor_x)
 		*i += 1;
 		cpt++;
 	}
-	if (current_line[*i] != ' ' && current_line[*i] != '\t' && current_line[*i] != '\0')
+	if (current_line[*i] != ' ' && current_line[*i] != '\t' &&
+													current_line[*i] != '\0')
 		return (ERR_BAD_X_COOR);
 	if (check_n_max_int(current_line, (*i - cpt), cpt) != SUCCESS)
 		return (ERR_COOR_X_OVERFLOW);
@@ -39,7 +40,7 @@ static char		check_coor_x(char *current_line, int *i, int *coor_x)
 
 static char		check_coor_y(char *current_line, int *i, int *coor_y)
 {
-	int 		cpt;
+	int			cpt;
 
 	cpt = 0;
 	if (current_line[*i] == '-')
@@ -52,7 +53,8 @@ static char		check_coor_y(char *current_line, int *i, int *coor_y)
 		*i += 1;
 		cpt++;
 	}
-	if (current_line[*i] != ' ' && current_line[*i] != '\t' && current_line[*i] != '\0')
+	if (current_line[*i] != ' ' && current_line[*i] != '\t' &&
+													current_line[*i] != '\0')
 		return (ERR_BAD_Y_COOR);
 	if (check_n_max_int(current_line, (*i - cpt), cpt) != SUCCESS)
 		return (ERR_COOR_Y_OVERFLOW);
@@ -60,7 +62,7 @@ static char		check_coor_y(char *current_line, int *i, int *coor_y)
 	return (SUCCESS);
 }
 
-static bool	insert_in_hashtab(t_hash_coor *node, t_env **env, int coor_x)
+static bool		insert_in_hashtab(t_hash_coor *node, t_env **env, int coor_x)
 {
 	t_hash_coor	*list;
 
@@ -89,7 +91,7 @@ static bool	insert_in_hashtab(t_hash_coor *node, t_env **env, int coor_x)
 	return (SUCCESS);
 }
 
-static char	add_to_hashtab_coor(t_env **env, int coor_x, int coor_y)
+static char		add_to_hashtab_coor(t_env **env, int coor_x, int coor_y)
 {
 	t_hash_coor *new_node;
 
@@ -104,14 +106,12 @@ static char	add_to_hashtab_coor(t_env **env, int coor_x, int coor_y)
 	return (SUCCESS);
 }
 
-char		check_coor_room(char *current_line, t_env **env, int *i)
+char			check_coor_room(char *current_line, t_env **env, int *i)
 {
 	int			coor_x;
 	int			coor_y;
 	char		ret;
 
-//	ft_putendl(current_line);		// DEBUG
-//	debug_struct(*env);				// DEBUG
 	if ((ret = check_coor_x(current_line, i, &coor_x)) != SUCCESS)
 		return (ret);
 	*i = browse_space(current_line, *i);

@@ -6,12 +6,12 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/26 17:25:04 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 10:45:51 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEM_IN
-# define LEM_IN
+#ifndef LEM_IN_H
+# define LEM_IN_H
 
 # include "libft.h"
 # include "libmatgraph.h"
@@ -78,23 +78,23 @@
 # define SPE_START_ROOM			1
 # define SPE_END_ROOM			2
 
-typedef struct		s_ant
+typedef struct			s_ant
 {
-	t_path			*path;
-	unsigned long	path_position;
-}					t_ant;
+	t_path				*path;
+	unsigned long		path_position;
+}						t_ant;
 
-typedef struct		s_anthill
+typedef struct			s_anthill
 {
-	t_ant			*ants;
-	unsigned long	waiting_ants;
-}					t_anthill;
+	t_ant				*ants;
+	unsigned long		waiting_ants;
+}						t_anthill;
 
 /*
 **	Norme compliant
 */
-typedef unsigned long	u_long;
-typedef unsigned int	u_int;
+typedef unsigned long	t_ulong;
+typedef unsigned int	t_uint;
 
 /*
 ** Hashtab name struct
@@ -121,63 +121,69 @@ typedef struct			s_hash_coor
 */
 typedef struct			s_env
 {
-	char			*save_map;
-	char			**index_room;
-	unsigned int	index_room1;
-	unsigned int	index_room2;
-	unsigned int	len_map;
-	unsigned int	pos_map;
-	unsigned int	nb_ant;
-	unsigned int	nb_room;
-	unsigned int	nb_link;
-	unsigned int	nb_line;
-	char			special_room;
-	int				start_room;
-	int				end_room;
-	t_hash			**tab_rooms;
-	t_hash_coor		**tab_coor;
-	t_matrice_graph	*graph;
+	char				*save_map;
+	char				**index_room;
+	unsigned int		index_room1;
+	unsigned int		index_room2;
+	unsigned int		len_map;
+	unsigned int		pos_map;
+	unsigned int		nb_ant;
+	unsigned int		nb_room;
+	unsigned int		nb_link;
+	unsigned int		nb_line;
+	char				special_room;
+	int					start_room;
+	int					end_room;
+	t_hash				**tab_rooms;
+	t_hash_coor			**tab_coor;
+	t_matrice_graph		*graph;
 }						t_env;
 
-int				main(int argc, char **argv);
+int						main(int argc, char **argv);
 
-t_env			*init_struct(void);
-unsigned long	hash_djb2(unsigned char *str);
-void			free_struct(t_env **env);
-void			*free_hashtab(t_env **env, bool type);
-int				exit_error(char status, char *current_line, t_env **e);
-bool			output_help(bool return_value);
+t_env					*init_struct(void);
+unsigned long			hash_djb2(unsigned char *str);
+void					free_struct(t_env **env);
+void					*free_hashtab(t_env **env, bool type);
+int						exit_error(char status, char *current_line, t_env **e);
+bool					output_help(bool return_value);
 
-bool			buff_add_str(t_env **env, char *current_line);
-bool			check_ascii_range(char *str, char *model);
-int				browse_space(char *current_line, int i);
+bool					buff_add_str(t_env **env, char *current_line);
+bool					check_ascii_range(char *str, char *model);
+int						browse_space(char *current_line, int i);
 
 /*
 **	Check line functions
 */
-char			check_line(char state, char *current_line, t_env **env);
-char			check_status_empty_line(char status);
-char			check_nb_ant(char *current_line, t_env **env);
-char			valid_and_set_room(char *current_line, t_env **env);
-char			check_room(char *current_line, t_env **env);
-char			check_special_line(char *current_line, t_env **env);
-char			check_name_room(char *current_line, t_env **env, int *i);
-char			add_name_ptr_index(t_env **env, char *room_name);
-char			check_coor_room(char *current_line, t_env **env, int *i);
-char			check_n_max_int(char *current_line, int start, int len);
-char			check_room_step_valid(t_env **env);
-char			check_links(char *current_line, t_env **env);
-char			valid_and_set_links(char *current_line, t_env **env);
+char					check_line(char state, char *current_line, t_env **env);
+char					check_status_empty_line(char status);
+char					check_nb_ant(char *current_line, t_env **env);
+char					valid_and_set_room(char *current_line, t_env **env);
+char					check_room(char *current_line, t_env **env);
+char					check_special_line(char *current_line, t_env **env);
+char					check_name_room(char *current_line, t_env **env,
+																		int *i);
+char					add_name_ptr_index(t_env **env, char *room_name);
+char					check_coor_room(char *current_line, t_env **env,
+																		int *i);
+char					check_n_max_int(char *current_line, int start, int len);
+char					check_room_step_valid(t_env **env);
+char					check_links(char *current_line, t_env **env);
+char					valid_and_set_links(char *current_line, t_env **env);
 
-t_path			**get_optimum_paths(t_matrice_graph *graph, unsigned long src,
-								  unsigned long dst, unsigned long lemins);
-int				resolve(t_env *env);
-void			print_solution(t_path **paths, t_env *env,
+t_path					**get_optimum_paths(t_matrice_graph *graph,
+					unsigned long src, unsigned long dst, unsigned long lemins);
+int						resolve(t_env *env);
+void					print_solution(t_path **paths, t_env *env,
 														unsigned long turns);
+void					print_direct_way(t_path **paths, t_anthill *anthill,
+											unsigned long lemins, t_env *env);
+void					print_ants(t_ant *ants, unsigned long lemins,
+																	t_env *env);
 
 /*
 **	TMP Declarations
 */
-void			debug_struct(t_env *env);
+void					debug_struct(t_env *env);
 
 #endif

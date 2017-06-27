@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 02:53:26 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/09 17:34:42 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/27 10:27:32 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static char	check_max_int(char *current_line)
 	int len;
 
 	len = 0;
-	while ((ft_isthischar(" \t", current_line[len]) == 0) && current_line != '\0')
+	while ((ft_isthischar(" \t", current_line[len]) == 0) &&
+														current_line != '\0')
 		len++;
 	if (len > 9)
 	{

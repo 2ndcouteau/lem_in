@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid_and_set_room.c                               :+:      :+:    :+:   */
+/*   print_ants.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/19 16:15:27 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/27 10:27:54 by qrosa            ###   ########.fr       */
+/*   Created: 2017/06/27 10:22:26 by qrosa             #+#    #+#             */
+/*   Updated: 2017/06/27 10:23:55 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "../includes/lem_in.h"
 
-char		valid_and_set_room(char *current_line, t_env **env)
+void	print_ants(t_ant *ants, unsigned long lemins, t_env *env)
 {
-	int		i;
-	char	ret;
+	unsigned long	i;
 
 	i = 0;
-	if ((ret = check_name_room(current_line, env, &i)) != SUCCESS)
-		return (ret);
-	if (current_line[i] == '\0')
-		return (ERR_NO_COOR);
-	if ((ret = check_coor_room(current_line, env, &i)) != SUCCESS)
-		return (ret);
-	return (SUCCESS);
+	while (i < (lemins + 1))
+	{
+		if (ants[i].path)
+		{
+			ft_putchar('L');
+			ft_putnbr((int)i);
+			ft_putchar('-');
+			ft_putstr(env->index_room[(int)(int)ants[i].path->path[
+												(int)ants[i].path_position]]);
+			ft_putchar(' ');
+		}
+		++i;
+	}
+	ft_putchar('\n');
 }

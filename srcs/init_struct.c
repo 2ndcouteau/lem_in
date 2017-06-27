@@ -6,14 +6,14 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:53:00 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/09 17:31:06 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/27 10:17:28 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 #include "../includes/lem_in.h"
 
-static t_hash	**init_hashtable_name(void)
+static t_hash		**init_hashtable_name(void)
 {
 	t_hash		**tab;
 	int			i;
@@ -35,7 +35,8 @@ static t_hash_coor	**init_hashtable_coor(void)
 	int			i;
 
 	i = 0;
-	if (!(tab = (t_hash_coor**)malloc(sizeof(t_hash_coor*) * HASHTAB_SIZE_COOR)))
+	if (!(tab =
+			(t_hash_coor**)malloc(sizeof(t_hash_coor*) * HASHTAB_SIZE_COOR)))
 		return (NULL);
 	while (i < HASHTAB_SIZE_COOR)
 	{
@@ -45,7 +46,7 @@ static t_hash_coor	**init_hashtable_coor(void)
 	return (tab);
 }
 
-char	**init_index_room(void)
+char				**init_index_room(void)
 {
 	char	**index_room;
 	int		i;
@@ -61,7 +62,7 @@ char	**init_index_room(void)
 	return (index_room);
 }
 
-t_env 			*init_struct(void)
+t_env				*init_struct(void)
 {
 	t_env		*env;
 

@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 03:26:43 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/13 02:30:15 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/27 10:33:15 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ static char	check_start_line_errors(char *current_line, t_env **env)
 	return (SUCCESS);
 }
 
-static char	valid_first_room(char *current_line, t_env **env, int *i)
+static char	valid_first_room(char *c_line, t_env **env, int *i)
 {
 	unsigned long	hash_value;
 	char			*room_name;
 	t_hash			*list;
 
-	while (!ft_isnthischar(" \t-", current_line[*i]) && current_line[*i] != '\0')
+	while (!ft_isnthischar(" \t-", c_line[*i]) && c_line[*i] != '\0')
 		*i += 1;
-	if (current_line[*i] != '-')
+	if (c_line[*i] != '-')
 		return (ERR_FORMAT_LINK);
-	room_name = ft_strndup(current_line, 0, *i);
+	room_name = ft_strndup(c_line, 0, *i);
 	hash_value = hash_djb2((unsigned char *)room_name);
 	if ((list = (*env)->tab_rooms[hash_value % HASHTAB_SIZE_NAME]) != NULL)
 	{
@@ -54,7 +54,8 @@ static char	valid_first_room(char *current_line, t_env **env, int *i)
 	return (ERR_NAME_LINK1_NOMATCH);
 }
 
-static char browse_list_name(unsigned long hash_value, char *room_name, t_env **env)
+static char	browse_list_name(unsigned long hash_value, char *room_name,
+																	t_env **env)
 {
 	t_hash			*list;
 
@@ -83,12 +84,12 @@ static char	valid_second_room(char *current_line, t_env **env, int *i)
 	pos = *i;
 	if (current_line[*i] == 'L')
 		return (ERR_NAME_LINK_L);
-	while (!ft_isnthischar(" \t-", current_line[*i]) && current_line[*i] != '\0')
+	while (!ft_isnthischar(" \t-", current_line[*i]) &&
+													current_line[*i] != '\0')
 		*i += 1;
 	if (current_line[*i] == '-')
 		return (ERR_DOUBLE_DASH);
 	room_name = ft_strndup(current_line, pos, (*i - pos));
-//	ft_putendl_fd(room_name, 2);	// DEBUG
 	hash_value = hash_djb2((unsigned char *)room_name);
 	ret = browse_list_name(hash_value, room_name, env);
 	ft_free_line(&room_name);
@@ -97,7 +98,7 @@ static char	valid_second_room(char *current_line, t_env **env, int *i)
 
 char		valid_and_set_links(char *current_line, t_env **env)
 {
-	int 			i;
+	int				i;
 	char			ret;
 
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 23:55:55 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/13 02:29:11 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/27 10:15:02 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	*free_list_coor(t_hash_coor *node)
 
 void		*free_hashtab(t_env **env, bool type)
 {
-	int 		i;
+	int			i;
 
 	i = 0;
 	if (type == 0)
@@ -94,9 +94,9 @@ void		free_struct(t_env **env)
 			if ((*env)->index_room != NULL)
 				(*env)->index_room = free_index_room((*env)->index_room);
 			if ((*env)->tab_rooms != NULL)
-			 	(*env)->tab_rooms = free_hashtab(env, 0);
+				(*env)->tab_rooms = free_hashtab(env, 0);
 			if ((*env)->tab_coor != NULL)
-			 	(*env)->tab_coor = free_hashtab(env, 1);
+				(*env)->tab_coor = free_hashtab(env, 1);
 			free(*env);
 			*env = NULL;
 		}

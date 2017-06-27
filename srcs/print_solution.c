@@ -6,7 +6,7 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 19:45:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/13 03:50:24 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/27 10:23:50 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static void	move_forward(t_ant *ants, unsigned long lemins)
 	unsigned long	i;
 
 	i = 0;
-
 	while (i < (lemins + 1))
 	{
 		if (ants[i].path)
@@ -69,35 +68,6 @@ static void	push_to_paths(t_anthill *anthill, t_path **paths)
 			++i;
 		}
 	}
-}
-
-static void	print_ants(t_ant *ants, unsigned long lemins, t_env *env)
-{
-	unsigned long	i;
-
-	i = 0;
-	while (i < (lemins + 1))
-	{
-		if (ants[i].path)
-		{
-			ft_putchar('L');
-			ft_putnbr((int)i);
-			ft_putchar('-');
-			ft_putstr(env->index_room[(int)(int)ants[i].path->path[
-												(int)ants[i].path_position]]);
-			ft_putchar(' ');
-		}
-		++i;
-	}
-	ft_putchar('\n');
-}
-
-void		print_direct_way(t_path **paths, t_anthill *anthill,
-							 unsigned long lemins, t_env *env)
-{
-	while (anthill->waiting_ants)
-		push_to_paths(anthill, paths);
-	print_ants(anthill->ants, lemins, env);
 }
 
 void		print_solution(t_path **paths, t_env *env, unsigned long turns)

@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:29:08 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/20 13:35:21 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/27 10:17:50 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../includes/lem_in.h"
 #include "fcntl.h"
 
-bool	read_file(t_env **env)
+bool		read_file(t_env **env)
 {
 	char	*current_line;
 	char	state;
@@ -26,25 +26,24 @@ bool	read_file(t_env **env)
 		state = check_line(state, current_line, env);
 		ft_free_line(&current_line);
 	}
-//	printf("State == %d\n", state); // DEBUG
 	if ((*env)->tab_coor != NULL)
-	 	(*env)->tab_coor = free_hashtab(env, 1);
+		(*env)->tab_coor = free_hashtab(env, 1);
 	if (state < STATE_CHECK_LINK)
 		return (exit_error(state, current_line, env));
 	ft_free_line(&current_line);
 	return (SUCCESS);
 }
 
-static void check_fd(void)
+static void	check_fd(void)
 {
 	if (fcntl(STDIN_FILENO, F_GETFD) == -1)
 	{
 		ft_putendl_fd("STDIN_FILENO is not available.", 2);
-		exit (ERROR);
+		exit(ERROR);
 	}
 }
 
-bool	start_lem_in(void)
+bool		start_lem_in(void)
 {
 	t_env	*env;
 
@@ -55,12 +54,11 @@ bool	start_lem_in(void)
 		resolve(env);
 		delete_matrice_graph(&(env->graph));
 	}
-//	debug_struct(env);		//DEBUG // maybe implement option for one bonus.
 	free_struct(&env);
 	return (SUCCESS);
 }
 
-int		main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	if (argc == 1 && argv)
 		return (start_lem_in());

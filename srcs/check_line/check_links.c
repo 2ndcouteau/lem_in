@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 00:58:53 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/13 02:21:10 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/27 10:28:17 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	check_special_link_line(char *current_line, t_env **env)
 	return (STATE_CHECK_LINK);
 }
 
-char		check_links(char *current_line, t_env **env)
+char	check_links(char *current_line, t_env **env)
 {
 	int		i;
 	char	ret;

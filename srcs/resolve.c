@@ -6,7 +6,7 @@
 /*   By: yoko <yoko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 11:51:28 by yoko              #+#    #+#             */
-/*   Updated: 2017/06/21 11:51:30 by yoko             ###   ########.fr       */
+/*   Updated: 2017/06/27 10:18:37 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static unsigned long	compute_turns(t_path **paths, unsigned long lemins)
 
 static int				get_path_len(void *ref)
 {
-	t_path 			*path;
+	t_path			*path;
 
 	path = (t_path*)ref;
 	return ((int)path->len);
@@ -57,7 +57,7 @@ int						resolve(t_env *env)
 	unsigned long	pathslen;
 
 	paths = get_optimum_paths(env->graph, env->start_room, env->end_room,
-							  env->nb_ant);
+																env->nb_ant);
 	if (paths)
 	{
 		pathslen = ft_arraylen((void**)paths) - 1;
