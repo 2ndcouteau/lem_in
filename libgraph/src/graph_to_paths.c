@@ -6,11 +6,12 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 17:32:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/27 15:57:37 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 16:18:17 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libmatgraph.h"
+#include "../../includes/libft.h"
 
 static unsigned long	nb_paths(t_matrice_graph *graph, t_pathfind *pfind)
 {

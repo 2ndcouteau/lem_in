@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:29:08 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/27 15:40:39 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/27 16:21:33 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,18 @@ static void	check_fd(void)
 bool		start_lem_in(void)
 {
 	t_env	*env;
+	char	return_value;
 
 	check_fd();
+	return_value = SUCCESS;
 	env = init_struct();
 	if (read_file(&env) == SUCCESS)
 	{
-		resolve(env);
+		return_value = resolve(env);
 		delete_matrice_graph(&(env->graph));
 	}
 	free_struct(&env);
-	return (SUCCESS);
+	return (return_value);
 }
 
 int			main(int argc, char **argv)
