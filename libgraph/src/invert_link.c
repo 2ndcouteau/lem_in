@@ -6,7 +6,7 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 09:14:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/05/30 09:14:00 by avallete         ###   ########.fr       */
+/*   Updated: 2017/06/27 11:59:50 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 **  1: if link (dst, src) didn't exist, and has been set.
 */
 
-char invert_link(t_matrice_graph *graph, unsigned int src, unsigned int dst)
+char	invert_link(t_matrice_graph *graph, unsigned int src, unsigned int dst)
 {
 	if (dst < graph->size && src < graph->size)
 	{
@@ -36,7 +36,7 @@ char invert_link(t_matrice_graph *graph, unsigned int src, unsigned int dst)
 					return (0);
 			}
 			else
-				 return (set_link(graph, dst, src, 1));
+				return (set_link(graph, dst, src, 1));
 		}
 	}
 	return (-1);

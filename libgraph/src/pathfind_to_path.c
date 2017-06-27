@@ -6,7 +6,7 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 18:33:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/05 18:33:00 by avallete         ###   ########.fr       */
+/*   Updated: 2017/06/27 12:05:40 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 static unsigned long	path_len(const t_pathfind *pfind)
 {
-	unsigned long current;
-	unsigned long len;
+	unsigned long	current;
+	unsigned long	len;
 
 	len = 0;
 	current = pfind->dst;
-
 	while (pfind->parent[current] != -1)
 	{
 		current = pfind->parent[current];
@@ -28,11 +27,11 @@ static unsigned long	path_len(const t_pathfind *pfind)
 	return (len);
 }
 
-static	void 			set_path_from_parents(const t_pathfind *pfind,
-												const t_path *path)
+static void				set_path_from_parents(const t_pathfind *pfind,
+															const t_path *path)
 {
-	unsigned long i;
-	unsigned long current;
+	unsigned long	i;
+	unsigned long	current;
 
 	current = path->dst;
 	i = path->len;
@@ -55,7 +54,8 @@ t_path					*pathfind_to_path(const t_pathfind *pfind)
 	if (len > 0 && (path = new_path(pfind->src, pfind->dst)))
 	{
 		path->len = len;
-		path->path = (unsigned long*)malloc(sizeof(unsigned long) * path->len + 1);
+		path->path =
+				(unsigned long*)malloc(sizeof(unsigned long) * path->len + 1);
 		if (path->path)
 			set_path_from_parents(pfind, path);
 		else

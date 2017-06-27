@@ -6,14 +6,14 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 18:55:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/02 18:55:00 by avallete         ###   ########.fr       */
+/*   Updated: 2017/06/27 11:58:41 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "../includes/libmatgraph.h"
 
-static int 		min_distance(t_matrice_graph *graph, int *dist, bool *visited)
+static int		min_distance(t_matrice_graph *graph, int *dist, bool *visited)
 {
 	int		min_dist;
 	int		min_index;
@@ -34,9 +34,9 @@ static int 		min_distance(t_matrice_graph *graph, int *dist, bool *visited)
 	return (min_index);
 }
 
-static	void 	init_dijkstra(const t_pathfind *pfind, const size_t size)
+static void		init_dijkstra(const t_pathfind *pfind, const size_t size)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < size)
@@ -48,10 +48,10 @@ static	void 	init_dijkstra(const t_pathfind *pfind, const size_t size)
 	}
 }
 
-static	bool	check_and_compute_edge(t_matrice_graph *graph,
-										 t_pathfind *pfind,
-										 unsigned int min,
-										 size_t v)
+static bool		check_and_compute_edge(t_matrice_graph *graph,
+										t_pathfind *pfind,
+										unsigned int min,
+										size_t v)
 {
 	if (!pfind->visited[v] && graph->matrix[min][v] &&
 		pfind->dist[min] != pfind->max_dist &&
@@ -65,11 +65,11 @@ static	bool	check_and_compute_edge(t_matrice_graph *graph,
 	return (false);
 }
 
-static	bool 	found_path(t_matrice_graph *graph, t_pathfind *pfind)
+static bool		found_path(t_matrice_graph *graph, t_pathfind *pfind)
 {
 	int		min;
 	size_t	i;
-	size_t 	v;
+	size_t	v;
 	size_t	end;
 
 	i = 0;
@@ -104,7 +104,8 @@ static	bool 	found_path(t_matrice_graph *graph, t_pathfind *pfind)
 **
 ** 			Else return NULL.
 */
-t_path 			*dijkstra(t_matrice_graph *graph, t_pathfind *pfind)
+
+t_path			*dijkstra(t_matrice_graph *graph, t_pathfind *pfind)
 {
 	t_path	*path;
 

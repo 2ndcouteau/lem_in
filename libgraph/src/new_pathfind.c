@@ -6,7 +6,7 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 19:02:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/05 19:02:00 by avallete         ###   ########.fr       */
+/*   Updated: 2017/06/27 12:00:12 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_pathfind	*new_pathfind(unsigned long src, unsigned long dst,
 							unsigned long max_dist, unsigned long size)
 {
-	t_pathfind *pfind;
+	t_pathfind	*pfind;
 
 	pfind = NULL;
 	if ((pfind = (t_pathfind*)malloc(sizeof(t_pathfind))))

@@ -6,15 +6,15 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 22:28:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/05 22:28:00 by avallete         ###   ########.fr       */
+/*   Updated: 2017/06/27 11:56:44 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libmatgraph.h"
 
-static void 	revert_path(t_matrice_graph *graph, t_path *path)
+static void		revert_path(t_matrice_graph *graph, t_path *path)
 {
-	unsigned long i;
+	unsigned long	i;
 
 	i = 0;
 	while (i < path->len)
@@ -28,7 +28,7 @@ static void 	revert_path(t_matrice_graph *graph, t_path *path)
 	}
 }
 
-static void 	find_disjoints_paths(t_matrice_graph *graph,
+static void		find_disjoints_paths(t_matrice_graph *graph,
 									t_matrice_graph *path_graph,
 									t_pathfind *pfind,
 									unsigned long max_paths)
@@ -47,16 +47,16 @@ static void 	find_disjoints_paths(t_matrice_graph *graph,
 			delete_path(&path);
 		}
 		else
-			break;
+			break ;
 		++i;
 	}
 }
 
-static void 	merge_paths(t_matrice_graph *graph,
-									 t_matrice_graph *path_graph)
+static void		merge_paths(t_matrice_graph *graph,
+									t_matrice_graph *path_graph)
 {
-	unsigned long i;
-	unsigned long e;
+	unsigned long	i;
+	unsigned long	e;
 
 	i = 0;
 	while (i < graph->size)
@@ -72,11 +72,10 @@ static void 	merge_paths(t_matrice_graph *graph,
 	}
 }
 
-
-static void 	restore_reverted_links(t_matrice_graph *graph)
+static void		restore_reverted_links(t_matrice_graph *graph)
 {
-	unsigned long i;
-	unsigned long e;
+	unsigned long	i;
+	unsigned long	e;
 
 	i = 0;
 	while (i < graph->size)
@@ -95,8 +94,8 @@ static void 	restore_reverted_links(t_matrice_graph *graph)
 	}
 }
 
-t_matrice_graph			*bhandari(t_matrice_graph *graph, t_path *dijkstra_path,
-							 t_pathfind *pfind, unsigned long max_paths)
+t_matrice_graph	*bhandari(t_matrice_graph *graph, t_path *dijkstra_path,
+									t_pathfind *pfind, unsigned long max_paths)
 {
 	t_matrice_graph *path_graph;
 

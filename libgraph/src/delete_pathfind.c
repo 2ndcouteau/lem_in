@@ -6,13 +6,13 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 18:40:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/05 18:40:00 by avallete         ###   ########.fr       */
+/*   Updated: 2017/06/27 11:49:15 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libmatgraph.h"
 
-void 		delete_pathfind(t_pathfind **pathfind)
+void	delete_pathfind(t_pathfind **pathfind)
 {
 	if (*pathfind)
 	{

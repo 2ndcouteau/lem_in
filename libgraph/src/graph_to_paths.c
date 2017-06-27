@@ -6,7 +6,7 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 17:32:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/06 17:32:00 by avallete         ###   ########.fr       */
+/*   Updated: 2017/06/27 12:03:22 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static unsigned long	nb_paths(t_matrice_graph *graph, t_pathfind *pfind)
 {
-	unsigned long i;
-	unsigned long nb_paths;
+	unsigned long	i;
+	unsigned long	nb_paths;
 
 	nb_paths = 0;
 	i = 1;
@@ -28,11 +28,11 @@ static unsigned long	nb_paths(t_matrice_graph *graph, t_pathfind *pfind)
 	return (nb_paths);
 }
 
-static unsigned long get_path_len(t_matrice_graph *graph, t_pathfind *pfind)
+static unsigned long	get_path_len(t_matrice_graph *graph, t_pathfind *pfind)
 {
-	unsigned long i;
-	unsigned long e;
-	unsigned long node;
+	unsigned long	i;
+	unsigned long	e;
+	unsigned long	node;
 
 	i = 0;
 	node = pfind->src;
@@ -44,7 +44,7 @@ static unsigned long get_path_len(t_matrice_graph *graph, t_pathfind *pfind)
 			if (graph->matrix[node][e])
 			{
 				node = e;
-				break;
+				break ;
 			}
 			++e;
 		}
@@ -53,7 +53,8 @@ static unsigned long get_path_len(t_matrice_graph *graph, t_pathfind *pfind)
 	return (i);
 }
 
-static t_path	*get_path_with_dfs(t_matrice_graph *graph, t_pathfind *pfind)
+static t_path			*get_path_with_dfs(t_matrice_graph *graph,
+															t_pathfind *pfind)
 {
 	t_path			*p;
 	unsigned long	i;
@@ -75,7 +76,7 @@ static t_path	*get_path_with_dfs(t_matrice_graph *graph, t_pathfind *pfind)
 				if (graph->matrix[node][e] && unset_link(graph, node, e, 1))
 				{
 					node = e;
-					break;
+					break ;
 				}
 				++e;
 			}
@@ -88,10 +89,8 @@ static t_path	*get_path_with_dfs(t_matrice_graph *graph, t_pathfind *pfind)
 	return (p);
 }
 
-#include <stdio.h>
-
 t_path					**graph_to_paths(t_matrice_graph *graph,
-										   t_pathfind *pfind)
+															t_pathfind *pfind)
 {
 	t_path			**paths;
 	unsigned long	i;

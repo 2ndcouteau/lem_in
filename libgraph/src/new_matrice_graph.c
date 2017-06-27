@@ -6,15 +6,15 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 06:28:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/05/30 06:28:00 by avallete         ###   ########.fr       */
+/*   Updated: 2017/06/27 12:06:08 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libmatgraph.h"
 
-static void				bzero(void *s, size_t n)
+static void			bzero(void *s, size_t n)
 {
-	char *tmp;
+	char			*tmp;
 
 	if (n)
 	{
@@ -24,9 +24,9 @@ static void				bzero(void *s, size_t n)
 	}
 }
 
-static void				init_matrix(t_matrice_graph *graph)
+static void			init_matrix(t_matrice_graph *graph)
 {
-	unsigned long   i;
+	unsigned long	i;
 
 	i = 0;
 	while (i < graph->size)
@@ -34,16 +34,16 @@ static void				init_matrix(t_matrice_graph *graph)
 		if (!(graph->matrix[i] = (char*)malloc(sizeof(char) * graph->size)))
 		{
 			delete_matrice_graph(&graph);
-			break;
+			break ;
 		}
 		bzero(graph->matrix[i], graph->size);
 		++i;
 	}
 }
 
-t_matrice_graph			*new_matrice_graph(unsigned long size)
+t_matrice_graph		*new_matrice_graph(unsigned long size)
 {
-	t_matrice_graph     *graph;
+	t_matrice_graph	*graph;
 
 	graph = NULL;
 	if (size > 0)

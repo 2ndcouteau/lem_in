@@ -6,7 +6,7 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/04 08:21:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/04 08:21:00 by avallete         ###   ########.fr       */
+/*   Updated: 2017/06/27 11:55:44 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 /*
 ** Check if the graph contain a negative cycle.
 */
+
 static bool	contain_negative_cycle(t_matrice_graph *graph, t_pathfind *path)
 {
-	size_t i;
-	size_t e;
+	size_t	i;
+	size_t	e;
 
 	i = 0;
 	while (i < graph->size)
@@ -41,10 +42,11 @@ static bool	contain_negative_cycle(t_matrice_graph *graph, t_pathfind *path)
 /*
 ** Init all necessary variables to perform the Bellman-Ford pathfinding.
 */
-static void init_bellman_ford(const t_pathfind *shortest_path,
-							  const size_t size)
+
+static void	init_bellman_ford(const t_pathfind *shortest_path,
+															const size_t size)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < size)
@@ -58,7 +60,8 @@ static void init_bellman_ford(const t_pathfind *shortest_path,
 /*
 ** Check, update and compute distance for all reacheables edges from node.
 */
-static void check_and_compute_edges(t_matrice_graph *graph, t_pathfind *path,
+
+static void	check_and_compute_edges(t_matrice_graph *graph, t_pathfind *path,
 									size_t node)
 {
 	size_t	v;
@@ -80,6 +83,7 @@ static void check_and_compute_edges(t_matrice_graph *graph, t_pathfind *path,
 /*
 ** Apply the basic BellmanFord algorithm
 */
+
 static bool	found_path_bellman(t_matrice_graph *graph, t_pathfind *path)
 {
 	size_t	i;
@@ -115,9 +119,10 @@ static bool	found_path_bellman(t_matrice_graph *graph, t_pathfind *path)
 **
 ** 			Else return NULL.
 */
+
 t_path		*bellman_ford(t_matrice_graph *graph, t_pathfind *pfind)
 {
-	t_path		*path;
+	t_path	*path;
 
 	path = NULL;
 	init_bellman_ford(pfind, graph->size);

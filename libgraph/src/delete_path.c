@@ -6,13 +6,13 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/03 22:41:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/03 22:41:00 by avallete         ###   ########.fr       */
+/*   Updated: 2017/06/27 11:48:12 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libmatgraph.h"
 
-void 		delete_path(t_path **path)
+void	delete_path(t_path **path)
 {
 	if (*path)
 	{
