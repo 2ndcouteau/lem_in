@@ -19,6 +19,19 @@ static int	max_path_len(unsigned long lemins, unsigned long shortest_len)
 	return (1);
 }
 
+static t_path	**path_to_paths(t_path *shortest_path)
+{
+	t_path **paths;
+
+	paths = NULL;
+	if ((paths = malloc(sizeof(t_path*) * 2)))
+	{
+		paths[0] = shortest_path;
+		paths[1] = NULL;
+	}
+	return (paths);
+}
+
 t_path		**get_optimum_paths(t_matrice_graph *graph, unsigned long src,
 										unsigned long dst, unsigned long lemins)
 {
@@ -33,11 +46,16 @@ t_path		**get_optimum_paths(t_matrice_graph *graph, unsigned long src,
 	{
 		if ((shortest_path = dijkstra(graph, pfind)))
 		{
-			pfind->max_dist = max_path_len(lemins, shortest_path->len);
-			path_graph = bhandari(graph, shortest_path, pfind, lemins);
-			paths = graph_to_paths(path_graph, pfind);
-			delete_matrice_graph(&path_graph);
-			delete_path(&shortest_path);
+			if (shortest_path->len > 1)
+			{
+				pfind->max_dist = max_path_len(lemins, shortest_path->len);
+				path_graph = bhandari(graph, shortest_path, pfind, lemins);
+				paths = graph_to_paths(path_graph, pfind);
+				delete_matrice_graph(&path_graph);
+				delete_path(&shortest_path);
+			}
+			else
+				paths = path_to_paths(shortest_path);
 		}
 	}
 	delete_pathfind(&pfind);
