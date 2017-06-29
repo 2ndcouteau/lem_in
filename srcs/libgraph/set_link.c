@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   delete_pathfind.c                                  :+:      :+:    :+:   */
+/*   set_link.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/05 18:40:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/27 11:49:15 by qrosa            ###   ########.fr       */
+/*   Created: 2017/05/30 06:58:00 by qrosa             #+#    #+#             */
+/*   Updated: 2017/06/27 12:03:54 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libmatgraph.h"
 
-void	delete_pathfind(t_pathfind **pathfind)
+char	set_link(t_matrice_graph *graph, unsigned int src, unsigned int dst,
+																char oriented)
 {
-	if (*pathfind)
+	if (dst < graph->size && src < graph->size)
 	{
-		if ((*pathfind)->parent)
-			free((*pathfind)->parent);
-		if ((*pathfind)->dist)
-			free((*pathfind)->dist);
-		if ((*pathfind)->visited)
-			free((*pathfind)->visited);
-		free(*pathfind);
-		*pathfind = NULL;
+		graph->matrix[src][dst] = 1;
+		if (!oriented)
+			set_link(graph, dst, src, 1);
+		return (1);
 	}
+	return (-1);
 }

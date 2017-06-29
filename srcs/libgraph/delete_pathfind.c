@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_path_to_graph.c                                :+:      :+:    :+:   */
+/*   delete_pathfind.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/06 09:12:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/27 11:47:44 by qrosa            ###   ########.fr       */
+/*   Created: 2017/06/05 18:40:00 by qrosa             #+#    #+#             */
+/*   Updated: 2017/06/27 11:49:15 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libmatgraph.h"
 
-void	add_path_to_graph(t_matrice_graph *graph, t_path *path)
+void	delete_pathfind(t_pathfind **pathfind)
 {
-	unsigned long	i;
-
-	i = 0;
-	while (i < path->len)
+	if (*pathfind)
 	{
-		set_link(graph, path->path[i], path->path[i + 1], 1);
-		++i;
+		if ((*pathfind)->parent)
+			free((*pathfind)->parent);
+		if ((*pathfind)->dist)
+			free((*pathfind)->dist);
+		if ((*pathfind)->visited)
+			free((*pathfind)->visited);
+		free(*pathfind);
+		*pathfind = NULL;
 	}
 }

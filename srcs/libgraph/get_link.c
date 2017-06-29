@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   unset_link.c                                       :+:      :+:    :+:   */
+/*   get_link.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/30 06:58:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/27 12:04:27 by qrosa            ###   ########.fr       */
+/*   Created: 2017/05/30 06:52:00 by qrosa             #+#    #+#             */
+/*   Updated: 2017/06/27 11:53:04 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libmatgraph.h"
 
-char	unset_link(t_matrice_graph *graph, unsigned int src,
-												unsigned int dst, char oriented)
+char	get_link(t_matrice_graph *graph, unsigned int src, unsigned int dst)
 {
-	if (dst < graph->size && src < graph->size)
-	{
-		graph->matrix[src][dst] = 0;
-		if (!oriented)
-			unset_link(graph, dst, src, 1);
-		return (1);
-	}
-	return (-1);
+	if (src < graph->size && dst < graph->size)
+		return (graph->matrix[src][dst]);
+	return (0);
 }

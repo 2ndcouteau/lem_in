@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/06/29 14:32:26 by qrosa            ###   ########.fr        #
+#    Updated: 2017/06/29 14:47:38 by qrosa            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -17,7 +17,8 @@
 #	ROOT_PATH && DIRECTORIES
 PATH_SOURCES	=		./srcs/
 
-PATH_CHECK_LINE =		$(PATH_SOURCES)check_line/
+PATH_CHECK_LINE	=		$(PATH_SOURCES)check_line/
+PATH_LIBGRAPH	=		$(PATH_SOURCES)libgraph/
 
 ################################################################################
 
@@ -51,18 +52,36 @@ SRCS_CHECK_LINE =	$(PATH_CHECK_LINE)check_line.c \
 					$(PATH_CHECK_LINE)check_links.c \
 					$(PATH_CHECK_LINE)valid_and_set_links.c
 
+SRCS_LIBGRAPH	=	$(PATH_LIBGRAPH)delete_matrice_graph.c \
+					$(PATH_LIBGRAPH)get_link.c \
+					$(PATH_LIBGRAPH)invert_link.c \
+					$(PATH_LIBGRAPH)negate_link.c \
+					$(PATH_LIBGRAPH)new_matrice_graph.c \
+					$(PATH_LIBGRAPH)set_link.c \
+					$(PATH_LIBGRAPH)toggle_link.c \
+					$(PATH_LIBGRAPH)unset_link.c \
+					$(PATH_LIBGRAPH)new_path.c \
+					$(PATH_LIBGRAPH)new_pathfind.c \
+					$(PATH_LIBGRAPH)delete_path.c \
+					$(PATH_LIBGRAPH)delete_pathfind.c \
+					$(PATH_LIBGRAPH)pathfind_to_path.c \
+					$(PATH_LIBGRAPH)graph_to_paths.c \
+					$(PATH_LIBGRAPH)add_path_to_graph.c \
+					$(PATH_LIBGRAPH)bellman_ford.c \
+					$(PATH_LIBGRAPH)dijkstra.c \
+					$(PATH_LIBGRAPH)bhandari.c
+
 ################################################################################
 
 #	Object Rules Declarations
 OBJ			=	$(SRCS:.c=.o) \
 				$(SRCS_CHECK_LINE:.c=.o) \
+				$(SRCS_LIBGRAPH:.c=.o)
 
 # Lib includes
 INC			=	-I ./includes/
 LIBFT		=	libft/libft.a
-LIBGRAPH	=	libgraph/libgraph.a
 LFT			=	-L ./libft/ -lft
-LGF			=	-L ./libgraph/ -lgraph
 
 # Options can be changed
 CFLAGS		=	-Wall -Wextra -Werror
@@ -81,20 +100,17 @@ NC			=	\033[0m
 ################################################################################
 
 #	Make Rules
-all: 			$(LIBFT) $(LIBGRAPH) $(NAME)
+all: 			$(LIBFT) $(NAME)
 
 debug:
 				$(eval CFLAGS_OBJ += -DDEBUG)
 
 db: 			debug all
 
-$(LIBGRAPH):
-				@make -C libgraph
-
 $(LIBFT):
 				@make -C libft
 
-$(NAME): 		$(OBJ) Makefile libft/ libgraph/
+$(NAME): 		$(OBJ) Makefile libft/
 				@echo "${BLUE}-- Linking $(NAME)${NC}"
 				@$(CC) $(OBJ) -o $(NAME) $(INC) $(LFT) $(LGF)
 
@@ -105,16 +121,12 @@ $(NAME): 		$(OBJ) Makefile libft/ libgraph/
 clean:
 				@echo "${YELLOW}-- Call clean libft Obj		OK ${NC}";
 				@make clean -C libft
-				@echo "${YELLOW}-- Call clean libgraph Obj	OK ${NC}";
-				@make clean -C libgraph
 				@rm -f $(OBJ)
 
 fclean: 		clean
 				@echo "${RED}-- Delete $LIBFT			OK${NC}";
 				@rm -f $(LIBFT)
 				@echo "${RED}-- Delete $LIBGRAPH		OK${NC}";
-				@rm -f $(LIBGRAPH)
-				@echo "${RED}-- Delete $(NAME)		OK ${NC}";
 				@rm -f $(NAME)
 
 re: 			fclean all

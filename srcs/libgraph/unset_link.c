@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   delete_path.c                                      :+:      :+:    :+:   */
+/*   unset_link.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/03 22:41:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/27 11:48:12 by qrosa            ###   ########.fr       */
+/*   Created: 2017/05/30 06:58:00 by qrosa             #+#    #+#             */
+/*   Updated: 2017/06/27 12:04:27 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libmatgraph.h"
 
-void	delete_path(t_path **path)
+char	unset_link(t_matrice_graph *graph, unsigned int src,
+												unsigned int dst, char oriented)
 {
-	if (*path)
+	if (dst < graph->size && src < graph->size)
 	{
-		if ((*path)->path)
-			free((*path)->path);
-		(*path)->path = NULL;
-		free(*path);
-		*path = NULL;
+		graph->matrix[src][dst] = 0;
+		if (!oriented)
+			unset_link(graph, dst, src, 1);
+		return (1);
 	}
+	return (-1);
 }

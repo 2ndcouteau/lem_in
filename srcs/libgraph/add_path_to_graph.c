@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_link.c                                         :+:      :+:    :+:   */
+/*   add_path_to_graph.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/30 06:52:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/27 11:53:04 by qrosa            ###   ########.fr       */
+/*   Created: 2017/06/06 09:12:00 by qrosa             #+#    #+#             */
+/*   Updated: 2017/06/27 11:47:44 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libmatgraph.h"
 
-char	get_link(t_matrice_graph *graph, unsigned int src, unsigned int dst)
+void	add_path_to_graph(t_matrice_graph *graph, t_path *path)
 {
-	if (src < graph->size && dst < graph->size)
-		return (graph->matrix[src][dst]);
-	return (0);
+	unsigned long	i;
+
+	i = 0;
+	while (i < path->len)
+	{
+		set_link(graph, path->path[i], path->path[i + 1], 1);
+		++i;
+	}
 }
