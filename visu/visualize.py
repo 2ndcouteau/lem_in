@@ -57,7 +57,7 @@ template = """
 
     function generateLeminColor(seed) {
         return (
-            "#"+ Math.floor((Math.abs(Math.sin(seed) * 16777215)) %% 
+            "#"+ Math.floor((Math.abs(Math.sin(seed) * 16777215)) %%
             16777215).toString(16)
         );
     }
@@ -141,7 +141,7 @@ template = """
     }
 
     function setEndSize(elementvalue) {
-        for (var i = 0; i < elementvalue; i++) {
+        for (var i = 0; i <= elementvalue; i++) {
             var leminsPosition = turnsarray[i].split(" ");
 
             leminsPosition.forEach(function(elem, index, array) {
@@ -174,7 +174,7 @@ template = """
                 var previousLeminPos = turnsarray[turnindex - 1].split(" ");
                 for (var i = 0; i < previousLeminPos.length; i++) {
                     var pinfos = previousLeminPos[i].split("-");
-                    
+
                     if (pinfos[0] == infos[0]) {
                         links.push(pinfos[1] + "-" + infos[1]);
                         break;
@@ -192,7 +192,7 @@ template = """
                 $('#turnsbuttonbar').append(
                     "<li class='turnsbutton' type='button' value='" +
                     turnsarray.length +
-                    "' onclick='showTurn(this)'>" + (turnsarray.length + 1) + 
+                    "' onclick='showTurn(this)'>" + (turnsarray.length + 1) +
                     "</li>"
                 );
                 turnsarray.push(line);
@@ -268,4 +268,3 @@ if __name__ == "__main__":
     data = template % dataresult
     with open("vizualize.html", 'w') as fd:
         fd.write(data)
-
