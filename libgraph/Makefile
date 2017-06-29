@@ -6,11 +6,11 @@
 #    By: avallete <avallete@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/18 13:18:20 by avallete          #+#    #+#              #
-#    Updated: 2017/06/13 04:41:09 by yoko             ###   ########.fr        #
+#    Updated: 2017/06/29 14:33:43 by qrosa            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS=-Wall -Wextra -Werror -O0 -g3
+CFLAGS=-Wall -Wextra -Werror
 
 SRC_PATH:=./src/
 SRC_NAME:= delete_matrice_graph.c\
@@ -47,7 +47,7 @@ SRC=$(addprefix $(SRC_PATH), $(SRC_NAME))
 OBJ=$(addprefix $(OBJ_PATH), $(OBJ_NAME))
 INCF=$(addprefix $(INC_PATH), $(INC_NAME))
 INC=$(addprefix -I, $(INC_PATH))
-CFLAGS=-Wall -Wextra -Werror -O0 -g3
+CFLAGS=-Wall -Wextra -Werror
 CC=gcc
 NAME=libgraph.a
 RED=\033[0;31m

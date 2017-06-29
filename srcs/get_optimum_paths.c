@@ -6,13 +6,13 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/12 01:23:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/06/27 16:16:04 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/29 14:37:00 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-static int	max_path_len(unsigned long lemins, unsigned long shortest_len)
+static int		max_path_len(unsigned long lemins, unsigned long shortest_len)
 {
 	if (shortest_len > 1)
 		return (ft_abs(((shortest_len - 1) - lemins)) + shortest_len);
@@ -21,7 +21,7 @@ static int	max_path_len(unsigned long lemins, unsigned long shortest_len)
 
 static t_path	**path_to_paths(t_path *shortest_path)
 {
-	t_path **paths;
+	t_path			**paths;
 
 	paths = NULL;
 	if ((paths = malloc(sizeof(t_path*) * 2)))
@@ -32,13 +32,13 @@ static t_path	**path_to_paths(t_path *shortest_path)
 	return (paths);
 }
 
-t_path		**get_optimum_paths(t_matrice_graph *graph, unsigned long src,
+t_path			**get_optimum_paths(t_matrice_graph *graph, unsigned long src,
 										unsigned long dst, unsigned long lemins)
 {
 	t_path			**paths;
 	t_pathfind		*pfind;
 	t_path			*shortest_path;
-	t_matrice_graph *path_graph;
+	t_matrice_graph	*path_graph;
 
 	paths = NULL;
 	pfind = new_pathfind(src, dst, graph->size, graph->size);

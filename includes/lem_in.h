@@ -6,7 +6,7 @@
 /*   By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:33:36 by qrosa             #+#    #+#             */
-/*   Updated: 2017/06/27 16:01:20 by qrosa            ###   ########.fr       */
+/*   Updated: 2017/06/29 14:31:01 by qrosa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,10 +181,5 @@ void					print_direct_way(t_path **paths, t_anthill *anthill,
 void					print_ants(t_ant *ants, unsigned long lemins,
 																	t_env *env);
 void					push_to_paths(t_anthill *anthill, t_path **paths);
-
-/*
-**	TMP Declarations
-*/
-void					debug_struct(t_env *env);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: qrosa <qrosa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/12 11:46:25 by qrosa             #+#    #+#              #
-#    Updated: 2017/06/27 15:48:22 by qrosa            ###   ########.fr        #
+#    Updated: 2017/06/29 14:32:26 by qrosa            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #																			   #
@@ -35,8 +35,7 @@ SRCS			=	$(PATH_SOURCES)main.c \
 					$(PATH_SOURCES)print_solution.c \
 					$(PATH_SOURCES)print_ants.c \
 					$(PATH_SOURCES)print_direct_way.c \
-					$(PATH_SOURCES)push_to_paths.c \
-					$(PATH_SOURCES)debug_struct.c
+					$(PATH_SOURCES)push_to_paths.c
 
 SRCS_CHECK_LINE =	$(PATH_CHECK_LINE)check_line.c \
 					$(PATH_CHECK_LINE)check_nb_ant.c \
@@ -68,7 +67,6 @@ LGF			=	-L ./libgraph/ -lgraph
 # Options can be changed
 CFLAGS		=	-Wall -Wextra -Werror
 CFLAGS_OBJ	=	-Wall -Wextra -Werror
-DEBUG_F		=	-O0 -g3
 CC			=	gcc
 NAME		=	lem-in
 
@@ -98,11 +96,11 @@ $(LIBFT):
 
 $(NAME): 		$(OBJ) Makefile libft/ libgraph/
 				@echo "${BLUE}-- Linking $(NAME)${NC}"
-				@$(CC) $(OBJ) $(CFALGS) -o $(NAME) $(INC) $(LFT) $(LGF)
+				@$(CC) $(OBJ) -o $(NAME) $(INC) $(LFT) $(LGF)
 
 %.o: %.c
 				@echo "${CYAN}Compiling $^ into $@ ${NC}";
-				@$(CC) $(DEBUG_F) -c $^ -o $@ $(CFLAGS_OBJ) $(INC)
+				@$(CC) -c $^ -o $@ $(CFLAGS_OBJ) $(INC)
 
 clean:
 				@echo "${YELLOW}-- Call clean libft Obj		OK ${NC}";
